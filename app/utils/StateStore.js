@@ -2,7 +2,9 @@ import { create } from "zustand"
 
 export const useClickLeagueStore = create((set) => ({
   item: "PL",
+  itemColor: "#3C0844",
   getClickedItem: (clickedItem) => set({ item: clickedItem }),
+  getClickItemColor: (clickedItemColor) => set({ itemColor: clickedItemColor }),
 }))
 
 export const useClickedActionStore = create((set) => ({

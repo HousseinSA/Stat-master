@@ -7,18 +7,15 @@ const LeagueItem = ({
   code,
   selectedComp,
   handelSelectedLeague,
+  leagueColor,
 }) => {
-  function handelLinkClick() {
-    handelSelectedLeague(code)
-  }
-
   return (
     <Link href={`/compition/${code}`}>
       <li
         className={`cursor-pointer  p-3 ${
           selectedComp ? "bg-slate-700" : ""
         } item-hover  `}
-        onClick={handelLinkClick}
+        onClick={() => handelSelectedLeague(code, leagueColor)}
       >
         <div className="flex items-center gap-4">
           <Image
