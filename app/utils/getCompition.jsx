@@ -1,6 +1,6 @@
 export async function getCompition(code) {
   const response = await fetch(
-    `http://api.football-data.org/v4/competitions/${code || "PL"}`,
+    `http://api.football-data.org/v4/competitions/${code || "PL"}/standings`,
     {
       headers: {
         "Content-Type": "application/json",

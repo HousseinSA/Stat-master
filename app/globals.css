@@ -1,5 +1,5 @@
 @tailwind base;
-@tailind components;
+@tailwind components;
 @tailwind utilities;
 
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500&display=swap");
@@ -7,5 +7,9 @@
 body {
   font-family: "Quicksand", sans-serif;
   box-sizing: border-box;
-  background: #202124;
-} 
+  background: white;
+}
+
+.item-hover {
+  @apply p-3 flex-1 cursor-pointer  hover:bg-slate-500 font-semibold active:bg-slate-600 rounded-md;
+}

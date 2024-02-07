@@ -1,13 +1,10 @@
-import CompitionContent from "@/app/components/CompitionContent"
-import Layout from "@/app/components/Layout"
+import CompitionContent from "@/app/components/mainSection/CompitionData/CompitionContent"
+import Layout from "@/app/components/layout/Layout"
+import { getCompition } from "@/app/utils/getCompition"
 
-const compitionPage = async ({ params: { code } }) => {
-//   const compitionContent = await fetch("/api/compition/route", {
-//     method: "POST",
-//     headers: { "content-type": "application/json" },
-//     body: JSON.stringify({ code }),
-//   })
-//   console.log(compitionContent)
+const CompitionPage = async ({ params: { code } }) => {
+`  // const leagueData = await getCompition
+  // console.log(leagueData)`
   return (
     <Layout>
       <CompitionContent />
@@ -15,4 +12,4 @@ const compitionPage = async ({ params: { code } }) => {
   )
 }
 
-export default compitionPage
+export default CompitionPage
