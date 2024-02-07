@@ -1,49 +1,48 @@
 "use client"
-import { useSidenavSwitcher } from "@/app/utils/sidenavSwitcher"
-import { useEffect, useState } from "react"
+import { useThemeSwitch } from "../../utils/StateStore"
+import React, { useEffect } from "react"
 import { MdLightMode, MdDarkMode } from "react-icons/md"
 import { RiMenu3Fill } from "react-icons/ri"
 
 const HeaderNav = () => {
-  const localTheme = localStorage.getItem("theme")
-  const [isDarkMode, setIsDarkMode] = useState(localTheme === "true")
+  const { theme, themeSwitcher } = useThemeSwitch()
 
   useEffect(() => {
     const darkModeMediaQuery = window.matchMedia("(prefers-color-scheme: dark)")
     const handleDarkModeChange = (event) => {
-      setIsDarkMode(event.matches)
+      console.log("seing event value ", event.matches)
+      themeSwitcher(event.matches)
     }
-
+    const getThemeState = localStorage.getItem("theme")
+    if (getThemeState) {
+      themeSwitcher(getThemeState === "true")
+    }
     darkModeMediaQuery.addEventListener("change", handleDarkModeChange)
-    // Set the initial theme based on local storage or user's system preference
 
     return () => {
       darkModeMediaQuery.removeEventListener("change", handleDarkModeChange)
     }
-  }, [])
-  const { switchSideNav } = useSidenavSwitcher()
+  }, [themeSwitcher])
+
   useEffect(() => {
-    document.documentElement.classList.toggle("dark", isDarkMode)
-    localStorage.setItem("theme", isDarkMode)
-  }, [isDarkMode])
-
-  const toggleTheme = () => {
-    setIsDarkMode((prevIsDarkMode) => !prevIsDarkMode)
-  }
-
+    document.documentElement.classList.toggle("dark", theme)
+    localStorage.setItem("theme", theme)
+  }, [theme])
   return (
     <nav className="flex items-center gap-4">
       <div
-        onClick={toggleTheme}
-        className="p-4 rounded-full cursor-pointer dark:bg-white text-white dark:text-black bg-[#001F3F] transition duration-500"
+        onClick={() => themeSwitcher(!theme)}
+        className={`p-4 rounded-full cursor-pointer ${
+          theme ? "dark:bg-white  dark:text-black" : "bg-[#001F3F]"
+        } transition text-white duration-500`}
       >
-        {isDarkMode ? (
+        {theme ? (
           <MdDarkMode width={50} height={50} />
         ) : (
           <MdLightMode width={50} height={50} />
         )}
       </div>
-      <div className="block cursor-pointer sm:hidden" onClick={switchSideNav}>
+      <div className="block cursor-pointer sm:hidden">
         <RiMenu3Fill size={50} color="#001F3F" />
       </div>
     </nav>

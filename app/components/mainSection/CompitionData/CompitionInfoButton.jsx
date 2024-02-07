@@ -6,7 +6,7 @@ const CompitionInfoButton = ({ title, clickedButton, activeBtn }) => {
       onClick={() => activeBtn(title)}
       className={` item-hover ${
         clickedButton ? " bg-slate-700 " : ""
-      } text-center `}
+      } text-center w-full `}
     >
       {title}
     </button>

@@ -1,6 +1,6 @@
 import HeaderComponent from "../HeaderSection/HeaderComponent"
 import CompitionsList from "../mainSection/sideNav/CompitionsList"
-import { getCompitionList } from "../../utils/getCompitionsList"
+import { getCompitionList } from "../../utils/allDataFetchingFunctions"
 
 const Layout = async ({ children }) => {
   const compitionList = await getCompitionList()

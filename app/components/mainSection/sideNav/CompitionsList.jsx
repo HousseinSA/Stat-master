@@ -5,7 +5,7 @@ import { useClickLeagueStore } from "../../../utils/StateStore"
 
 const CompitionsList = ({ compitionList }) => {
   const [compitions, setCompitions] = useState(compitionList?.competitions)
-  const LeaguesToInclude = ["PL", "EC", "CL", "FL1", "BL1", "SA", "PD"]
+  const LeaguesToInclude = ["PL", "PPL", "DED", "CL", "FL1", "BL1", "SA", "PD"]
   const filteredLeagues = compitions?.filter((comp) =>
     LeaguesToInclude.includes(comp?.code)
   )
@@ -13,8 +13,6 @@ const CompitionsList = ({ compitionList }) => {
     getClickedItem(code)
   }
   const { item, getClickedItem } = useClickLeagueStore()
-
-  console.log(item)
   return (
     <div
       className={`h-auto sm:h-full w-full transition duration-300 border border-slate-500 rounded-md sm:max-w-60 bg-[#001F3F]`}

@@ -1,13 +1,12 @@
 import CompitionContent from "@/app/components/mainSection/CompitionData/CompitionContent"
 import Layout from "@/app/components/layout/Layout"
-import { getCompition } from "@/app/utils/getCompition"
+import { getCompitionStandings } from "@/app/utils/allDataFetchingFunctions"
 
 const CompitionPage = async ({ params: { code } }) => {
-`  // const leagueData = await getCompition
-  // console.log(leagueData)`
+  const compitionData = await getCompitionStandings(code)
   return (
     <Layout>
-      <CompitionContent />
+      <CompitionContent compitionData={compitionData} />
     </Layout>
   )
 }

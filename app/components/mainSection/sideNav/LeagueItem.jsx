@@ -30,7 +30,7 @@ const LeagueItem = ({
             priority
           />
           <span className=" hidden sm:flex  sm:flex-1">
-            {code ===  "PD" ? "La Liga" : name}
+            {code === "PD" ? "La Liga" : name}
           </span>
         </div>
       </li>

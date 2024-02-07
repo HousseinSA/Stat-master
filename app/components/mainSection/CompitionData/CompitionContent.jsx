@@ -1,12 +1,14 @@
+"use client"
 import CompitionInfoButton from "./CompitionInfoButton"
 import { useClickedActionStore } from "@/app/utils/StateStore"
+import StandingsContainer from "./StandingsContainer/StandingsContainer"
 
-const CompitionContent = ({ leagueData }) => {
+const CompitionContent = ({ compitionData }) => {
   const infoButton = ["Standings", "Matches", "Teams", "Stats"]
   const { item, getClickedItem } = useClickedActionStore()
   return (
-    <div className="rounded-md dark:text-white w-full   border border-slate-500 h-full flex-1  ">
-      <div className=" flex font-semibold bg-[#001F3F]  gap-4 group text-white p-4 items-center">
+    <div className=" flex flex-col rounded-md dark:text-white w-full border border-slate-500 h-full">
+      <div className="flex font-semibold bg-[#001F3F] gap-4 group text-white p-4 items-center  border-b-2 border-red-500">
         {infoButton?.map((btnName, index) => {
           return (
             <CompitionInfoButton
@@ -18,6 +20,7 @@ const CompitionContent = ({ leagueData }) => {
           )
         })}
       </div>
+      <StandingsContainer standingsData={compitionData} />
     </div>
   )
 }
