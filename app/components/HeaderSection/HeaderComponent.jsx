@@ -4,7 +4,7 @@ import HeaderNav from "./HeaderNav"
 
 const HeaderComponent = () => {
   return (
-    <header className="flex items-center py-4 justify-between">
+    <header className="flex items-center h-auto py-4 justify-between">
       <div>
         <Image
           src={"/StatMaster.png"}

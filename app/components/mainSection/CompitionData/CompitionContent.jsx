@@ -10,12 +10,11 @@ const CompitionContent = ({ compitionData }) => {
   const infoButton = ["Standings", "Matches", "Teams", "Stats"]
   const { item, getClickedItem } = useClickedActionStore()
   const { itemColor } = useClickLeagueStore()
-  console.log(itemColor)
   return (
-    <div className=" flex flex-col rounded-md dark:text-white w-full border border-slate-500 h-full">
+    <div className=" flex flex-col w-full rounded-md bg-red-200 dark:text-white  h-full">
       <div
         style={{ borderColor: itemColor }}
-        className={`flex font-semibold bg-[#001F3F] gap-4 group text-white p-4 items-center  border-b-2 transition duration-300`}
+        className={`flex font-semibold bg-[#001F3F] gap-4 group text-white p-4 items-center border-b-4 transition duration-300`}
       >
         {infoButton?.map((btnName, index) => {
           return (

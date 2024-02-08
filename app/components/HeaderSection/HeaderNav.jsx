@@ -1,16 +1,14 @@
 "use client"
 import { useThemeSwitch } from "../../utils/StateStore"
 import React, { useEffect } from "react"
-import { MdLightMode, MdDarkMode } from "react-icons/md"
 import { RiMenu3Fill } from "react-icons/ri"
-
+import { FaMoon, FaSun } from "react-icons/fa6"
 const HeaderNav = () => {
   const { theme, themeSwitcher } = useThemeSwitch()
 
   useEffect(() => {
     const darkModeMediaQuery = window.matchMedia("(prefers-color-scheme: dark)")
     const handleDarkModeChange = (event) => {
-      console.log("seing event value ", event.matches)
       themeSwitcher(event.matches)
     }
     const getThemeState = localStorage.getItem("theme")
@@ -37,9 +35,9 @@ const HeaderNav = () => {
         } transition text-white duration-500`}
       >
         {theme ? (
-          <MdDarkMode width={50} height={50} />
+          <FaMoon width={50} height={50} />
         ) : (
-          <MdLightMode width={50} height={50} />
+          <FaSun width={50} height={50} />
         )}
       </div>
       <div className="block cursor-pointer sm:hidden">
