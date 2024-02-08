@@ -1,5 +1,3 @@
-import React from "react"
-
 const CompitionInfoButton = ({ title, clickedButton, activeBtn }) => {
   return (
     <button

@@ -3,13 +3,15 @@ import TeamStateContainer from "./TeamStateContainer"
 const StandingsContainer = ({ standingsData }) => {
   const table = standingsData?.standings[0]?.table
   return (
-    <section className=" w-full h-full overflow-scroll  mx-auto  font-mono">
+    <section className=" w-full h-full overflow-auto  mx-auto  font-mono">
       <div className="w-full rounded-lg shadow-lg">
         <div className="w-full h-full ">
           <table className="w-full">
-            <thead className="sticky top-0 z-10">
+            <thead className="sticky top-0 z-50">
               <tr className="text-md font-semibold tracking-wide text-left text-gray-900 bg-gray-100 uppercase border-b border-gray-600">
-                <th className="px-4 py-3">Club</th>
+                <th className="px-4 py-3 bg-gray-100 clear-start sticky z-100 left-0">
+                  Club
+                </th>
                 <th className="px-4 py-3">MP</th>
                 <th className="px-4 py-3">W</th>
                 <th className="px-4 py-3">D</th>

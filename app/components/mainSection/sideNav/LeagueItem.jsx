@@ -26,7 +26,7 @@ const LeagueItem = ({
             height={25}
             priority
           />
-          <span className=" hidden sm:flex  sm:flex-1">
+          <span className=" hidden md:flex  md:flex-1">
             {code === "PD" ? "La Liga" : name}
           </span>
         </div>
