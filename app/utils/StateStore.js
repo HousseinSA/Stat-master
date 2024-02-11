@@ -1,24 +1,23 @@
-import { create } from "zustand"
+import { create, createSelector } from "zustand"
 
-export const useClickLeagueStore = create((set) => ({
+const store = (set) => ({
   leagueCode: "PL",
   leagueColor: "#3C0844",
   getClickedLeauge: (clickedLeague) => set({ leagueCode: clickedLeague }),
   getClickedLeagueColor: (clickedLeagueColor) =>
     set({ leagueColor: clickedLeagueColor }),
-}))
-
-export const useClickedActionStore = create((set) => ({
   action: "Standings",
   getClickedAction: (clickedAction) => set({ action: clickedAction }),
-}))
-
-export const useThemeSwitch = create((set) => ({
   theme: typeof window !== "undefined" ? localStorage.getItem("theme") : false,
   themeSwitcher: (themeStatus) => set({ theme: themeStatus }),
-}))
+  season: null,
+  setLeagueSeason: (selectedSeason) => set({ season: selectedSeason }),
+  season: null,
+  setLeagueSeason: (selectedSeason) => set({ season: selectedSeason }),
+})
 
-export const useCurrentMatchDate = create((set) => ({
-  matchDate: null,
-  getCurrentMatchDate: (currMatchDate) => set({ matchDate: currMatchDate }),
-}))
+
+
+export const useLeagueStore = create(store)
+
+

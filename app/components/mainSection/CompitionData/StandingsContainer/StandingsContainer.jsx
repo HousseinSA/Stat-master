@@ -1,7 +1,7 @@
 import TeamStateContainer from "./TeamStateContainer"
 
-const StandingsContainer = ({ standingsData }) => {
-  const table = standingsData?.standings[0]?.table
+const StandingsContainer = ({ season }) => {
+  const table = season?.standings[0]?.table
   return (
     <section className=" w-full h-full overflow-auto  mx-auto  font-mono">
       <div className="w-full rounded-lg shadow-lg">

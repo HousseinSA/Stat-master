@@ -17,10 +17,9 @@ export async function getCompitionList() {
 }
 
 // compition standing
-
 export async function getCompitionStandings(code) {
   const response = await fetch(
-    `http://api.football-data.org/v4/competitions/${code || "PL"}/standings/`,
+    `http://api.football-data.org/v4/competitions/${code || "PL"}/standings`,
     {
       headers: {
         "Content-Type": "application/json",
@@ -34,5 +33,3 @@ export async function getCompitionStandings(code) {
   }
   return await response.json()
 }
-
-// compition matches

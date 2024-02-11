@@ -12,6 +12,7 @@ const TeamStateContainer = ({ teamState }) => {
     points,
     position,
     won,
+    form,
   } = teamState
 
   const { crest, shortName } = teamState.team

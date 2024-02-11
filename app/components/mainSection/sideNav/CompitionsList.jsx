@@ -1,7 +1,7 @@
 "use client"
-import { useState } from "react"
 import LeagueItem from "./LeagueItem"
-import { useClickLeagueStore } from "../../../utils/StateStore"
+import { useLeagueStore } from "../../../utils/StateStore"
+import { useState } from "react"
 const CompitionsList = ({ compitionList }) => {
   const [compitions, setCompitions] = useState(compitionList?.competitions)
   const LeaguesToInclude = ["PL", "DED", "PPL", "CL", "FL1", "BL1", "PD", "SA"]
@@ -18,12 +18,14 @@ const CompitionsList = ({ compitionList }) => {
     "#FFD337",
     "#FAEC40",
   ]
+
+  const { leagueCode, getClickedLeauge, getClickedLeagueColor } =
+    useLeagueStore()
+
   function handelSelectedLeague(code, leagueColor) {
     getClickedLeauge(code)
     getClickedLeagueColor(leagueColor)
   }
-  const { leagueCode, getClickedLeauge, getClickedLeagueColor } =
-    useClickLeagueStore()
   return (
     <div
       className={`h-auto md:h-full w-full  transition duration-300 border border-slate-500 rounded-tl-md rounded-bl-md max-w-60 bg-[#001F3F]`}
