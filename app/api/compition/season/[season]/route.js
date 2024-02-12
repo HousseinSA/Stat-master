@@ -3,7 +3,7 @@
 //   const obj = Object.fromEntries(searchParams.entries())
 //   console.log(obj)
 //   const res = await fetch(
-//     `http://api.football-data.org/v4/competitions/${obj.league}/matches?matchday=${obj.matchday}&season=${obj.season}`,
+//     `http://api.football-data.org/v4/competitions/${obj.league}/standings?season=${obj.season}`,
 //     {
 //       headers: {
 //         "Content-Type": "application/json",

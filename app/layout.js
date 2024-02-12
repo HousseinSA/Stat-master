@@ -12,9 +12,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <link rel="icon" href="/StatMaster.svg" />
-
       <body
-        className={`${inter.className}  dark:bg-[#181818]  transition duration-500 `}
+        className={`${inter.className}  dark:bg-[#0D0C0A]  transition duration-300 `}
       >
         {children}
       </body>

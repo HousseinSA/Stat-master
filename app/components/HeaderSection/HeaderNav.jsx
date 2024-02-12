@@ -4,28 +4,22 @@ import React, { useEffect } from "react"
 
 const HeaderNav = () => {
   const { theme, themeSwitcher } = useLeagueStore()
-  // const themeSwitcher = useLeagueStore((store) => store.themeSwitcher)
-
   useEffect(() => {
     const darkModeMediaQuery = window.matchMedia("(prefers-color-scheme: dark)")
     const handleDarkModeChange = (event) => {
       themeSwitcher(event.matches)
-    }
-    const getThemeState = localStorage.getItem("theme")
-    if (getThemeState) {
-      themeSwitcher(getThemeState === "true")
     }
     darkModeMediaQuery.addEventListener("change", handleDarkModeChange)
 
     return () => {
       darkModeMediaQuery.removeEventListener("change", handleDarkModeChange)
     }
-  }, [themeSwitcher])
-
+  }, [])
   useEffect(() => {
     document.documentElement.classList.toggle("dark", theme)
-    localStorage.setItem("theme", theme)
   }, [theme])
+
+
   return (
     <nav className="flex items-center gap-4">
       <div

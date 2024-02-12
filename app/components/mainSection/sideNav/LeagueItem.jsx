@@ -10,11 +10,11 @@ const LeagueItem = ({
   leagueColor,
 }) => {
   return (
-    <Link href={`/compition/${code}`}>
+    <Link href={`/compition/${code}/standings`}>
       <li
-        className={`cursor-pointer  p-3 ${
+        className={`cursor-pointer p-3 ${
           selectedComp ? "bg-slate-700" : ""
-        } item-hover  `}
+        } item-hover `}
         onClick={() => handelSelectedLeague(code, leagueColor)}
       >
         <div className="flex items-center gap-4">
@@ -26,7 +26,7 @@ const LeagueItem = ({
             height={25}
             priority
           />
-          <span className=" hidden md:flex  md:flex-1">
+          <span className="hidden md:flex md:flex-1">
             {code === "PD" ? "La Liga" : name}
           </span>
         </div>

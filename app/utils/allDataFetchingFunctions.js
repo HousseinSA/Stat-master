@@ -26,6 +26,7 @@ export async function getCompitionStandings(code) {
         "X-Auth-Token": process.env.FOOTBALL_DATA_API_KEY,
         "Accept-Encoding": "",
       },
+      next: { revalidate: 3600 },
     }
   )
   if (!response.ok) {

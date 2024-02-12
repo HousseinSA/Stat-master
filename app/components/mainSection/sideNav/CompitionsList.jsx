@@ -28,7 +28,7 @@ const CompitionsList = ({ compitionList }) => {
   }
   return (
     <div
-      className={`h-auto md:h-full w-full  transition duration-300 border border-slate-500 rounded-tl-md rounded-bl-md max-w-60 bg-[#001F3F]`}
+      className={`h-auto md:h-full w-full transition duration-300 rounded-tl-md rounded-bl-md max-w-60 bg-[#001F3F]`}
     >
       <div className="p-2">
         <ul className="w-full flex flex-row flex-wrap  text-white md:flex-col gap-2">

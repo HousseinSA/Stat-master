@@ -1,27 +1,28 @@
 "use client"
-
-import { useLeagueStore } from "../../../../utils/StateStore"
+import { useLeagueStore } from "../../../../../utils/StateStore"
 export const LeageYear = ({ currentSeason }) => {
   const seasonsList = Array.from(
     { length: 4 },
     (_, index) => currentSeason - index
   )
 
-  const { season, setLeagueSeason } = useLeagueStore()
+  const { season, setLeagueSeason, leagueColor, leagueCode } = useLeagueStore()
   // get state
   function handelSeasonChange(event) {
     const selectedSeason = event.target.value
     setLeagueSeason(selectedSeason)
+    
   }
-  // fetch year season data
 
+  // fetch year season data
   return (
-    <div className="w-auto h-fit my-2 px-2 flex gap-3 items-center ">
-      <h3>Season</h3>
+    <div className="w-auto h-fit z-50 p-2 flex gap-3 bg-slate-100 text-slate-500 items-center ">
+      <h3 className="font-semibold ">Season</h3>
       <select
-        value={currentSeason}
+        value={season}
         onChange={handelSeasonChange}
-        className="border outline-none"
+        style={{ borderColor: leagueColor }}
+        className={`border rounded-sm outline-none transition duration-500`}
       >
         {seasonsList.map((season) => {
           return (
