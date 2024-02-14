@@ -1,6 +1,6 @@
-"use client"
 import Image from "next/image"
 import Link from "next/link"
+import { useLeagueStore } from "../../../utils/StateStore"
 const LeagueItem = ({
   name,
   emblem,
@@ -9,8 +9,9 @@ const LeagueItem = ({
   handelSelectedLeague,
   leagueColor,
 }) => {
+  const { currentSeason } = useLeagueStore()
   return (
-    <Link href={`/compition/${code}/standings`}>
+    <Link href={`/compition/${code}/${currentSeason}/standings`}>
       <li
         className={`cursor-pointer p-3 ${
           selectedComp ? "bg-slate-700" : ""

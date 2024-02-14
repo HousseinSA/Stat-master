@@ -1,13 +1,11 @@
+"use client"
 import { redirect } from "next/navigation"
-import Layout from "./components/layout/Layout"
 import CompitionContent from "./components/mainSection/CompitionData/CompitionContent"
+import { useLeagueStore } from "./utils/StateStore"
 const Page = () => {
-  redirect("/compition/PL/standings")
-  return (
-    <Layout>
-      <CompitionContent />
-    </Layout>
-  )
+  const { currentSeason } = useLeagueStore()
+  redirect(`/compition/PL/${currentSeason}/standings`)
+  return <CompitionContent />
 }
 
 export default Page

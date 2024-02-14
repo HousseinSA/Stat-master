@@ -1,23 +1,24 @@
-import TeamStateContainer from "../LeagueContainer/TeamStateContainer"
+import TeamStandingContainer from "../LeagueContainer/TeamStandingContainer"
+import TableContainer from "../../../../table/TableContainer"
 
-const UclStandings = ({ season }) => {
-  const ucl_season = season.standings
-  const ucl_tables = []
-  ucl_season.map((ucl) => {
-    ucl_tables.push(...ucl.table)
-  })
-  // console.log(ucl_season)
+const UCLStandings = ({ compitionData }) => {
+  const uclStandings = compitionData?.standings
   return (
-    <>
-      {ucl_tables.map((ucl_table, index) => {
+    <TableContainer>
+      {uclStandings?.map((group) => {
         return (
-          <div className="background-red-500 my-5" key={index}>
-            <TeamStateContainer teamState={ucl_table} />
-          </div>
+          <>
+            <tr>
+              <td className="p-4 font-semibold">{group.group}</td>
+            </tr>
+            {group?.table?.map((table, index) => {
+              return <TeamStandingContainer key={index} teamState={table} />
+            })}
+          </>
         )
       })}
-    </>
+    </TableContainer>
   )
 }
 
-export default UclStandings
+export default UCLStandings

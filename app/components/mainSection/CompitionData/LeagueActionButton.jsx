@@ -1,22 +1,15 @@
-import Link from "next/link"
 
-const LeagueActionButton = ({
-  action,
-  leagueCode,
-  clickedButton,
-  activeBtn,
-}) => {
+
+const LeagueActionButton = ({ action, activeBtn, activeAction }) => {
   return (
-    <Link href={`/compition/${leagueCode}/${action}`}>
-      <button
-        onClick={() => clickedButton(action)}
-        className={`item-hover ${
-          activeBtn ? " bg-slate-700 " : ""
-        } text-center w-full capitalize `}
-      >
-        {action}
-      </button>
-    </Link>
+    <button
+      onClick={() => activeAction(action)}
+      className={`item-hover ${
+        activeBtn ? " bg-slate-700 " : ""
+      } text-center w-full capitalize`}
+    >
+      {action}
+    </button>
   )
 }
 

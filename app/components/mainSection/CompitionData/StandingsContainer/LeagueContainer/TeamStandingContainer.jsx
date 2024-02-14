@@ -1,6 +1,5 @@
 import Image from "next/image"
 import React from "react"
-
 const TeamStandingContainer = ({ teamState }) => {
   const {
     draw,
@@ -12,13 +11,11 @@ const TeamStandingContainer = ({ teamState }) => {
     points,
     position,
     won,
-    form,
+    // form,
   } = teamState
-
   const { crest, shortName } = teamState.team
-
   return (
-    <tr className="text-gray-700 w-full">
+    <tr>
       <td className="px-4 py-3 border hover:text-white item-hover sticky left-0 shadow-sm z-20 bg-white">
         <div className="flex gap-3 items-center text-sm">
           <span>{position}</span>
@@ -49,7 +46,6 @@ const TeamStandingContainer = ({ teamState }) => {
         </span>
       </td>
       <td className="px-4 py-3 text-sm border">
-        {" "}
         <span className="px-2 py-1 font-semibold leading-tight text-red-700 bg-red-100 rounded-sm">
           {lost}
         </span>
