@@ -1,12 +1,13 @@
 "use client"
 import LeagueItem from "./LeagueItem"
 import { useLeagueStore } from "../../../utils/StateStore"
-import { useEffect, useState } from "react"
-const CompitionsList = ({ compitionList }) => {
-  const [compitions, setCompitions] = useState(compitionList?.competitions)
-  const currentSeason = compitions[0].currentSeason.startDate.substring(0, 4)
+import { useState } from "react"
+const CompetionsList = ({ competionsList }) => {
+  const [competions, setCompetions] = useState(competionsList?.competitions)
+  const currentSeason = competions[0].currentSeason.startDate.substring(0, 4)
   const LeaguesToInclude = ["PL", "DED", "PPL", "CL", "FL1", "BL1", "PD", "SA"]
-  const filteredLeagues = compitions?.filter((comp) =>
+
+  const filteredLeagues = competions?.filter((comp) =>
     LeaguesToInclude.includes(comp?.code)
   )
   const leagueColors = [
@@ -37,7 +38,7 @@ const CompitionsList = ({ compitionList }) => {
       className={`h-auto md:h-full w-full transition duration-300 rounded-tl-md rounded-bl-md max-w-60 bg-[#001F3F]`}
     >
       <div className="p-2">
-        <ul className="w-full flex flex-row flex-wrap  text-white md:flex-col gap-2">
+        <ul className="w-full flex flex-row flex-wrap text-white md:flex-col gap-2">
           {filteredLeagues?.map(({ name, code, emblem }, index) => {
             const leagueColor = leagueColors[index]
             return (
@@ -58,4 +59,4 @@ const CompitionsList = ({ compitionList }) => {
   )
 }
 
-export default CompitionsList
+export default CompetionsList

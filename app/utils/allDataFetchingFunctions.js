@@ -1,5 +1,5 @@
 // compitionslist
-export async function getCompitionList() {
+export async function getCompetionList() {
   try {
     const response = await fetch(
       `http://api.football-data.org/v4/competitions?areas=2077`,
@@ -21,7 +21,7 @@ export async function getCompitionList() {
 }
 
 // compition standing
-export async function getcompitiondata(league, season, action) {
+export async function getCompetionData(league, season, action) {
   const url = `http://api.football-data.org/v4/competitions/${league}/${action}${
     league === "CL" ? "?" : "?season=" + season
   }`

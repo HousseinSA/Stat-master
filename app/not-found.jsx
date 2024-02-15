@@ -1,5 +1,5 @@
 import Layout from "./components/layout/Layout"
-import CompitionContent from "./components/mainSection/CompitionData/CompitionContent"
+import CompetionContent from "./components/mainSection/CompetionData/CompetionContent"
 const notFound = () => {
   return <div>not found</div>
 }

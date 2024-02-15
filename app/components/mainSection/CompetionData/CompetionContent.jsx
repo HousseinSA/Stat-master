@@ -4,7 +4,7 @@ import { useLeagueStore } from "../../../utils/StateStore"
 import { LeageYear } from "./StandingsContainer/LeagueContainer/LeagueYear"
 import { useEffect } from "react"
 import { useRouter } from "next/navigation"
-const CompitionContent = ({ children }) => {
+const CompetionContent = ({ children }) => {
   // get data in league store
   const {
     leagueCode,
@@ -13,16 +13,22 @@ const CompitionContent = ({ children }) => {
     action,
     currentSeason,
     season,
+    currentMatchday,
   } = useLeagueStore()
-  // array of info button
-  const infoButton = ["standings", "matches", "teams", "stats"]
-
+  // array of action buttons
+  const actionButton = ["standings", "matches", "teams", "stats"]
   const handelAction = (action) => {
     getClickedAction(action)
   }
   const { push } = useRouter()
   useEffect(() => {
-    push(`/compition/${leagueCode}/${season}/${action}`)
+    if (action === "matches") {
+      push(
+        `/competion/${leagueCode}/${season}/${action}/matchday/${currentMatchday}`
+      )
+    } else {
+      push(`/competion/${leagueCode}/${season}/${action}`)
+    }
   }, [action])
   return (
     <div className=" flex flex-col w-full rounded-md dark:text-white  h-full">
@@ -30,7 +36,7 @@ const CompitionContent = ({ children }) => {
         style={{ borderColor: leagueColor }}
         className={`flex font-semibold w-full  rounded-tr-md  bg-[#001F3F] gap-4 group text-white p-4 flex-wrap border-b-4 transition duration-300`}
       >
-        {infoButton?.map((btnName, index) => {
+        {actionButton?.map((btnName, index) => {
           return (
             <LeagueActionButton
               activeBtn={action === btnName}
@@ -47,4 +53,4 @@ const CompitionContent = ({ children }) => {
   )
 }
 
-export default CompitionContent
+export default CompetionContent

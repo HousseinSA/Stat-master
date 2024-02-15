@@ -3,16 +3,22 @@ import { useLeagueStore } from "../../../../../utils/StateStore"
 import TeamStandingContainer from "./TeamStandingContainer"
 import UCLStandings from "../UCl_container/uclStandings"
 import TableContainer from "../../../../table/TableContainer"
-const LeagueStandingsContainer = ({ compitionData }) => {
-  const { leagueCode } = useLeagueStore()
-  const leagueTable = compitionData?.standings[0].table
+import { useEffect } from "react"
+const LeagueStandingsContainer = ({ CompetionData }) => {
+  const { leagueCode, setCurrentMatchday } = useLeagueStore()
+  const leagueTable = CompetionData?.standings[0].table
+  const currentMatchDay = CompetionData.season.currentMatchday
+  useEffect(() => {
+    setCurrentMatchday(currentMatchDay)
+  }, [CompetionData])
 
+  // /compition/${code}/${currentSeason}/standings`
   return (
     <section className=" w-full h-full overflow-auto font-mono">
       <div className="w-full rounded-lg shadow-lg">
-        <div className="w-full h-full ">
+        <div className="w-full h-full">
           {leagueCode === "CL" ? (
-            <UCLStandings compitionData={compitionData} />
+            <UCLStandings CompetionData={CompetionData} />
           ) : (
             <TableContainer>
               {leagueTable?.map((teamState, index) => (

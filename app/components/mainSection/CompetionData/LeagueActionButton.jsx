@@ -1,5 +1,3 @@
-
-
 const LeagueActionButton = ({ action, activeBtn, activeAction }) => {
   return (
     <button

@@ -16,9 +16,8 @@ export const LeageYear = () => {
   }
 
   useEffect(() => {
-    route.push(`/compition/${leagueCode}/${season}/${action}`)
+    route.push(`/competion/${leagueCode}/${season}/${action}`)
   }, [season])
-  console.log(season)
   return (
     <div className="w-auto h-fit z-50 p-2 flex gap-3 bg-slate-100 text-slate-500 items-center ">
       <h3 className="font-semibold ">Season</h3>

@@ -11,7 +11,7 @@ const LeagueItem = ({
 }) => {
   const { currentSeason } = useLeagueStore()
   return (
-    <Link href={`/compition/${code}/${currentSeason}/standings`}>
+    <Link href={`/competion/${code}/${currentSeason}/standings`}>
       <li
         className={`cursor-pointer p-3 ${
           selectedComp ? "bg-slate-700" : ""

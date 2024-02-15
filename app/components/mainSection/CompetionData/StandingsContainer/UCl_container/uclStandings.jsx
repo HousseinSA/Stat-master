@@ -1,8 +1,8 @@
 import TeamStandingContainer from "../LeagueContainer/TeamStandingContainer"
 import TableContainer from "../../../../table/TableContainer"
 
-const UCLStandings = ({ compitionData }) => {
-  const uclStandings = compitionData?.standings
+const UCLStandings = ({ CompetionData }) => {
+  const uclStandings = CompetionData?.standings
   return (
     <TableContainer>
       {uclStandings?.map((group) => {
