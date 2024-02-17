@@ -21,6 +21,8 @@ const store = (set) => ({
     }),
   currentMatchday: null,
   setCurrentMatchday: (currMatchDay) => set({ currentMatchday: currMatchDay }),
+  teamId: null,
+  getTeamId: (clickTeamId) => set({ teamId: clickTeamId }),
 })
 
 export const useLeagueStore = create(store, { name: "store" })

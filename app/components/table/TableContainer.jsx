@@ -1,6 +1,9 @@
 import React from "react"
+import { useLeagueStore } from "../../utils/StateStore"
 
 const TableContainer = ({ children }) => {
+  const { leagueCode } = useLeagueStore()
+
   return (
     <table className="w-full">
       <thead className="sticky top-0 z-50">
@@ -16,6 +19,7 @@ const TableContainer = ({ children }) => {
           <th className="px-4 py-3">GA</th>
           <th className="px-4 py-3">GD</th>
           <th className="px-4 py-3">PTS</th>
+          {leagueCode !== "CL" ? <th className="px-4 py-3">Form</th> : null}
         </tr>
       </thead>
       <tbody>{children}</tbody>

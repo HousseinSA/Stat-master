@@ -34,7 +34,7 @@ export async function getCompetionData(
       ? `?season=${season}&stage=${uclStages}`
       : ""
   const finalUrl = baseUrl + dynamicUrl + uclMatchQuery
-  // console.log(finalUrl)
+  console.log(finalUrl)
   try {
     const response = await fetch(finalUrl, {
       headers: {
