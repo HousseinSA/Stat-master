@@ -5,13 +5,13 @@ const UCLStandings = ({ CompetionData }) => {
   const uclStandings = CompetionData?.standings
   return (
     <TableContainer>
-      {uclStandings?.map((group) => {
+      {uclStandings?.map((groupTable, index) => {
         return (
           <>
-            <tr>
-              <td className="p-4 font-semibold">{group.group}</td>
+            <tr key={index}>
+              <td className="p-4 font-semibold">{groupTable.group}</td>
             </tr>
-            {group?.table?.map((table, index) => {
+            {groupTable?.table?.map((table, index) => {
               return <TeamStandingContainer key={index} teamState={table} />
             })}
           </>

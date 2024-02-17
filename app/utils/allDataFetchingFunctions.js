@@ -1,16 +1,13 @@
-// compitionslist
+const BaseUrl = "http://api.football-data.org/v4/competitions"
 export async function getCompetionList() {
   try {
-    const response = await fetch(
-      `http://api.football-data.org/v4/competitions?areas=2077`,
-      {
-        headers: {
-          "Content-Type": "application/json",
-          "X-Auth-Token": process.env.FOOTBALL_DATA_API_KEY,
-          "Accept-Encoding": "",
-        },
-      }
-    )
+    const response = await fetch(`${BaseUrl}?areas=2077`, {
+      headers: {
+        "Content-Type": "application/json",
+        "X-Auth-Token": process.env.FOOTBALL_DATA_API_KEY,
+        "Accept-Encoding": "",
+      },
+    })
     if (!response.ok) {
       throw new Error("Failed to fetch Data")
     }
@@ -28,7 +25,7 @@ export async function getCompetionData(
   matchday,
   uclStages
 ) {
-  const baseUrl = "http://api.football-data.org/v4/competitions/"
+  const baseUrl = `${BaseUrl}/`
   const dynamicUrl = `${league}/${action}${
     league === "CL" ? "" : "?season=" + season
   }${matchday && league !== "CL" ? "&matchday=" + matchday : ""}`
@@ -37,7 +34,7 @@ export async function getCompetionData(
       ? `?season=${season}&stage=${uclStages}`
       : ""
   const finalUrl = baseUrl + dynamicUrl + uclMatchQuery
-  console.log(finalUrl)
+  // console.log(finalUrl)
   try {
     const response = await fetch(finalUrl, {
       headers: {
@@ -45,7 +42,7 @@ export async function getCompetionData(
         "X-Auth-Token": process.env.FOOTBALL_DATA_API_KEY,
         "Accept-Encoding": "",
       },
-      next: { revalidate: 3600 },
+      next: { revalidate: 1000 },
     })
     if (!response.ok) {
       throw new Error("Failed to fetch Data")

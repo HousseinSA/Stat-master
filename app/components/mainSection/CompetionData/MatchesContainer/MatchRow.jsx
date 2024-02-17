@@ -31,13 +31,30 @@ const MatchRow = ({ match }) => {
             </div>
           </td>
           <td className="px-4 py-3 text-center text-ms font-semibold border">
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col ">
               {isScoresAvailable && (
-                <div className="flex items-center justify-center gap-4">
-                  <span>{score.fullTime.home}</span>
-                  <span className="font-bold text-xl">-</span>
-                  <span>{score.fullTime.away}</span>
-                </div>
+                <>
+                  <h4 className=" text-xl"> Full-Time</h4>
+                  <div className="flex items-center justify-center gap-2">
+                    <span className=" text-xl">{score.fullTime.home}</span>
+                    <span className="font-bold text-xl">-</span>
+                    <span className=" text-xl">{score.fullTime.away}</span>
+                  </div>
+                </>
+              )}
+              {isScoresAvailable && (
+                <>
+                  <h4 className="text-slate-500 text-sm"> Half-Time</h4>
+                  <div className="flex  items-center justify-center gap-2">
+                    <span className="text-sm text-gray-500">
+                      {score.halfTime.home}
+                    </span>
+                    <span className="font-bold text-sm">-</span>
+                    <span className="text-sm text-gray-500">
+                      {score.halfTime.away}
+                    </span>
+                  </div>
+                </>
               )}
               <FormattedMatchTime matchTime={utcDate} />
             </div>
