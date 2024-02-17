@@ -20,18 +20,21 @@ const CompetionsList = ({ competionsList }) => {
     "#FFD337",
     "#FAEC40",
   ]
-
   const {
     leagueCode,
     getClickedLeauge,
     getClickedLeagueColor,
     setCurrentSeason,
+    setCurrentMatchday,
+    getClickedLeagueId,
   } = useLeagueStore()
 
-  function handelSelectedLeague(code, leagueColor) {
+  function handelSelectedLeague(code, leagueColor, matchday, leagueId) {
     setCurrentSeason(currentSeason)
     getClickedLeauge(code)
     getClickedLeagueColor(leagueColor)
+    setCurrentMatchday(matchday)
+    getClickedLeagueId(leagueId)
   }
   return (
     <div
@@ -39,20 +42,24 @@ const CompetionsList = ({ competionsList }) => {
     >
       <div className="p-2">
         <ul className="w-full flex flex-row flex-wrap text-white md:flex-col gap-2">
-          {filteredLeagues?.map(({ name, code, emblem }, index) => {
-            const leagueColor = leagueColors[index]
-            return (
-              <LeagueItem
-                key={index}
-                selectedComp={leagueCode === code}
-                name={name}
-                leagueColor={leagueColor}
-                emblem={emblem}
-                code={code}
-                handelSelectedLeague={handelSelectedLeague}
-              />
-            )
-          })}
+          {filteredLeagues?.map(
+            ({ name, id, code, emblem, currentSeason }, index) => {
+              const leagueColor = leagueColors[index]
+              return (
+                <LeagueItem
+                  key={index}
+                  selectedComp={leagueCode === code}
+                  name={name}
+                  leagueColor={leagueColor}
+                  emblem={emblem}
+                  code={code}
+                  id={id}
+                  matchday={currentSeason?.currentMatchday}
+                  handelSelectedLeague={handelSelectedLeague}
+                />
+              )
+            }
+          )}
         </ul>
       </div>
     </div>

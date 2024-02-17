@@ -3,6 +3,8 @@ import { persist } from "zustand/middleware"
 const store = (set) => ({
   leagueCode: "PL",
   leagueColor: null,
+  leagueId: "2021",
+  getClickedLeagueId: (clickId) => set({ leagueId: clickId }),
   getClickedLeauge: (clickedLeague) => set({ leagueCode: clickedLeague }),
   getClickedLeagueColor: (clickedLeagueColor) =>
     set({ leagueColor: clickedLeagueColor }),
@@ -18,10 +20,7 @@ const store = (set) => ({
       currentSeason: currSeason,
     }),
   currentMatchday: null,
-  setCurrentMatchday: (currMatchDay) =>
-    set({
-      currMatchDay: currMatchDay,
-    }),
+  setCurrentMatchday: (currMatchDay) => set({ currentMatchday: currMatchDay }),
 })
 
 export const useLeagueStore = create(store, { name: "store" })

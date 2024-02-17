@@ -1,18 +1,25 @@
-import MatchesContainer from "../../../../components/mainSection/CompetionData/MatchesContainer/MatchesContainer"
 import CompetionContent from "../../../../components/mainSection/CompetionData/CompetionContent"
-import Layout from "../../../../components/layout/Layout"
-// import {} from "../../../../components/mainSection/CompetionData/"
+import TeamsContainer from "../../../../components/mainSection/CompetionData/TeamsContainer/TeamsContainer"
+import StatsContainer from "../../../../components/mainSection/CompetionData/StatsContainer/StatsContainer"
 import { getCompetionData } from "../../../../utils/allDataFetchingFunctions"
-const PageData = async ({ props: { league, season, action } }) => {
-  // const competionList =//
-  const competionData = await getCompetionData(league, season, action)
+import StandingsContainer from "../../../../components/mainSection/CompetionData/StandingsContainer/LeagueContainer/StandingsContainer"
+import Layout from "../../../../components/layout/Layout"
+const StandingsPage = async ({ params }) => {
+  const { league, season, action } = params
+
+  const CompetionData = await getCompetionData(league, season, action)
+
+  const actionList = {
+    standings: <StandingsContainer CompetionData={CompetionData} />,
+    teams: <TeamsContainer CompetionData={CompetionData} />,
+    stats: <StatsContainer CompetionData={CompetionData} />,
+  }
+
   return (
     <Layout>
-      <CompetionContent>
-        <MatchesContainer />
-      </CompetionContent>
+      <CompetionContent>{actionList[action]}</CompetionContent>
     </Layout>
   )
 }
 
-export default PageData
+export default StandingsPage

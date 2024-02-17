@@ -8,6 +8,8 @@ const LeagueItem = ({
   selectedComp,
   handelSelectedLeague,
   leagueColor,
+  matchday,
+  id,
 }) => {
   const { currentSeason } = useLeagueStore()
   return (
@@ -16,7 +18,7 @@ const LeagueItem = ({
         className={`cursor-pointer p-3 ${
           selectedComp ? "bg-slate-700" : ""
         } item-hover `}
-        onClick={() => handelSelectedLeague(code, leagueColor)}
+        onClick={() => handelSelectedLeague(code, leagueColor, matchday, id)}
       >
         <div className="flex items-center gap-4">
           <Image

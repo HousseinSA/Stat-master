@@ -47,7 +47,9 @@ const CompetionContent = ({ children }) => {
           )
         })}
       </div>
-      {leagueCode === "CL" ? null : <LeageYear currentSeason={currentSeason} />}
+      {leagueCode === "CL" || action === "matches" ? null : (
+        <LeageYear currentSeason={currentSeason} />
+      )}
       {children}
     </div>
   )
