@@ -2,8 +2,6 @@
 import LeagueActionButton from "./LeagueActionButton"
 import { useLeagueStore } from "../../../utils/StateStore"
 import { LeageYear } from "./StandingsContainer/LeagueContainer/LeagueYear"
-import { useEffect } from "react"
-import { useRouter } from "next/navigation"
 const CompetionContent = ({ children }) => {
   // get data in league store
   const {
@@ -20,16 +18,8 @@ const CompetionContent = ({ children }) => {
   const handelAction = (action) => {
     getClickedAction(action)
   }
-  const { push } = useRouter()
-  useEffect(() => {
-    if (action === "matches") {
-      push(
-        `/competion/${leagueCode}/${season}/${action}/matchday/${currentMatchday}`
-      )
-    } else {
-      push(`/competion/${leagueCode}/${season}/${action}`)
-    }
-  }, [action])
+
+  
   return (
     <div className=" flex flex-col w-full rounded-md dark:text-white  h-full">
       <div
@@ -39,6 +29,9 @@ const CompetionContent = ({ children }) => {
         {actionButton?.map((btnName, index) => {
           return (
             <LeagueActionButton
+              season={season}
+              leauge={leagueCode}
+              matchday={currentMatchday}
               activeBtn={action === btnName}
               key={index}
               action={btnName}

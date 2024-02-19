@@ -3,12 +3,12 @@ import MatchRow from "./MatchRow"
 import { useLeagueStore } from "../../../../utils/StateStore"
 
 const MatchesTable = ({ matches }) => {
-  const { leagueColor, leagueCode } = useLeagueStore()
-
+  const { leagueColor, leagueCode, season } = useLeagueStore()
+  console.log(matches)
   // Determine matchday title
   let matchdayTitle
   if (leagueCode === "CL") {
-    const isAnyMatchScheduled = matches.matches.some(
+    const isAnyMatchScheduled = matches?.matches?.some(
       (match) => match.status !== "SCHEDULED"
     )
     matchdayTitle = isAnyMatchScheduled && `Stage: ${matches.matches[0]?.stage}`
@@ -24,7 +24,12 @@ const MatchesTable = ({ matches }) => {
       <table className="w-full">
         <tbody>
           {matches.matches?.map((match, index) => (
-            <MatchRow key={index} match={match} />
+            <MatchRow
+              season={season}
+              league={leagueCode}
+              key={index}
+              match={match}
+            />
           ))}
         </tbody>
       </table>

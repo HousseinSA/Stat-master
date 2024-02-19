@@ -4,7 +4,7 @@ import { useLeagueStore } from "../../../../utils/StateStore"
 
 const StatsContainer = () => {
   const { teamId } = useLeagueStore()
-  console.log(teamId)
+  // console.log(teamId)
   return <div>StatsContainer</div>
 }
 

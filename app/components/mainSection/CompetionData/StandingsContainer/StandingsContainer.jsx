@@ -1,9 +1,9 @@
 "use client"
 import { useEffect } from "react"
-import { useLeagueStore } from "../../../../../utils/StateStore"
-import TeamStandingContainer from "./TeamStandingContainer"
-import UCLStandings from "../UCl_container/uclStandings"
-import TableContainer from "../../../../table/TableContainer"
+import { useLeagueStore } from "../../../../utils/StateStore"
+import TeamStandingContainer from "./LeagueContainer/TeamStandingContainer"
+import UCLStandings from "./UCl_container/uclStandings"
+import TableContainer from "../../../table/TableContainer"
 
 const LeagueStandingsContainer = ({ CompetionData }) => {
   // State and context initialization
@@ -14,10 +14,11 @@ const LeagueStandingsContainer = ({ CompetionData }) => {
   // Effect for setting current matchday
   useEffect(() => {
     setCurrentMatchday(currentMatchday)
+    console.log(currentMatchday)
   }, [currentMatchday])
   function handelSelectedTeam(id) {
     getTeamId(id)
-    getClickedAction("stats")
+    getClickedAction("teams")
   }
   return (
     <section className="w-full h-full overflow-auto font-mono">

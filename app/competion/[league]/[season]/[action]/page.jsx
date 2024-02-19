@@ -2,17 +2,16 @@ import CompetionContent from "../../../../components/mainSection/CompetionData/C
 import TeamsContainer from "../../../../components/mainSection/CompetionData/TeamsContainer/TeamsContainer"
 import StatsContainer from "../../../../components/mainSection/CompetionData/StatsContainer/StatsContainer"
 import { getCompetionData } from "../../../../utils/allDataFetchingFunctions"
-import StandingsContainer from "../../../../components/mainSection/CompetionData/StandingsContainer/LeagueContainer/StandingsContainer"
+import StandingsContainer from "../../../../components/mainSection/CompetionData/StandingsContainer/StandingsContainer"
 import Layout from "../../../../components/layout/Layout"
 const StandingsPage = async ({ params }) => {
   const { league, season, action } = params
-
+  // console.log(action)
   const CompetionData = await getCompetionData(league, season, action)
-
   const actionList = {
     standings: <StandingsContainer CompetionData={CompetionData} />,
-    teams: <TeamsContainer CompetionData={CompetionData} />,
-    stats: <StatsContainer CompetionData={CompetionData} />,
+    // teams: <TeamsContainer CompetionData={CompetionData} />,
+    // stats: <StatsContainer CompetionData={CompetionData} />,
   }
 
   return (

@@ -1,6 +1,5 @@
 import Image from "next/image"
 import Link from "next/link"
-import { useLeagueStore } from "../../../utils/StateStore"
 const LeagueItem = ({
   name,
   emblem,
@@ -8,17 +7,21 @@ const LeagueItem = ({
   selectedComp,
   handelSelectedLeague,
   leagueColor,
+  season,
   matchday,
-  id,
+  action,
 }) => {
-  const { currentSeason } = useLeagueStore()
+  const leaugeActionPath =
+    action !== "matches"
+      ? `/competion/${code}/${season}/${action}`
+      : `/competion/${code}/${season}/${action}/matchday/${matchday}`
   return (
-    <Link href={`/competion/${code}/${currentSeason}/standings`}>
+    <Link href={leaugeActionPath}>
       <li
         className={`cursor-pointer p-3 ${
           selectedComp ? "bg-slate-700" : ""
         } item-hover `}
-        onClick={() => handelSelectedLeague(code, leagueColor, matchday, id)}
+        onClick={() => handelSelectedLeague(code, leagueColor, matchday)}
       >
         <div className="flex items-center gap-4">
           <Image
