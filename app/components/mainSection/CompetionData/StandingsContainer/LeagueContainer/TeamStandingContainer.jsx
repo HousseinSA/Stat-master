@@ -1,8 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
-import React from "react"
-import { useLeagueStore } from "../../../../../utils/StateStore"
-const TeamStandingContainer = ({ teamState, selectedTeam }) => {
+const TeamStandingContainer = ({ teamState, league, season, changeAction }) => {
   const {
     draw,
     goalDifference,
@@ -16,14 +14,14 @@ const TeamStandingContainer = ({ teamState, selectedTeam }) => {
     form,
   } = teamState
   const { crest, shortName, id } = teamState.team
-  const { leagueCode, season } = useLeagueStore()
+
   return (
     <tr>
       <td
         className="px-4 py-3 border hover:text-white item-hover sticky left-0 shadow-sm z-20 bg-white"
-        onClick={() => selectedTeam(id)}
+        onClick={() => changeAction("teams")}
       >
-        <Link href={`/competion/${leagueCode}/${season}/teams/${id}`}>
+        <Link href={`/competion/${league}/${season}/teams/${id}`}>
           <div className="flex gap-3 items-center text-sm">
             <span>{position}</span>
             <div className="relative w-8 h-8 mr-3 rounded-full md:block">

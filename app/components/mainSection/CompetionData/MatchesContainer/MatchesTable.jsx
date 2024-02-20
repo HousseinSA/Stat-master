@@ -3,8 +3,8 @@ import MatchRow from "./MatchRow"
 import { useLeagueStore } from "../../../../utils/StateStore"
 
 const MatchesTable = ({ matches }) => {
-  const { leagueColor, leagueCode, season } = useLeagueStore()
-  console.log(matches)
+  const { leagueColor, leagueCode, season, getClickedAction } = useLeagueStore()
+  // console.log(matches)
   // Determine matchday title
   let matchdayTitle
   if (leagueCode === "CL") {
@@ -29,6 +29,7 @@ const MatchesTable = ({ matches }) => {
               league={leagueCode}
               key={index}
               match={match}
+              changeAction={getClickedAction}
             />
           ))}
         </tbody>

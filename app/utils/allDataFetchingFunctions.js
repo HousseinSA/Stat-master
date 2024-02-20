@@ -26,14 +26,21 @@ export async function getCompetionData(
   uclStages
 ) {
   const baseUrl = `${BaseUrl}/`
-  const dynamicUrl = `${league}/${action}${
-    league === "CL" ? "" : "?season=" + season
-  }${matchday && league !== "CL" ? "&matchday=" + matchday : ""}`
+
+  // Constructing the dynamic part of the URL based on league, action, season, and matchday
+  const dynamicPart = `${league}/${action}${
+    league !== "CL" ? `?season=${season}` : ""
+  }${matchday && league !== "CL" ? `&matchday=${matchday}` : ""}`
+
+  // Constructing the query string for UEFA Champions League matches
   const uclMatchQuery =
     league === "CL" && action === "matches"
       ? `?season=${season}&stage=${uclStages}`
       : ""
-  const finalUrl = baseUrl + dynamicUrl + uclMatchQuery
+
+  // Combining the base URL, dynamic part, and UEFA Champions League match query
+  const finalUrl = `${baseUrl}${dynamicPart}${uclMatchQuery}`
+
   console.log(finalUrl)
   try {
     const response = await fetch(finalUrl, {

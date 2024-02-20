@@ -1,7 +1,7 @@
 import TeamStandingContainer from "../LeagueContainer/TeamStandingContainer"
 import TableContainer from "../../../../table/TableContainer"
 
-const UCLStandings = ({ CompetionData }) => {
+const UCLStandings = ({ CompetionData, season, league, changeAction }) => {
   const uclStandings = CompetionData?.standings
   return (
     <TableContainer>
@@ -12,7 +12,15 @@ const UCLStandings = ({ CompetionData }) => {
               <td className="p-4 font-semibold">{groupTable.group}</td>
             </tr>
             {groupTable?.table?.map((table, index) => {
-              return <TeamStandingContainer key={index} teamState={table} />
+              return (
+                <TeamStandingContainer
+                  season={season}
+                  league={league}
+                  changeAction={changeAction}
+                  key={index}
+                  teamState={table}
+                />
+              )
             })}
           </>
         )

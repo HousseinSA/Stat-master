@@ -7,26 +7,27 @@ import TableContainer from "../../../table/TableContainer"
 
 const LeagueStandingsContainer = ({ CompetionData }) => {
   // State and context initialization
-  const { leagueCode, setCurrentMatchday, getTeamId, getClickedAction } =
+  const { leagueCode, setCurrentMatchday, season, getClickedAction } =
     useLeagueStore()
   const leagueTable = CompetionData?.standings[0]?.table
   const currentMatchday = CompetionData?.season?.currentMatchday
   // Effect for setting current matchday
   useEffect(() => {
     setCurrentMatchday(currentMatchday)
-    console.log(currentMatchday)
   }, [currentMatchday])
-  function handelSelectedTeam(id) {
-    getTeamId(id)
-    getClickedAction("teams")
-  }
+
   return (
     <section className="w-full h-full overflow-auto font-mono">
       <div className="w-full rounded-lg shadow-lg">
         <div className="w-full h-full">
           {leagueCode === "CL" ? (
             // Render UCLStandings component for Champions League
-            <UCLStandings CompetionData={CompetionData} />
+            <UCLStandings
+              CompetionData={CompetionData}
+              season={season}
+              changeAction={getClickedAction}
+              league={leagueCode}
+            />
           ) : (
             // Render TableContainer with TeamStandingContainer for other leagues
             <TableContainer>
@@ -34,7 +35,9 @@ const LeagueStandingsContainer = ({ CompetionData }) => {
                 <TeamStandingContainer
                   key={index}
                   teamState={teamState}
-                  selectedTeam={handelSelectedTeam}
+                  season={season}
+                  changeAction={getClickedAction}
+                  league={leagueCode}
                 />
               ))}
             </TableContainer>

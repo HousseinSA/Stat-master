@@ -4,13 +4,13 @@ import StatsContainer from "../../../../components/mainSection/CompetionData/Sta
 import { getCompetionData } from "../../../../utils/allDataFetchingFunctions"
 import StandingsContainer from "../../../../components/mainSection/CompetionData/StandingsContainer/StandingsContainer"
 import Layout from "../../../../components/layout/Layout"
-const StandingsPage = async ({ params }) => {
+const MainDataPage = async ({ params }) => {
   const { league, season, action } = params
-  // console.log(action)
   const CompetionData = await getCompetionData(league, season, action)
+ 
   const actionList = {
     standings: <StandingsContainer CompetionData={CompetionData} />,
-    // teams: <TeamsContainer CompetionData={CompetionData} />,
+    teams: <TeamsContainer CompetionData={CompetionData} />,
     // stats: <StatsContainer CompetionData={CompetionData} />,
   }
 
@@ -21,4 +21,4 @@ const StandingsPage = async ({ params }) => {
   )
 }
 
-export default StandingsPage
+export default MainDataPage
