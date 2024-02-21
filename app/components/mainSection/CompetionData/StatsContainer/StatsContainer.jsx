@@ -3,7 +3,7 @@
 import Image from "next/image"
 import { useLeagueStore } from "../../../../utils/StateStore"
 import ScorerRow from "./ScorerRow"
-import TableContainer from "../../../table/TableContainer"
+import TableContainer from "../../../layout/table/TableContainer"
 
 const StatsContainer = ({ CompetionData }) => {
   const { leagueColor, leagueCode, season } = useLeagueStore()

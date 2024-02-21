@@ -1,17 +1,18 @@
-import Layout from "./components/layout/Layout"
 import CompetionContent from "./components/mainSection/CompetionData/CompetionContent"
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton"
+import "react-loading-skeleton/dist/skeleton.css"
+
 const Loading = () => {
+  // const SkeletonArray = Array.from({ length: 20 })
   return (
-    <Layout>
-      <CompetionContent>
-        <SkeletonTheme baseColor="#202020" highlightColor="#444">
-          <p>
-            <Skeleton count={3} />
-          </p>
+    <CompetionContent>
+      {/* <div className="w-full h-full px-4 ">
+      {/* <SkeletonTheme baseColor="#F3F4F6" highlightColor="#525252">
+          <TeamRowSkeleton />
         </SkeletonTheme>
-      </CompetionContent>
-    </Layout>
+      </div> */}
+      <div>Hello</div>
+    </CompetionContent>
   )
 }
 

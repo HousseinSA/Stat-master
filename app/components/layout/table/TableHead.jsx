@@ -1,5 +1,5 @@
 "use client"
-import { useLeagueStore } from "../../utils/StateStore"
+import { useLeagueStore } from "../../../utils/StateStore"
 const TableHead = () => {
   const { leagueCode, action } = useLeagueStore()
   const statsHeaders = (

@@ -14,7 +14,6 @@ const TeamStandingContainer = ({ teamState, league, season, changeAction }) => {
     form,
   } = teamState
   const { crest, shortName, id } = teamState.team
-
   return (
     <tr>
       <td
@@ -70,8 +69,8 @@ const TeamStandingContainer = ({ teamState, league, season, changeAction }) => {
                   state === "W"
                     ? "bg-green-500"
                     : state === "D"
-                    ? "bg-slate-500"
-                    : state === "L" && "bg-red-500"
+                      ? "bg-slate-500"
+                      : state === "L" && "bg-red-500"
                 }`}
               >
                 {state}

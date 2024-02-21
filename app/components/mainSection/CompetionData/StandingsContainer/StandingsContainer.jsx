@@ -3,8 +3,7 @@ import { useEffect } from "react"
 import { useLeagueStore } from "../../../../utils/StateStore"
 import TeamStandingContainer from "./LeagueContainer/TeamStandingContainer"
 import UCLStandings from "./UCl_container/uclStandings"
-import TableContainer from "../../../table/TableContainer"
-
+import TableContainer from "../../../layout/table/TableContainer"
 const LeagueStandingsContainer = ({ CompetionData }) => {
   // State and context initialization
   const { leagueCode, setCurrentMatchday, season, getClickedAction } =
@@ -15,7 +14,6 @@ const LeagueStandingsContainer = ({ CompetionData }) => {
   useEffect(() => {
     setCurrentMatchday(currentMatchday)
   }, [currentMatchday])
-
   return (
     <section className="w-full h-full overflow-auto font-mono">
       <div className="w-full rounded-lg shadow-lg">

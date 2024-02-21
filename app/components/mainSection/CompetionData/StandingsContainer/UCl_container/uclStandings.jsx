@@ -1,5 +1,5 @@
 import TeamStandingContainer from "../LeagueContainer/TeamStandingContainer"
-import TableContainer from "../../../../table/TableContainer"
+import TableContainer from "../../../../layout/table/TableContainer"
 
 const UCLStandings = ({ CompetionData, season, league, changeAction }) => {
   const uclStandings = CompetionData?.standings

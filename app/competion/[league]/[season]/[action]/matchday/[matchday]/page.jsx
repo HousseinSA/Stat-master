@@ -1,15 +1,14 @@
-import React from "react"
-import Layout from "../../../../../../components/layout/Layout"
 import CompetionContent from "../../../../../../components/mainSection/CompetionData/CompetionContent"
 import MatchesContainer from "../../../../../../components/mainSection/CompetionData/MatchesContainer/MatchesContainer"
 import { getCompetionData } from "../../../../../../utils/allDataFetchingFunctions"
-import { match } from "assert"
 
 const fetchMatchData = async (league, season, action, matchday, stage) => {
   return getCompetionData(league, season, action, matchday, stage)
 }
 
 const page = async ({ params }) => {
+  await new Promise((resolve) => setTimeout(resolve, 300))
+
   const { action, league, season, matchday } = params
   const matchdayNum = Number(matchday)
   const uclStages = ["LAST_16", "QUARTER_FINALS", "SEMI_FINALS"]
@@ -21,15 +20,13 @@ const page = async ({ params }) => {
   ])
 
   return (
-    <Layout>
-      <CompetionContent>
-        <MatchesContainer
-          currentMatches={currentMatches}
-          prevMatches={prevMatches}
-          nextMatches={nextMatches}
-        />
-      </CompetionContent>
-    </Layout>
+    <CompetionContent>
+      <MatchesContainer
+        currentMatches={currentMatches}
+        prevMatches={prevMatches}
+        nextMatches={nextMatches}
+      />
+    </CompetionContent>
   )
 }
 

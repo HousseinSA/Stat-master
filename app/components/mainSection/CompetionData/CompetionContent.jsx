@@ -1,5 +1,5 @@
 "use client"
-import LeagueActionButton from "./LeagueActionButton"
+import CompetionActionButtons from "./competionActionButton"
 import { useLeagueStore } from "../../../utils/StateStore"
 import { LeageYear } from "./StandingsContainer/LeagueContainer/LeagueYear"
 const CompetionContent = ({ children }) => {
@@ -26,7 +26,7 @@ const CompetionContent = ({ children }) => {
       >
         {actionButton?.map((btnName, index) => {
           return (
-            <LeagueActionButton
+            <CompetionActionButtons
               season={season}
               leauge={leagueCode}
               matchday={currentMatchday}

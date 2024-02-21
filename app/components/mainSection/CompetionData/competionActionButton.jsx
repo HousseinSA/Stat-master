@@ -1,5 +1,5 @@
 import Link from "next/link"
-const LeagueActionButton = ({
+const CompetionActionButtons = ({
   season,
   leauge,
   action,
@@ -12,7 +12,7 @@ const LeagueActionButton = ({
       ? `/competion/${leauge}/${season}/${action}`
       : `/competion/${leauge}/${season}/${action}/matchday/${matchday}`
   return (
-    <Link href={actionLink}>
+    <Link href={actionLink} prefetch>
       <button
         onClick={() => activeAction(action)}
         className={`item-hover ${
@@ -25,4 +25,4 @@ const LeagueActionButton = ({
   )
 }
 
-export default LeagueActionButton
+export default CompetionActionButtons

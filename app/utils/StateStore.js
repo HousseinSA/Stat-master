@@ -6,13 +6,13 @@ const store = (set) => ({
   getClickedLeauge: (clickedLeague) => set({ leagueCode: clickedLeague }),
   getClickedLeagueColor: (clickedLeagueColor) =>
     set({ leagueColor: clickedLeagueColor }),
-  action: "standings",
+  action: null,
   getClickedAction: (clickedAction) => set({ action: clickedAction }),
   theme: null,
   themeSwitcher: (themeStatus) => set({ theme: themeStatus }),
   season: 2023,
   setSeason: (selectedSeason) => set({ season: selectedSeason }),
-  currentSeason: 2023,
+  currentSeason: null,
   setCurrentSeason: (currSeason) =>
     set({
       currentSeason: currSeason,
@@ -25,4 +25,4 @@ const store = (set) => ({
   setCompList: (list) => set({ compList: list }),
 })
 
-export const useLeagueStore = create(store, { name: "store" })
+export const useLeagueStore = create(persist(store, { name: "store" }))

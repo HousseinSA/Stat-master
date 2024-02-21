@@ -1,7 +1,12 @@
-import { redirect } from "next/navigation"
 
+import CompetionContent from "./components/mainSection/CompetionData/CompetionContent"
+import RedirectPath from "./components/layout/RedirectPath"
 const Page = () => {
-  redirect("/competion/PL/2023/standings")
+  return (
+    <CompetionContent>
+      <RedirectPath />
+    </CompetionContent>
+  )
 }
 
 export default Page
