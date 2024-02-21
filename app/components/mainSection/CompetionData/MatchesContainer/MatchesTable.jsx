@@ -4,7 +4,6 @@ import { useLeagueStore } from "../../../../utils/StateStore"
 
 const MatchesTable = ({ matches }) => {
   const { leagueColor, leagueCode, season, getClickedAction } = useLeagueStore()
-  // console.log(matches)
   // Determine matchday title
   let matchdayTitle
   if (leagueCode === "CL") {

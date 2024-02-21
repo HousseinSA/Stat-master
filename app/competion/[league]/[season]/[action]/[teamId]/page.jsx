@@ -1,11 +1,16 @@
 import Layout from "../../../../../components/layout/Layout"
 import CompetionContent from "../../../../../components/mainSection/CompetionData/CompetionContent"
-const TeamPage = () => {
+import TeamContainer from "../../../../../components/mainSection/CompetionData/TeamsContainer/TeamContainer"
+import { getTeamData } from "../../../../../utils/allDataFetchingFunctions"
+const TeamPage = async ({ params }) => {
+  const { teamId, action } = params
+  const teamData = await getTeamData(action, teamId)
+  
   return (
     <div>
       <Layout>
         <CompetionContent>
-          <h1>team info</h1>
+          <TeamContainer teamData={teamData} />
         </CompetionContent>
       </Layout>
     </div>

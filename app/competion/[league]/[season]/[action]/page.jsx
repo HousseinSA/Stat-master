@@ -7,13 +7,11 @@ import Layout from "../../../../components/layout/Layout"
 const MainDataPage = async ({ params }) => {
   const { league, season, action } = params
   const CompetionData = await getCompetionData(league, season, action)
- 
   const actionList = {
     standings: <StandingsContainer CompetionData={CompetionData} />,
     teams: <TeamsContainer CompetionData={CompetionData} />,
-    // stats: <StatsContainer CompetionData={CompetionData} />,
+    stats: <StatsContainer CompetionData={CompetionData} />,
   }
-
   return (
     <Layout>
       <CompetionContent>{actionList[action]}</CompetionContent>

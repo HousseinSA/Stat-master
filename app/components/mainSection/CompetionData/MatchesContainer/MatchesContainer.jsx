@@ -12,13 +12,12 @@ export default function MatchesContainer({
   const { matches: matchesCurr } = currentMatches
   const { matches: matchesNext } = nextMatches
   const { matches: matchesPrev } = prevMatches
-
+  // console.log(currentMatches, nextMatches, prevMatches)
   // Get current matchday from state store
   const { currentMatchday } = useLeagueStore()
-
   // Extract competition name and emblem
   const { name: competitionName, emblem } = currentMatches?.competition
-
+  const noData = [currentMatches, nextMatches, prevMatches].every(Boolean)
   // Construct matches array with match data and corresponding names
   const matches = [
     { matches: matchesCurr, name: currentMatchday },
@@ -39,7 +38,7 @@ export default function MatchesContainer({
         <h3 className="font-semibold">{competitionName}</h3>
       </div>
       <div>
-        {/* Map over matches array and render MatchesTable component for each match */}
+        {/* Map overx matches array and render MatchesTable component for each match */}
         {matches.map((match, index) => (
           <MatchesTable key={index} matches={match} />
         ))}

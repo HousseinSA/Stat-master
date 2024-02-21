@@ -7,7 +7,6 @@ const MatchRow = ({ match, season, league, changeAction }) => {
   // Check if home team and away team short names are available
   const isTeamsInfoAvailable =
     homeTeam.shortName !== null && awayTeam.shortName !== null
-
   // Check if full-time scores are available
   const isScoresAvailable =
     score.fullTime.home !== null && score.fullTime.away !== null

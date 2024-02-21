@@ -1,15 +1,16 @@
 "use client"
 import LeagueItem from "./LeagueItem"
 import { useLeagueStore } from "../../../utils/StateStore"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 const CompetionsList = ({ competionsList }) => {
   const [competions, setCompetions] = useState(competionsList?.competitions)
-  const currentSeason = competions[0].currentSeason.startDate.substring(0, 4)
+  const currentSeason = competions[0]?.currentSeason?.startDate?.substring(0, 4)
   const LeaguesToInclude = ["PL", "DED", "PPL", "CL", "FL1", "BL1", "PD", "SA"]
 
   const filteredLeagues = competions?.filter((comp) =>
     LeaguesToInclude.includes(comp?.code)
   )
+  console.log(competionsList)
   const leagueColors = [
     "#3C0844",
     "#09084E",
@@ -28,13 +29,14 @@ const CompetionsList = ({ competionsList }) => {
     season,
     leagueCode,
     action,
+    setCompList,
   } = useLeagueStore()
   function handelSelectedLeague(code, leagueColor, matchday) {
     setCurrentSeason(currentSeason)
     getClickedLeauge(code)
     getClickedLeagueColor(leagueColor)
     setCurrentMatchday(matchday)
-    // console.log(matchday)
+    setCompList(competionsList)
   }
   return (
     <div

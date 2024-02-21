@@ -8,7 +8,7 @@ const TeamCard = ({ team, leauge, season, action, leagueColor }) => {
     <Link href={`/competion/${leauge}/${season}/${action}/${id}`}>
       <div
         style={{ color: leagueColor, textDecorationColor: leagueColor }}
-        className={`flex hover:underline  cursor-pointer font-semibold justify-center items-center flex-col gap-2 p-2`}
+        className={`flex hover:scale-110 duration-200 transition hover:underline  cursor-pointer font-semibold justify-center items-center flex-col gap-2 p-2`}
       >
         <Image src={crest} alt={shortName} width={80} height={80} />
         <h3>{shortName}</h3>
