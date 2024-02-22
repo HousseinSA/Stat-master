@@ -1,5 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
+import { Suspense } from "react"
+import TeamRowSkeleton from "../../../../layout/Skeleton/StandingSkeleton/TableSkeleton"
 const TeamStandingContainer = ({ teamState, league, season, changeAction }) => {
   const {
     draw,

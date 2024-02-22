@@ -13,7 +13,7 @@ const StatsContainer = ({ CompetionData }) => {
   } = CompetionData
   return (
     <div className="w-full h-full  overflow-auto">
-      <div className="flex w-full flex-col p-3 justify-center gap-">
+      <div className="flex w-full flex-col p-3 justify-center gap-4">
         <div className="flex bg-white top-0 sticky gap-2 items-center">
           <Image src={emblem} width={100} height={80} alt={name} />
           <h3 style={{ color: leagueColor }} className="text-xl font-semibold">

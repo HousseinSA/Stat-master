@@ -12,7 +12,7 @@ const MainDataPage = async ({ params }) => {
     teams: <TeamsContainer CompetionData={CompetionData} />,
     stats: <StatsContainer CompetionData={CompetionData} />,
   }
-  return <CompetionContent>{actionList[action]}</CompetionContent>
+  return <>{actionList[action]}</>
 }
 
 export default MainDataPage

@@ -20,7 +20,7 @@ export default async function RootLayout({ children }) {
       <body
         className={`${inter.className}  dark:bg-[#0D0C0A]  transition duration-300 `}
       >
-        <main className="h-screen  w-full max-w-[1200px] px-4 mx-auto sm:px-10 md:px-12">
+        <main className="h-screen container  w-full  px-4 mx-auto sm:px-10 ">
           <HeaderComponent />
           <div className="flex mt-24 md:mt-0 md:flex-row flex-col items-center justify-center w-full h-full">
             <CompetionsList competionsList={competionsList} />

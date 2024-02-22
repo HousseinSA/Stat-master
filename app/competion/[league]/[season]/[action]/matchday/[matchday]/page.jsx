@@ -7,7 +7,7 @@ const fetchMatchData = async (league, season, action, matchday, stage) => {
 }
 
 const page = async ({ params }) => {
-  await new Promise((resolve) => setTimeout(resolve, 300))
+  await new Promise((resolve) => setTimeout(resolve, 3000))
 
   const { action, league, season, matchday } = params
   const matchdayNum = Number(matchday)
@@ -20,13 +20,11 @@ const page = async ({ params }) => {
   ])
 
   return (
-    <CompetionContent>
-      <MatchesContainer
-        currentMatches={currentMatches}
-        prevMatches={prevMatches}
-        nextMatches={nextMatches}
-      />
-    </CompetionContent>
+    <MatchesContainer
+      currentMatches={currentMatches}
+      prevMatches={prevMatches}
+      nextMatches={nextMatches}
+    />
   )
 }
 
