@@ -1,21 +1,21 @@
-"use client"
-import { useEffect } from "react"
-import { useLeagueStore } from "../../../../utils/StateStore"
-import TeamStandingContainer from "./LeagueContainer/TeamStandingContainer"
-import UCLStandings from "./UCl_container/uclStandings"
-import TableContainer from "../../../layout/table/TableContainer"
+"use client";
+import { useEffect } from "react";
+import { useLeagueStore } from "../../../../utils/StateStore";
+import TeamStandingContainer from "./LeagueContainer/TeamStandingContainer";
+import UCLStandings from "./UCl_container/uclStandings";
+import TableContainer from "../../../layout/table/TableContainer";
 const LeagueStandingsContainer = ({ CompetionData }) => {
   // State and context initialization
   const { leagueCode, setCurrentMatchday, season, getClickedAction } =
-    useLeagueStore()
-  const leagueTable = CompetionData?.standings[0]?.table
-  const currentMatchday = CompetionData?.season?.currentMatchday
+    useLeagueStore();
+  const leagueTable = CompetionData?.standings[0]?.table;
+  const currentMatchday = CompetionData?.season?.currentMatchday;
   // Effect for setting current matchday
   useEffect(() => {
-    setCurrentMatchday(currentMatchday)
-  }, [currentMatchday])
+    setCurrentMatchday(currentMatchday);
+  }, [currentMatchday]);
   return (
-    <section className="w-full h-full overflow-auto font-mono">
+    <main className="w-full h-full overflow-auto font-mono">
       <div className="w-full rounded-lg shadow-lg">
         <div className="w-full h-full">
           {leagueCode === "CL" ? (
@@ -42,8 +42,8 @@ const LeagueStandingsContainer = ({ CompetionData }) => {
           )}
         </div>
       </div>
-    </section>
-  )
-}
+    </main>
+  );
+};
 
-export default LeagueStandingsContainer
+export default LeagueStandingsContainer;

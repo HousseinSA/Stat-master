@@ -1,26 +1,28 @@
-import React from "react"
-import MatchRow from "./MatchRow"
-import { useLeagueStore } from "../../../../utils/StateStore"
+import React from "react";
+import MatchRow from "./MatchRow";
+import { useLeagueStore } from "../../../../utils/StateStore";
 
 const MatchesTable = ({ matches }) => {
-  const { leagueColor, leagueCode, season, getClickedAction } = useLeagueStore()
+  const { leagueColor, leagueCode, season, getClickedAction } =
+    useLeagueStore();
   // Determine matchday title
-  let matchdayTitle
+  let matchdayTitle;
   if (leagueCode === "CL") {
     const isAnyMatchScheduled = matches?.matches?.some(
-      (match) => match.status !== "SCHEDULED"
-    )
-    matchdayTitle = isAnyMatchScheduled && `Stage: ${matches.matches[0]?.stage}`
+      (match) => match.status !== "SCHEDULED",
+    );
+    matchdayTitle =
+      isAnyMatchScheduled && `Stage: ${matches.matches[0]?.stage}`;
   } else {
-    matchdayTitle = `Matchday ${matches.name}`
+    matchdayTitle = `Matchday ${matches.name}`;
   }
 
   return (
     <>
-      <h1 style={{ color: leagueColor }} className="p-3 font-semibold">
+      <h1 style={{}} className="p-3 font-semibold  bg-white dark:bg-[#001F3F]">
         {matchdayTitle}
       </h1>
-      <table className="w-full">
+      <table className="w-full h-full bg-white dark:bg-[#001F3F]">
         <tbody>
           {matches.matches?.map((match, index) => (
             <MatchRow
@@ -34,7 +36,7 @@ const MatchesTable = ({ matches }) => {
         </tbody>
       </table>
     </>
-  )
-}
+  );
+};
 
-export default MatchesTable
+export default MatchesTable;

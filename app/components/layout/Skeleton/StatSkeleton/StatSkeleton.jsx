@@ -1,24 +1,39 @@
-import Skeleton from "react-loading-skeleton"
-import StatRow from "./StatRow"
-const StatSkeleton = () => {
-  const statRow = Array.from({ length: 5 })
+import Skeleton from "react-loading-skeleton";
+const StatsContainerSkeleton = () => {
   return (
-    <div className="w-full h-full flex justify-center items-center overflow-auto">
-      <div className="flex w-full flex-col items-center p-3 justify-center gap-3">
-        <div className="flex w-full bg-white top-0 sticky gap-2 items-center">
-          <div className="w-20 h-20">
-            <Skeleton circle={true} height={80} width={80} />
-          </div>
-          <div className="w-40 h-8">
-            <Skeleton height={20} />
-          </div>
+    <div className="h-full w-full overflow-auto">
+      <div className="flex w-full flex-col justify-center">
+        <div className="sticky top-0 z-20 flex w-full items-center gap-2 p-2">
+          <Skeleton width={80} height={50} />
+          <Skeleton width={150} height={30} />
         </div>
-        {statRow.map((row) => {
-          return <StatRow key={row} />
-        })}
+        <div className="w-full flex-1">
+          {[...Array(10)].map((_, index) => {
+            // Render 10 placeholder rows
+            return (
+              <div
+                key={index}
+                className="flex w-full  items-center justify-center gap-2 p-2"
+              >
+                <Skeleton
+                  circle={true}
+                  width={50}
+                  className="flex-1"
+                  height={50}
+                />
+                <Skeleton width={150} height={20} className="flex-1" />
+                <Skeleton width={100} height={20} className="flex-1" />
+                <Skeleton width={100} height={20} className="flex-1" />
+                <Skeleton width={100} height={20} className="flex-1" />
+                <Skeleton width={100} height={20} className="flex-1" />
+                <Skeleton width={100} height={20} className="flex-1" />
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default StatSkeleton
+export default StatsContainerSkeleton;

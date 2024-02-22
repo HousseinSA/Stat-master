@@ -10,7 +10,6 @@ const HeaderNav = () => {
       themeSwitcher(event.matches)
     }
     darkModeMediaQuery.addEventListener("change", handleDarkModeChange)
-
     return () => {
       darkModeMediaQuery.removeEventListener("change", handleDarkModeChange)
     }
@@ -18,7 +17,6 @@ const HeaderNav = () => {
   useEffect(() => {
     document.documentElement.classList.toggle("dark", theme)
   }, [theme])
-
 
   return (
     <nav className="flex items-center gap-4">

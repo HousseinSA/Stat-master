@@ -1,26 +1,26 @@
-"use client"
-import { useLeagueStore } from "../../../utils/StateStore"
+"use client";
+import { useLeagueStore } from "../../../utils/StateStore";
 const TableHead = () => {
-  const { leagueCode, action } = useLeagueStore()
+  const { leagueCode, action } = useLeagueStore();
   const statsHeaders = (
-    <tr className="text-md font-semibold tracking-wide text-left text-gray-900 bg-gray-100 uppercase">
+    <tr className="text-md bg-gray-100 text-left  font-semibold uppercase tracking-wide text-gray-900">
       <th className="px-4 py-3">Player</th>
       <th className="px-4 py-3">Goals</th>
       <th className="px-4 py-3">Assists</th>
       <th className="px-4 py-3">Played Matches</th>
       <th className="px-4 py-3">Team</th>
     </tr>
-  )
+  );
 
   return (
     <thead
-      className={`sticky ${action === "stats" ? "top-20 pt-8" : "top-0"} z-50`}
+      className={`sticky ${action === "stats" ? "top-[96px]" : "top-0"} z-50  `}
     >
       {action === "stats" ? (
         statsHeaders
       ) : (
-        <tr className="text-md font-semibold tracking-wide text-left text-gray-900 bg-gray-100 uppercase">
-          <th className="px-4 py-3 bg-gray-100 clear-start sticky z-20 left-0">
+        <tr className="text-md bg-gray-100 text-left font-semibold uppercase tracking-wide text-gray-900">
+          <th className="sticky left-0 z-20 clear-start bg-gray-100 px-4 py-3">
             Club
           </th>
           <th className="px-4 py-3">MP</th>
@@ -35,7 +35,7 @@ const TableHead = () => {
         </tr>
       )}
     </thead>
-  )
-}
+  );
+};
 
-export default TableHead
+export default TableHead;

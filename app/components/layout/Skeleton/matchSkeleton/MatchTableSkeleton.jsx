@@ -4,9 +4,12 @@ const MatchTableSkeleton = () => {
   const skeletonRows = Array.from({ length: 3 })
   return (
     <>
-      <h1 className="p-3 font-semibold bg-gray-200 w-full">
-        <Skeleton />
-      </h1>
+      <div className="flex mt-4 ml-4 gap-5 items-center">
+        <Skeleton width={50} height={50} circle />
+        <div className="w-20 h-8">
+          <Skeleton height={20} />
+        </div>
+      </div>
       <table className="w-full">
         <tbody>
           {skeletonRows.map((row) => {

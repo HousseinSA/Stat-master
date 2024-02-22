@@ -1,15 +1,15 @@
-import Image from "next/image"
-import FormattedMatchTime from "./FormattedMatchTime"
-import Link from "next/link"
+import Image from "next/image";
+import FormattedMatchTime from "./FormattedMatchTime";
+import Link from "next/link";
 
 const MatchRow = ({ match, season, league, changeAction }) => {
-  const { homeTeam, awayTeam, score, utcDate } = match
+  const { homeTeam, awayTeam, score, utcDate } = match;
   // Check if home team and away team short names are available
   const isTeamsInfoAvailable =
-    homeTeam.shortName !== null && awayTeam.shortName !== null
+    homeTeam.shortName !== null && awayTeam.shortName !== null;
   // Check if full-time scores are available
   const isScoresAvailable =
-    score.fullTime.home !== null && score.fullTime.away !== null
+    score.fullTime.home !== null && score.fullTime.away !== null;
   {
   }
   return (
@@ -18,13 +18,13 @@ const MatchRow = ({ match, season, league, changeAction }) => {
         <tr>
           <td
             onClick={() => changeAction("teams")}
-            className="px-4 py-3 border hover:text-white item-hover sticky left-0 shadow-sm bg-white"
+            className="item-hover sticky left-0 border px-4 py-3 shadow-sm hover:text-white "
           >
             <Link href={`/competion/${league}/${season}/teams/${homeTeam.id}`}>
-              <div className="flex flex-col gap-3 justify-center items-center text-sm">
-                <div className="relative w-8 h-8 mr-3 rounded-full md:block">
+              <div className="flex flex-col items-center justify-center gap-3 text-sm">
+                <div className="relative mr-3 h-8 w-8 rounded-full md:block">
                   <Image
-                    className="object-cover w-full h-full"
+                    className="h-full w-full object-cover"
                     src={homeTeam.crest}
                     alt={homeTeam.shortName}
                     width={50}
@@ -35,41 +35,39 @@ const MatchRow = ({ match, season, league, changeAction }) => {
               </div>
             </Link>
           </td>
-          <td className="px-4 py-3 text-center text-ms font-semibold border">
+          <td className="text-ms border px-4 py-3 text-center font-semibold">
             <div className="flex flex-col ">
               {isScoresAvailable && (
                 <>
-                  <h4 className=" text-xl"> Full-Time</h4>
+                  <h4 className=" text-lg "> Full time</h4>
                   <div className="flex items-center justify-center gap-2">
-                    <span className=" text-xl">{score.fullTime.home}</span>
-                    <span className="font-bold text-xl">-</span>
-                    <span className=" text-xl">{score.fullTime.away}</span>
+                    <span className=" text-md">{score.fullTime.home}</span>
+                    <span className="text-xl font-bold">-</span>
+                    <span className=" text-md">{score.fullTime.away}</span>
                   </div>
                 </>
               )}
               {isScoresAvailable && (
                 <>
-                  <h4 className="text-slate-500 text-sm"> Half-Time</h4>
-                  <div className="flex  items-center justify-center gap-2">
-                    <span className="text-sm text-gray-500">
-                      {score.halfTime.home}
-                    </span>
-                    <span className="font-bold text-sm">-</span>
-                    <span className="text-sm text-gray-500">
-                      {score.halfTime.away}
-                    </span>
+                  <h4 className="dark-gray-500 text-sm text-gray-500 dark:text-white">
+                    Half time
+                  </h4>
+                  <div className="flex  items-center justify-center gap-2 text-gray-500 dark:text-white">
+                    <span className="text-sm ">{score.halfTime.home}</span>
+                    <span className="text-sm font-bold">-</span>
+                    <span className="text-sm ">{score.halfTime.away}</span>
                   </div>
                 </>
               )}
               <FormattedMatchTime matchTime={utcDate} />
             </div>
           </td>
-          <td className="px-4 py-3 border hover:text-white item-hover sticky left-0 shadow-sm bg-white">
+          <td className="item-hover sticky left-0 border px-4  py-3 shadow-sm hover:text-white ">
             <Link href={`/competion/${league}/${season}/teams/${awayTeam.id}`}>
-              <div className="flex flex-col gap-3 items-center justify-center text-sm">
-                <div className="relative w-8 h-8 mr-3 rounded-full md:block">
+              <div className="flex flex-col items-center justify-center gap-3 text-sm">
+                <div className="relative mr-3 h-8 w-8 rounded-full md:block">
                   <Image
-                    className="object-cover w-full h-full"
+                    className="h-full w-full object-cover"
                     src={awayTeam.crest}
                     alt={awayTeam.shortName}
                     width={50}
@@ -83,7 +81,7 @@ const MatchRow = ({ match, season, league, changeAction }) => {
         </tr>
       )}
     </>
-  )
-}
+  );
+};
 
-export default MatchRow
+export default MatchRow;

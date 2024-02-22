@@ -1,7 +1,5 @@
-import Image from "next/image"
-import Link from "next/link"
-import { Suspense } from "react"
-import TeamRowSkeleton from "../../../../layout/Skeleton/StandingSkeleton/TableSkeleton"
+import Image from "next/image";
+import Link from "next/link";
 const TeamStandingContainer = ({ teamState, league, season, changeAction }) => {
   const {
     draw,
@@ -14,12 +12,12 @@ const TeamStandingContainer = ({ teamState, league, season, changeAction }) => {
     position,
     won,
     form,
-  } = teamState
-  const { crest, shortName, id } = teamState.team
+  } = teamState;
+  const { crest, shortName, id } = teamState.team;
   return (
     <tr>
       <td
-        className="px-4 py-3 border hover:text-white item-hover sticky left-0 shadow-sm z-20 bg-white"
+        className="px-4 py-3 dark:border-slate-500 border hover:text-white item-hover sticky left-0 shadow-sm z-20"
         onClick={() => changeAction("teams")}
       >
         <Link href={`/competion/${league}/${season}/teams/${id}`}>
@@ -41,26 +39,26 @@ const TeamStandingContainer = ({ teamState, league, season, changeAction }) => {
           </div>
         </Link>
       </td>
-      <td className="px-4 py-3 text-ms font-semibold border">{playedGames}</td>
-      <td className="px-4 py-3 text-xs border">
+      <td className="px-4 py-3 text-ms font-semibold dark:border-slate-500 border">{playedGames}</td>
+      <td className="px-4 py-3 text-xs dark:border-slate-500 border">
         <span className="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-sm">
           {won}
         </span>
       </td>
-      <td className="px-4 py-3 text-sm border">
+      <td className="px-4 py-3 text-sm dark:border-slate-500 border">
         <span className="px-2 py-1 font-semibold leading-tight text-slate-700 bg-slate-100 rounded-sm">
           {draw}
         </span>
       </td>
-      <td className="px-4 py-3 text-sm border">
+      <td className="px-4 py-3 text-sm dark:border-slate-500 border">
         <span className="px-2 py-1 font-semibold leading-tight text-red-700 bg-red-100 rounded-sm">
           {lost}
         </span>
       </td>
-      <td className="px-4 py-3 text-sm border">{goalsFor}</td>
-      <td className="px-4 py-3 text-sm border">{goalsAgainst}</td>
-      <td className="px-4 py-3 text-sm border">{goalDifference}</td>
-      <td className="px-4 py-3 font-bold text-sm border">{points}</td>
+      <td className="px-4 py-3 text-sm dark:border-slate-500 border">{goalsFor}</td>
+      <td className="px-4 py-3 text-sm dark:border-slate-500 border">{goalsAgainst}</td>
+      <td className="px-4 py-3 text-sm dark:border-slate-500 border">{goalDifference}</td>
+      <td className="px-4 py-3 font-bold text-sm dark:border-slate-500 border">{points}</td>
       {form && (
         <td className="py-2 h-full text-white  font-semibold text-sm flex justify-center items-center gap-1">
           {form.split(",").map((state, index) => {
@@ -77,12 +75,12 @@ const TeamStandingContainer = ({ teamState, league, season, changeAction }) => {
               >
                 {state}
               </div>
-            )
+            );
           })}
         </td>
       )}
     </tr>
-  )
-}
+  );
+};
 
-export default TeamStandingContainer
+export default TeamStandingContainer;

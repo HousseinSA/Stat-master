@@ -1,7 +1,7 @@
-"use client"
-import CompetionActionButtons from "./competionActionButton"
-import { useLeagueStore } from "../../../utils/StateStore"
-import { LeageYear } from "./StandingsContainer/LeagueContainer/LeagueYear"
+"use client";
+import CompetionActionButtons from "./competionActionButton";
+import { useLeagueStore } from "../../../utils/StateStore";
+import { LeageYear } from "./StandingsContainer/LeagueContainer/LeagueYear";
 const CompetionContent = ({ children }) => {
   // get data in league store
   const {
@@ -12,17 +12,17 @@ const CompetionContent = ({ children }) => {
     currentSeason,
     season,
     currentMatchday,
-  } = useLeagueStore()
+  } = useLeagueStore();
   // array of action buttons
-  const actionButton = ["standings", "matches", "teams", "stats"]
+  const actionButton = ["standings", "matches", "teams", "stats"];
   const handelAction = (action) => {
-    getClickedAction(action)
-  }
+    getClickedAction(action);
+  };
   return (
-    <div className=" flex flex-1 flex-col w-full rounded-md dark:text-white  h-full">
+    <div className=" flex h-full w-full flex-1 flex-col rounded-md  dark:text-white">
       <div
         style={{ borderColor: leagueColor }}
-        className={`flex font-semibold w-full rounded-tr-md bg-[#001F3F] gap-4 group text-white p-4 flex-wrap border-b-4 transition duration-300`}
+        className={`group flex w-full flex-wrap gap-4 rounded-tr-md border-b-4 bg-[#001F3F] p-4 font-semibold text-white transition duration-300`}
       >
         {actionButton?.map((btnName, index) => {
           return (
@@ -35,7 +35,7 @@ const CompetionContent = ({ children }) => {
               action={btnName}
               activeAction={handelAction}
             />
-          )
+          );
         })}
       </div>
       {leagueCode === "CL" || action !== "standings" ? null : (
@@ -43,7 +43,7 @@ const CompetionContent = ({ children }) => {
       )}
       {children}
     </div>
-  )
-}
+  );
+};
 
-export default CompetionContent
+export default CompetionContent;

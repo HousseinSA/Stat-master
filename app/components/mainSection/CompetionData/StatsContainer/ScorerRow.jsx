@@ -1,5 +1,5 @@
-import Image from "next/image"
-import Link from "next/link"
+import Image from "next/image";
+import Link from "next/link";
 
 const ScorersRow = ({ scorer, league, color, season, index }) => {
   const {
@@ -8,31 +8,31 @@ const ScorersRow = ({ scorer, league, color, season, index }) => {
     playedMatches,
     player: { name },
     team: { name: teamName, crest, id },
-  } = scorer
+  } = scorer;
   return (
-    <tr className="w-full">
-      <td className="px-4 py-3 text-sm font-semibold border whitespace-nowrap">
+    <tr>
+      <td className="whitespace-nowrap border px-4 py-3 text-sm font-semibold">
         <span style={{ color: color }} className="mr-2 text-lg">
           {index + 1}
         </span>
         {name}
       </td>
-      <td className="px-4 py-3 font-semibold text-md border whitespace-nowrap">
+      <td className="text-md whitespace-nowrap border px-4 py-3 font-semibold">
         {goals}
       </td>
-      <td className="px-4 py-3 font-semibold text-md border whitespace-nowrap">
+      <td className="text-md whitespace-nowrap border px-4 py-3 font-semibold">
         {assists ? assists : "0"}
       </td>
-      <td className="px-4 font-semibold py-3 text-md border whitespace-nowrap">
+      <td className="text-md whitespace-nowrap border px-4 py-3 font-semibold">
         {playedMatches}
       </td>
       <Link href={`/competion/${league}/${season}/teams/${id}`}>
-        <td className="px-4 py-3 hover:scale-110 transition duration-200 text-sm border whitespace-nowrap">
+        <td className="flex-1 whitespace-nowrap border px-4 py-3 text-sm transition duration-200 hover:scale-110">
           <Image src={crest} alt={teamName} width={50} height={50} />
         </td>
       </Link>
     </tr>
-  )
-}
+  );
+};
 
-export default ScorersRow
+export default ScorersRow;

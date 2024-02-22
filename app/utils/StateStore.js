@@ -1,5 +1,5 @@
-import { create } from "zustand"
-import { persist } from "zustand/middleware"
+import { create } from "zustand";
+import { persist } from "zustand/middleware";
 const store = (set) => ({
   leagueCode: "PL",
   leagueColor: null,
@@ -23,6 +23,6 @@ const store = (set) => ({
   getTeamId: (clickTeamId) => set({ teamId: clickTeamId }),
   compList: {},
   setCompList: (list) => set({ compList: list }),
-})
+});
 
-export const useLeagueStore = create(persist(store, { name: "store" }))
+export const useLeagueStore = create(persist(store, { name: "store" }));

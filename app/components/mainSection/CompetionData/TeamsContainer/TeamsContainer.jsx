@@ -1,26 +1,28 @@
-"use client"
+"use client";
 
-import { useLeagueStore } from "../../../../utils/StateStore"
-import TeamCard from "./TeamCard"
+import { useLeagueStore } from "../../../../utils/StateStore";
+import TeamCard from "./TeamCard";
+
 const TeamsContainer = ({ CompetionData }) => {
-  const teams = CompetionData.teams
-  const { leagueCode, season, action, leagueColor } = useLeagueStore()
+  const teams = CompetionData.teams;
+  const { leagueCode, season, action, theme, leagueColor } = useLeagueStore();
   return (
-    <div className="w-full min-w-full flex gap-4 justify-center flex-wrap overflow-y-scroll items-center p-2">
+    <div className="flex h-full w-full flex-wrap  items-center justify-center gap-4 overflow-y-scroll p-2">
       {teams.map((team, index) => {
         return (
           <TeamCard
             key={index}
-            leauge={leagueCode}
+            league={leagueCode}
             action={action}
             season={season}
             leagueColor={leagueColor}
             team={team}
+            theme={theme}
           />
-        )
+        );
       })}
     </div>
-  )
-}
+  );
+};
 
-export default TeamsContainer
+export default TeamsContainer;

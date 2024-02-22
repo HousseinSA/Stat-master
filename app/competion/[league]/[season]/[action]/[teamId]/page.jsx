@@ -1,17 +1,17 @@
-
-import TeamContainer from "../../../../../components/mainSection/CompetionData/TeamsContainer/TeamContainer"
-import { getTeamData } from "../../../../../utils/allDataFetchingFunctions"
+import TeamContainer from "../../../../../components/mainSection/CompetionData/TeamsContainer/TeamContainer";
+import {
+  getTeamData,
+  getTeamMatches,
+} from "../../../../../utils/allDataFetchingFunctions";
 const TeamPage = async ({ params }) => {
-  const { teamId, action } = params
-  const teamData = await getTeamData(action, teamId)
-  await new Promise((resolve) => setTimeout(resolve, 3000))
-  return (
-    <div>
+  const { teamId, action } = params;
 
-        <TeamContainer teamData={teamData} />
-     
-    </div>
-  )
-}
+  const [data, matches] = await Promise.all([
+    getTeamData(action, teamId),
+    getTeamMatches(action, teamId),
+  ]);
 
-export default TeamPage
+  return <TeamContainer teamData={data} teamMatches={matches} />;
+};
+
+export default TeamPage;

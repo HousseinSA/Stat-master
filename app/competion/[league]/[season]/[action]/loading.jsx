@@ -1,29 +1,29 @@
-"use client"
-import { SkeletonTheme } from "react-loading-skeleton"
-import "react-loading-skeleton/dist/skeleton.css"
-import TeamRowSkeleton from "../../../../components/layout/Skeleton/StandingSkeleton/TableSkeleton"
-import { useLeagueStore } from "../../../../utils/StateStore"
-import TeamSkeleton from "../../../../components/layout/Skeleton/TeamSkeleton/TeamSkeleton"
-import StatSkeleton from "../../../../components/layout/Skeleton/StatSkeleton/StatSkeleton"
-
+"use client";
+import { SkeletonTheme } from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
+import TableSkeleton from "../../../../components/layout/Skeleton/StandingSkeleton/TableSkeleton";
+import { useLeagueStore } from "../../../../utils/StateStore";
+import StatSkeleton from "../../../../components/layout/Skeleton/StatSkeleton/StatSkeleton";
+import MatchTableSkeleton from "../../../../components/layout/Skeleton/matchSkeleton/MatchTableSkeleton";
+import TeamsContainerSkeleton from "../../../../components/layout/Skeleton/TeamSkeleton/TeamsContainerSkeleton";
+import TeamContainerSkeleton from "../../../../components/layout/Skeleton/TeamSkeleton/TeamContainerSkeleton";
+import { useParams } from "next/navigation";
 const Loading = () => {
-  const { action } = useLeagueStore()
+  const { action, theme } = useLeagueStore();
+  const params = useParams();
+  const loadingAction = {
+    stats: <StatSkeleton />,
+    standings: <TableSkeleton />,
+    matches: <MatchTableSkeleton />,
+    teams: <TeamsContainerSkeleton />,
+  };
+  const baseColor = theme === "light" ? "#B0B0B0" : "#FFFFFF";
+  const highlightColor = theme === "light" ? "#B8B8B8" : "#333333";
   return (
-    <div className="mt-5 w-full  justify-center">
-      {/* Ensure the parent container stretches to full width */}
-      <div className="w-full max-w-screen-lg">
-        <SkeletonTheme baseColor="#818181" highlightColor="#888">
-          {action === "teams" ? (
-            <TeamSkeleton />
-          ) : action === "stats" ? (
-            <StatSkeleton />
-          ) : (
-            <TeamRowSkeleton />
-          )}
-        </SkeletonTheme>
-      </div>
-    </div>
-  )
-}
+    <SkeletonTheme baseColor={baseColor} highlightColor={highlightColor}>
+      {params.teamId ? <TeamContainerSkeleton /> : loadingAction[action]}
+    </SkeletonTheme>
+  );
+};
 
-export default Loading
+export default Loading;
