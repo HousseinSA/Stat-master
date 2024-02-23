@@ -1,6 +1,6 @@
 const baseUrl = "http://api.football-data.org/v4/competitions";
 const teamBaseUrl = "http://api.football-data.org/v4";
-export async function getCompetionList() {
+export async function getCompetitionsList() {
   const competitionList = `${baseUrl}?areas=2077`;
   const competitionListData = await fetchFunction(competitionList);
   return competitionListData;

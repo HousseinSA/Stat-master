@@ -1,41 +1,29 @@
 "use client";
-
-import Image from "next/image";
 import { useLeagueStore } from "../../../../utils/StateStore";
-import ScorerRow from "./ScorerRow";
-import TableContainer from "../../../layout/table/TableContainer";
-
+import Image from "next/image";
+import StatsTable from "./StatTable/StatsTable";
 const StatsContainer = ({ CompetionData }) => {
-  const { leagueColor, leagueCode, season } = useLeagueStore();
+  const { leagueColor, getClickedAction, season, theme } = useLeagueStore();
   const {
     scorers,
     competition: { emblem, name },
   } = CompetionData;
   return (
-    <div className="h-full w-full overflow-auto">
-      <div className="flex w-full flex-col justify-center ">
-        <div className="sticky top-0 z-20 flex w-full items-center gap-2 bg-[#F1F5F9] p-2">
+    <div className=" h-full w-full overflow-auto ">
+      <div className="flex w-full flex-col items-center justify-center">
+        <div className="sticky top-0 z-20 flex w-full items-center gap-2 bg-[#F1F5F9] p-1.5 text-slate-500 dark:bg-gray-700">
           <Image src={emblem} width={80} height={50} alt={name} />
           <h3 style={{ color: leagueColor }} className="text-xl font-semibold">
             {name}
           </h3>
         </div>
-        <div className="w-full flex-1">
-          <TableContainer>
-            {scorers.map((scorer, index) => {
-              return (
-                <ScorerRow
-                  key={index}
-                  index={index}
-                  season={season}
-                  league={leagueCode}
-                  scorer={scorer}
-                  color={leagueColor}
-                />
-              );
-            })}
-          </TableContainer>
-        </div>
+        <StatsTable
+          scorers={scorers}
+          season={season}
+          color={leagueColor}
+          theme={theme}
+          changeAction={getClickedAction}
+        />
       </div>
     </div>
   );

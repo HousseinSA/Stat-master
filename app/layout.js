@@ -2,9 +2,9 @@ import { Inter } from "next/font/google";
 import Head from "next/head";
 import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
-import CompetionsList from "./components/mainSection/sideNav/CompetionsList";
+import CompetitionList from "./components/mainSection/sideNav/CompetitionsList";
 import HeaderComponent from "./components/HeaderSection/HeaderComponent";
-import { getCompetionList } from "./utils/allDataFetchingFunctions";
+import { getCompetitionsList } from "./utils/allDataFetchingFunctions";
 
 export const metadata = {
   title: "StatMaster",
@@ -12,18 +12,18 @@ export const metadata = {
 };
 
 export default async function RootLayout({ children }) {
-  const competionsList = await getCompetionList();
+  const competitionsList = await getCompetitionsList();
 
   return (
     <html lang="en">
       <link rel="icon" href="/StatMaster.svg" />
       <body
-        className={`${inter.className}  dark:bg-[#222222]  transition duration-300 `}
+        className={`${inter.className}  transition  duration-300 dark:bg-[#222222] `}
       >
-        <main className="h-screen container  w-full  px-4 mx-auto sm:px-10 ">
+        <main className="container mx-auto  h-screen  w-full px-4 sm:px-10 ">
           <HeaderComponent />
-          <div className="flex mt-24 md:mt-0 md:flex-row flex-col items-center justify-center w-full h-full">
-            <CompetionsList competionsList={competionsList} />
+          <div className="mt-24 flex h-full w-full flex-col items-center justify-center md:mt-0 md:flex-row">
+            <CompetitionList competitionsList={competitionsList} />
             {children}
           </div>
         </main>

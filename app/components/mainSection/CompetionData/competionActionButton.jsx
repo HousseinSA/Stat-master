@@ -1,4 +1,4 @@
-import Link from "next/link"
+import Link from "next/link";
 const CompetionActionButtons = ({
   season,
   leauge,
@@ -10,19 +10,19 @@ const CompetionActionButtons = ({
   const actionLink =
     action !== "matches"
       ? `/competion/${leauge}/${season}/${action}`
-      : `/competion/${leauge}/${season}/${action}/matchday/${matchday}`
+      : `/competion/${leauge}/${season}/${action}/matchday/${matchday}`;
   return (
     <Link href={actionLink} prefetch>
       <button
         onClick={() => activeAction(action)}
         className={`item-hover ${
           activeBtn ? " bg-slate-700 " : ""
-        } text-center w-full capitalize`}
+        } w-full text-center capitalize`}
       >
         {action}
       </button>
     </Link>
-  )
-}
+  );
+};
 
-export default CompetionActionButtons
+export default CompetionActionButtons;

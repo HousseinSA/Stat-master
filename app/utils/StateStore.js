@@ -3,7 +3,7 @@ import { persist } from "zustand/middleware";
 const store = (set) => ({
   leagueCode: "PL",
   leagueColor: null,
-  getClickedLeauge: (clickedLeague) => set({ leagueCode: clickedLeague }),
+  getClickedLeague: (clickedLeague) => set({ leagueCode: clickedLeague }),
   getClickedLeagueColor: (clickedLeagueColor) =>
     set({ leagueColor: clickedLeagueColor }),
   action: null,
@@ -21,8 +21,6 @@ const store = (set) => ({
   setCurrentMatchday: (currMatchDay) => set({ currentMatchday: currMatchDay }),
   teamId: null,
   getTeamId: (clickTeamId) => set({ teamId: clickTeamId }),
-  compList: {},
-  setCompList: (list) => set({ compList: list }),
 });
 
-export const useLeagueStore = create(persist(store, { name: "store" }));
+export const useLeagueStore = create(store, { name: "store" });

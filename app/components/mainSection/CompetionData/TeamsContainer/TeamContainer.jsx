@@ -2,8 +2,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useLeagueStore } from "../../../../utils/StateStore";
-import { Suspense } from "react";
-import TeamContainerSkeleton from "../../../layout/Skeleton/TeamSkeleton/TeamContainerSkeleton";
 import MatchRow from "../MatchesContainer/MatchRow";
 const TeamContainer = ({ teamData, teamMatches }) => {
   const { crest, name, founded, venue, website, coach, runningCompetitions } =

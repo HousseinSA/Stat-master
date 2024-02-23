@@ -1,40 +1,40 @@
-"use client"
-import { useEffect } from "react"
-import { useLeagueStore } from "../../../../../utils/StateStore"
-import { useRouter } from "next/navigation"
+"use client";
+import { useEffect } from "react";
+import { useLeagueStore } from "../../../../../utils/StateStore";
+import { useRouter } from "next/navigation";
 export const LeageYear = () => {
   const { season, setSeason, currentSeason, leagueColor, action, leagueCode } =
-    useLeagueStore()
-  const route = useRouter()
+    useLeagueStore();
+  const route = useRouter();
   const seasonsList = Array.from(
     { length: 4 },
-    (_, index) => currentSeason - index
-  )
+    (_, index) => currentSeason - index,
+  );
   function handelSeasonChange(event) {
-    const Season = event.target.value
-    setSeason(Season)
+    const Season = event.target.value;
+    setSeason(Season);
   }
 
   useEffect(() => {
-    route.push(`/competion/${leagueCode}/${season}/${action}`)
-  }, [season])
+    route.push(`/competion/${leagueCode}/${season}/${action}`);
+  }, [season]);
   return (
-    <div className="w-auto h-fit z-50 p-2 flex gap-3 bg-slate-100 text-slate-500 items-center ">
-      <h3 className="font-semibold ">Season</h3>
+    <div className="z-50 flex h-fit w-auto items-center gap-3 bg-[#F1F5F9] p-2  text-slate-500 dark:bg-gray-700  ">
+      <h3 className="font-semibold dark:text-white ">Season</h3>
       <select
         value={season === 0 ? "loading" : season}
         onChange={handelSeasonChange}
         style={{ borderColor: leagueColor }}
-        className={`border rounded-sm outline-none transition duration-500`}
+        className={`rounded-sm border outline-none transition duration-500`}
       >
         {seasonsList.map((season) => {
           return (
             <option key={season} value={season}>
               {season}
             </option>
-          )
+          );
         })}
       </select>
     </div>
-  )
-}
+  );
+};

@@ -1,41 +1,38 @@
-const TableHead = ({ league }) => {
+import Skeleton from "react-loading-skeleton";
+const HeadSkeleton = () => {
   return (
-    <thead className="sticky top-0 z-50  bg-[#F1F5F9] text-xs uppercase text-gray-700 marker:text-center dark:bg-gray-700 dark:text-white">
+    <thead className="sticky top-0 z-50 bg-[#F1F5F9] text-xs uppercase text-gray-700 marker:text-center dark:bg-gray-700 dark:text-white">
       <tr>
         <th scope="col" className="px-6 py-3 text-left">
-          Club
+          <Skeleton width={100} />
         </th>
         <th scope="col" className="px-6 py-3">
-          MP
+          <Skeleton width={50} />
         </th>
         <th scope="col" className="px-6 py-3">
-          W
+          <Skeleton width={50} />
         </th>
         <th scope="col" className="px-6 py-3">
-          D
+          <Skeleton width={50} />
         </th>
         <th scope="col" className="px-6 py-3">
-          L
+          <Skeleton width={50} />
         </th>
         <th scope="col" className="px-6 py-3">
-          GF
+          <Skeleton width={50} />
         </th>
         <th scope="col" className="px-6 py-3">
-          GA
+          <Skeleton width={50} />
         </th>
         <th scope="col" className="px-6 py-3">
-          GD
+          <Skeleton width={50} />
         </th>
         <th scope="col" className="px-6 py-3">
-          PTS
-        </th>
-
-        <th scope="col" className="px-6 py-3">
-          FORM
+          <Skeleton width={50} />
         </th>
       </tr>
     </thead>
   );
-};
+}
 
-export default TableHead;
+export default HeadSkeleton

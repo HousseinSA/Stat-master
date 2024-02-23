@@ -1,39 +1,28 @@
 import Skeleton from "react-loading-skeleton";
-const StatsContainerSkeleton = () => {
+import HeadSkeleton from "./HeadSkeleton";
+import RowSkeleton from "./RowSkeleton";
+const StatSkeleton = () => {
   return (
     <div className="h-full w-full overflow-auto">
-      <div className="flex w-full flex-col justify-center">
-        <div className="sticky top-0 z-20 flex w-full items-center gap-2 p-2">
+      <div className="flex flex-col items-center justify-center">
+        <div className="sticky top-0 z-20 flex w-full items-center gap-2 bg-[#F1F5F9] p-1.5 text-slate-500 dark:bg-gray-700">
+          {/* Skeleton for emblem */}
           <Skeleton width={80} height={50} />
-          <Skeleton width={150} height={30} />
+          {/* Skeleton for name */}
+          <Skeleton width={120} />
         </div>
-        <div className="w-full flex-1">
-          {[...Array(10)].map((_, index) => {
-            // Render 10 placeholder rows
-            return (
-              <div
-                key={index}
-                className="flex w-full  items-center justify-center gap-2 p-2"
-              >
-                <Skeleton
-                  circle={true}
-                  width={50}
-                  className="flex-1"
-                  height={50}
-                />
-                <Skeleton width={150} height={20} className="flex-1" />
-                <Skeleton width={100} height={20} className="flex-1" />
-                <Skeleton width={100} height={20} className="flex-1" />
-                <Skeleton width={100} height={20} className="flex-1" />
-                <Skeleton width={100} height={20} className="flex-1" />
-                <Skeleton width={100} height={20} className="flex-1" />
-              </div>
-            );
-          })}
-        </div>
+        {/* Skeleton for StatsTable */}
+        <table className="h-auto w-full text-sm text-gray-500 dark:text-gray-400">
+          <HeadSkeleton />
+          <tbody>
+            {[...Array(10)].map((index) => (
+              <RowSkeleton key={index} />
+            ))}
+          </tbody>
+        </table>
       </div>
     </div>
   );
 };
 
-export default StatsContainerSkeleton;
+export default StatSkeleton;
