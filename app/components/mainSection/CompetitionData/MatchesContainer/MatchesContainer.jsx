@@ -26,7 +26,7 @@ export default function MatchesContainer({
 
   return (
     <div className="overflow-y-scroll">
-      <div className="flex items-center sticky top-0 left-0 z-50 dark:bg-[#001F3F] bg-white gap-3">
+      <div className="sticky left-0 top-0 z-50 flex items-center gap-3  bg-[#F1F5F9]  dark:bg-gray-700">
         <Image
           src={emblem}
           width={50}
@@ -36,7 +36,7 @@ export default function MatchesContainer({
         />
         <h3 className="font-semibold">{competitionName}</h3>
       </div>
-      <div>
+      <div >
         {matches.map((match, index) => (
           <MatchesTable key={index} matches={match} />
         ))}

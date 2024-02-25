@@ -3,7 +3,8 @@ import MatchRow from "./MatchRow";
 import { useLeagueStore } from "../../../../utils/StateStore";
 
 const MatchesTable = ({ matches }) => {
-  const { leagueCode, season, getClickedAction } = useLeagueStore();
+  const { leagueCode, season, leagueColor, getClickedAction } =
+    useLeagueStore();
   // Determine matchday title
   let matchdayTitle;
   if (leagueCode === "CL") {
@@ -18,18 +19,17 @@ const MatchesTable = ({ matches }) => {
 
   return (
     <>
-      <h1 style={{}} className="bg-white p-3 font-semibold dark:bg-[#001F3F] ">
+      <h1 style={{ color: leagueColor }} className=" p-3 font-semibold ">
         {matchdayTitle}
       </h1>
-      <div className="flex flex-wrap items-center justify-center gap-4">
+      <div className="grid grid-cols-1 gap-4 p-2 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-3 xl:grid-cols-3">
         {matches.matches?.map((match, index) => (
           <MatchRow
-            season={season}
-            league={leagueCode}
             key={index}
             match={match}
+            season={season}
+            league={leagueCode}
             changeAction={getClickedAction}
-            className="w-full md:w-1/3" // Set width to 1/3 on medium screens and above
           />
         ))}
       </div>

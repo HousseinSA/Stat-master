@@ -88,19 +88,18 @@ const TeamContainer = ({ teamData, teamMatches }) => {
         <h3 style={textColor} className="font-semibold">
           Matches
         </h3>
-        <table className=" w-full bg-white dark:bg-[#001F3F]">
-          <tbody>
-            {nextMatches?.map((match, index) => (
-              <MatchRow
-                season={season}
-                league={leagueCode}
-                key={index}
-                match={match}
-                changeAction={getClickedAction}
-              />
-            ))}
-          </tbody>
-        </table>
+        <div className="flex w-full flex-wrap gap-3 ">
+          {nextMatches?.map((match, index) => (
+            <MatchRow
+              season={season}
+              league={leagueCode}
+              key={index}
+              match={match}
+              className="flex-1"
+              changeAction={getClickedAction}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
