@@ -1,8 +1,8 @@
 "use client";
-import CompetionContent from "./components/mainSection/CompetionData/CompetionContent";
+import CompetitionContent from "./components/mainSection/CompetitionData/CompetitionContent";
 const NotFound = ({ error, reset }) => {
   return (
-    <CompetionContent>
+    <CompetitionContent>
       <div className="flex h-full w-full flex-col items-center justify-center gap-4">
         <h3 className="text-xl font-bold text-red-500">Something went wrong</h3>
         <button
@@ -12,7 +12,7 @@ const NotFound = ({ error, reset }) => {
           Reset
         </button>
       </div>
-    </CompetionContent>
+    </CompetitionContent>
   );
 };
 

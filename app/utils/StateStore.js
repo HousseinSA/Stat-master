@@ -6,7 +6,7 @@ const store = (set) => ({
   getClickedLeague: (clickedLeague) => set({ leagueCode: clickedLeague }),
   getClickedLeagueColor: (clickedLeagueColor) =>
     set({ leagueColor: clickedLeagueColor }),
-  action: null,
+  action: "standings",
   getClickedAction: (clickedAction) => set({ action: clickedAction }),
   theme: null,
   themeSwitcher: (themeStatus) => set({ theme: themeStatus }),

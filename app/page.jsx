@@ -1,11 +1,8 @@
-import CompetionContent from "./components/mainSection/CompetionData/CompetionContent";
-import RedirectPath from "./components/layout/RedirectPath";
+import CompetitionContent from "./components/mainSection/CompetitionData/CompetitionContent";
+
 const Page = () => {
-  return (
-    <CompetionContent>
-      <RedirectPath />
-    </CompetionContent>
-  );
+
+  return <CompetitionContent></CompetitionContent>;
 };
 
 export default Page;

@@ -1,5 +1,5 @@
-import Image from "next/image"
-import Link from "next/link"
+import Image from "next/image";
+import Link from "next/link";
 const LeagueItem = ({
   name,
   emblem,
@@ -11,10 +11,11 @@ const LeagueItem = ({
   matchday,
   action,
 }) => {
+
   const leaugeActionPath =
     action !== "matches"
-      ? `/competion/${code}/${season}/${action}`
-      : `/competion/${code}/${season}/${action}/matchday/${matchday}`
+      ? `/competition/${code}/${season}/${action}`
+      : `/competition/${code}/${season}/${action}/matchday/${matchday}`;
   return (
     <Link href={leaugeActionPath}>
       <li
@@ -27,7 +28,7 @@ const LeagueItem = ({
           <Image
             src={emblem}
             alt={name}
-            className="min-w-[40px] min-h-[40px]"
+            className="min-h-[40px] min-w-[40px]"
             width={25}
             height={25}
             priority
@@ -38,7 +39,7 @@ const LeagueItem = ({
         </div>
       </li>
     </Link>
-  )
-}
+  );
+};
 
-export default LeagueItem
+export default LeagueItem;

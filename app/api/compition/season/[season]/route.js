@@ -1,7 +1,7 @@
 // export async function GET(request) {
 //   const { searchParams } = new URL(request.url)
 //   const obj = Object.fromEntries(searchParams.entries())
-//   console.log(obj)
+//
 //   const res = await fetch(
 //     `http://api.football-data.org/v4/competitions/${obj.league}/standings?season=${obj.season}`,
 //     {

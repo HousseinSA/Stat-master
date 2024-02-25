@@ -27,7 +27,7 @@ async function fetchFunction(url) {
 }
 
 // compition standing
-export async function getCompetionData(
+export async function getCompetitionData(
   league,
   season,
   action,
@@ -65,7 +65,7 @@ export async function getTeamData(action, teamId) {
 
 export async function getTeamMatches(action, teamId) {
   const teamLink = `${teamBaseUrl}/${action}/${teamId}/matches`;
-  console.log(teamLink);
+
   const fetchTeamMatches = await fetchFunction(teamLink);
   return fetchTeamMatches;
 }

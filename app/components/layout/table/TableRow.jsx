@@ -14,6 +14,7 @@ const TableRow = ({ team, league, season, changeAction }) => {
     form,
   } = team;
   const { crest, shortName, id } = team.team;
+
   return (
     <tr
       className=" border-b bg-white dark:border-gray-700 dark:bg-gray-800"
@@ -25,7 +26,7 @@ const TableRow = ({ team, league, season, changeAction }) => {
       >
         <Link
           className="hover:slate-500 flex items-center gap-2 "
-          href={`/competion/${league}/${season}/teams/${id}`}
+          href={`/competition/${league}/${season}/teams/${id}`}
         >
           <span>{position}</span>
           <Image src={crest} alt={shortName} width={50} height={50} />
@@ -52,24 +53,27 @@ const TableRow = ({ team, league, season, changeAction }) => {
       <td className="px-6 py-4">{goalsAgainst}</td>
       <td className="px-6 py-4">{goalDifference}</td>
       <td className="px-6 py-4"> {points}</td>
-      <td className="mr-2 flex items-center gap-1">
-        {form.split(",").map((state, index) => {
-          return (
-            <div
-              key={index}
-              className={`flex h-5 w-5 items-center justify-center rounded-full p-3 text-sm font-normal text-white  ${
-                state === "W"
-                  ? "bg-green-500"
-                  : state === "D"
-                    ? "bg-slate-500"
-                    : state === "L" && "bg-red-500"
-              }`}
-            >
-              {state}
-            </div>
-          );
-        })}
-      </td>
+      {league !== "CL" && form && (
+        <td className="mr-2 flex items-center gap-1">
+          {league !== "CL" &&
+            form.split(",").map((state, index) => {
+              return (
+                <div
+                  key={index}
+                  className={`flex h-5 w-5 items-center justify-center rounded-full p-3 text-sm font-normal text-white  ${
+                    state === "W"
+                      ? "bg-green-500"
+                      : state === "D"
+                        ? "bg-slate-500"
+                        : state === "L" && "bg-red-500"
+                  }`}
+                >
+                  {state}
+                </div>
+              );
+            })}
+        </td>
+      )}
     </tr>
   );
 };
