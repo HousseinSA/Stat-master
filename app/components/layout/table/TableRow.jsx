@@ -54,13 +54,13 @@ const TableRow = ({ team, league, season, changeAction, textColor }) => {
       <td className="px-6 py-4">{goalDifference}</td>
       <td className="px-6 py-4"> {points}</td>
       {league !== "CL" && form && (
-        <td className="mr-2 flex items-center gap-1">
+        <td className="mr-2 flex h-full justify-center items-center gap-1">
           {league !== "CL" &&
             form.split(",").map((state, index) => {
               return (
                 <div
                   key={index}
-                  className={`flex h-5 w-5 items-center justify-center rounded-full p-3 text-sm font-normal text-white  ${
+                  className={`flex h-5 w-5 items-center   justify-center rounded-full p-3 text-xs font-normal text-white  ${
                     state === "W"
                       ? "bg-green-500"
                       : state === "D"

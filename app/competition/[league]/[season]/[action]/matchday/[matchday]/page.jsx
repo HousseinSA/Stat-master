@@ -1,4 +1,3 @@
-import CompetitionContent from "../../../../../../components/mainSection/CompetitionData/CompetitionContent";
 import MatchesContainer from "../../../../../../components/mainSection/CompetitionData/MatchesContainer/MatchesContainer";
 import { getCompetitionData } from "../../../../../../utils/allDataFetchingFunctions";
 
@@ -16,7 +15,7 @@ const page = async ({ params }) => {
     fetchMatchData(league, season, action, matchdayNum - 1, uclStages[1]),
     fetchMatchData(league, season, action, matchdayNum + 1, uclStages[2]),
   ]);
-
+  // await new Promise((resolve) => setTimeout(resolve, 3000));
   return (
     <MatchesContainer
       currentMatches={currentMatches}

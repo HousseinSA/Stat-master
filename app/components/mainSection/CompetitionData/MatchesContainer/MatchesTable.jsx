@@ -23,7 +23,7 @@ const MatchesTable = ({ matches }) => {
         style={{
           color: leagueColor,
         }}
-        className=" p-3 my-3 font-semibold "
+        className=" my-3 p-3 font-semibold "
       >
         {matchdayTitle}
       </h1>
@@ -35,6 +35,7 @@ const MatchesTable = ({ matches }) => {
             season={season}
             league={leagueCode}
             changeAction={getClickedAction}
+            textColor={leagueColor}
           />
         ))}
       </div>

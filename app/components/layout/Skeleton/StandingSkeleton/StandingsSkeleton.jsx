@@ -1,86 +1,44 @@
+import React from "react";
 import Skeleton from "react-loading-skeleton";
-
+import TableHead from "../../table/TableHead";
 const StandingsSkeleton = () => {
-  const numRows = 20; // Number of rows in the skeleton
-
   return (
     <main className="h-full w-full overflow-auto">
-      <div className="w-full rounded-lg shadow-lg">
-        <div className="h-full w-full">
-          <div className="overflow-x-auto overflow-y-auto sm:overflow-x-scroll">
-            <table className="w-full">
-              <thead className="sticky top-0 z-50 bg-[#F1F5F9] text-xs uppercase text-gray-700 marker:text-center dark:bg-gray-700 dark:text-white">
-                <tr>
-                  <th scope="col" className="px-6 py-3 text-left">
-                    <Skeleton width={100} />
-                  </th>
-                  <th scope="col" className="px-6 py-3">
-                    <Skeleton width={50} />
-                  </th>
-                  <th scope="col" className="px-6 py-3">
-                    <Skeleton width={50} />
-                  </th>
-                  <th scope="col" className="px-6 py-3">
-                    <Skeleton width={50} />
-                  </th>
-                  <th scope="col" className="px-6 py-3">
-                    <Skeleton width={50} />
-                  </th>
-                  <th scope="col" className="px-6 py-3">
-                    <Skeleton width={50} />
-                  </th>
-                  <th scope="col" className="px-6 py-3">
-                    <Skeleton width={50} />
-                  </th>
-                  <th scope="col" className="px-6 py-3">
-                    <Skeleton width={50} />
-                  </th>
-                  <th scope="col" className="px-6 py-3">
-                    <Skeleton width={50} />
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {[...Array(numRows)].map((_, index) => (
-                  <tr
-                    key={index}
-                    className="border-b bg-white dark:border-gray-700 dark:bg-gray-800"
-                  >
-                    <td className="whitespace-nowrap px-6 py-4 text-left font-medium text-gray-900 dark:text-white">
-                      <Skeleton width={100} />
-                    </td>
-                    <td className="px-6 py-4">
-                      <Skeleton width={50} />
-                    </td>
-                    <td className="px-6 py-4">
-                      <Skeleton width={50} />
-                    </td>
-                    <td className="px-6 py-4">
-                      <Skeleton width={50} />
-                    </td>
-                    <td className="px-6 py-4">
-                      <Skeleton width={50} />
-                    </td>
-                    <td className="px-6 py-4">
-                      <Skeleton width={50} />
-                    </td>
-                    <td className="px-6 py-4">
-                      <Skeleton width={50} />
-                    </td>
-                    <td className="px-6 py-4">
-                      <Skeleton width={50} />
-                    </td>
-                    <td className="px-6 py-4">
-                      <Skeleton width={50} />
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
+      <div className="w-full">
+        <TableContainerSkeleton />
       </div>
     </main>
+  );
+};
+
+const TableContainerSkeleton = () => {
+  return (
+    <table className="w-full overflow-auto">
+      <TableHead />
+      <tbody>
+        {Array.from({ length: 10 }).map((index) => {
+          return <TableRowSkeleton key={index} />;
+        })}
+      </tbody>
+    </table>
+  );
+};
+
+const TableRowSkeleton = () => {
+  return (
+    <tr className="border-b bg-white dark:border-gray-700 dark:bg-gray-800">
+      <td className="item-hover sticky left-0 z-20 flex cursor-pointer items-center gap-1 whitespace-nowrap px-6 py-4 font-medium text-gray-900 shadow-sm hover:text-white dark:text-white">
+        <Skeleton width={50} height={50} />
+        <Skeleton width={60} />
+      </td>
+      {Array.from({ length: 9 }).map((index) => {
+        return (
+          <td key={index}>
+            <Skeleton width={50} />
+          </td>
+        );
+      })}
+    </tr>
   );
 };
 

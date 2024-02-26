@@ -1,6 +1,6 @@
 import Skeleton from "react-loading-skeleton";
 
-const TeamContainerSkeleton = () => {
+const TeamSkeleton = () => {
   return (
     <div className="flex flex-col justify-center gap-8 overflow-y-auto p-4">
       <div className="mx-4 flex items-center justify-between">
@@ -62,4 +62,4 @@ const TeamContainerSkeleton = () => {
   );
 };
 
-export default TeamContainerSkeleton;
+export default TeamSkeleton;
