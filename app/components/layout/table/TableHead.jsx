@@ -1,6 +1,9 @@
-const TableHead = ({ league }) => {
+const TableHead = ({ league, textColor }) => {
   return (
-    <thead className="sticky top-0 z-50 w-full  bg-[#F1F5F9] text-xs uppercase text-gray-700 marker:text-center dark:bg-gray-700 dark:text-white">
+    <thead
+      style={{ color: textColor }}
+      className="sticky top-0 z-50 w-full  bg-[#F1F5F9] text-xs uppercase text-gray-700 marker:text-center dark:bg-gray-700 dark:text-white"
+    >
       <tr>
         <th scope="col" className="px-6 py-3 text-left">
           Club

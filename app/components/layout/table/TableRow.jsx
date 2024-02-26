@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-const TableRow = ({ team, league, season, changeAction }) => {
+const TableRow = ({ team, league, season, changeAction, textColor }) => {
   const {
     draw,
     goalDifference,
@@ -17,7 +17,7 @@ const TableRow = ({ team, league, season, changeAction }) => {
 
   return (
     <tr
-      className=" border-b bg-white dark:border-gray-700 dark:bg-gray-800"
+      className=" border-b bg-white dark:border-gray-700 dark:bg-gray-800 "
       onClick={() => changeAction("teams")}
     >
       <th
@@ -28,7 +28,7 @@ const TableRow = ({ team, league, season, changeAction }) => {
           className="hover:slate-500 flex items-center gap-2 "
           href={`/competition/${league}/${season}/teams/${id}`}
         >
-          <span>{position}</span>
+          <span style={{ color: textColor }}>{position}</span>
           <Image src={crest} alt={shortName} width={50} height={50} />
           {shortName}
         </Link>

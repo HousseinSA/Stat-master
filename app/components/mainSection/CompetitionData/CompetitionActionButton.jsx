@@ -1,5 +1,5 @@
 import Link from "next/link";
-const CompetionActionButtons = ({
+const CompetitionActionButton = ({
   season,
   league,
   action,
@@ -16,8 +16,8 @@ const CompetionActionButtons = ({
       <button
         onClick={() => activeAction(action)}
         className={`item-hover ${
-          activeBtn ? " bg-slate-700 " : ""
-        } w-full text-center capitalize`}
+          activeBtn && "bg-gray-700 "
+        } w-full flex-1 px-6 py-3 text-center  capitalize`}
       >
         {action}
       </button>
@@ -25,4 +25,4 @@ const CompetionActionButtons = ({
   );
 };
 
-export default CompetionActionButtons;
+export default CompetitionActionButton;

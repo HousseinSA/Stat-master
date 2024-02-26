@@ -19,10 +19,15 @@ const MatchesTable = ({ matches }) => {
 
   return (
     <>
-      <h1 style={{ color: leagueColor }} className=" p-3 font-semibold ">
+      <h1
+        style={{
+          color: leagueColor,
+        }}
+        className=" p-3 my-3 font-semibold "
+      >
         {matchdayTitle}
       </h1>
-      <div className="grid grid-cols-1 gap-4 p-2 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-3 xl:grid-cols-3">
+      <div className="grid grid-cols-1 gap-4 p-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 ">
         {matches.matches?.map((match, index) => (
           <MatchRow
             key={index}

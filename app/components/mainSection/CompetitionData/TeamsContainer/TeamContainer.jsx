@@ -27,78 +27,84 @@ const TeamContainer = ({ teamData, teamMatches }) => {
     matches[matchIndex + 2],
   ];
   return (
-    <div className="h-full w-full overflow-auto">
-      <div className="flex  w-full  flex-col justify-center gap-8  px-4 py-2">
-        <div className="flex items-center justify-between ">
-          <div className="flex items-center gap-3">
-            <Link href={website}>
-              <Image src={crest} width={150} height={150} alt={name} />
-            </Link>
-            <h3 className="text-xl font-semibold ">{name}</h3>
+    <div className=" h-full w-full  overflow-auto">
+      <div className="flex  h-full w-full  flex-col justify-center  gap-5 ">
+        <div className="flex flex-col justify-center bg-[#F1F5F9]  p-4 dark:bg-gray-700 ">
+          <div className="flex items-center justify-between gap-3">
+            <div className="flex items-center gap-2">
+              <Link href={website}>
+                <Image src={crest} width={150} height={150} alt={name} />
+              </Link>
+              <h3 className="text-xl font-semibold ">{name}</h3>
+            </div>
+            <div>
+              <div className="flex items-center gap-1">
+                <span style={textColor} className="font-semibold ">
+                  Founded:
+                </span>
+                <p className="text-lg text-slate-700  dark:text-white">
+                  {founded}
+                </p>
+              </div>
+              <div className="flex items-center gap-1">
+                <span style={textColor} className="font-semibold ">
+                  Stadium:
+                </span>
+                <p className="text-lg text-slate-700 dark:text-white">
+                  {" "}
+                  {venue}
+                </p>
+              </div>
+            </div>
           </div>
-          <div>
-            <div className="flex items-center gap-1">
-              <span style={textColor} className="font-semibold ">
-                Founded:
+          <div className="flex  items-center  gap-8">
+            <h1 className="flex items-center gap-1">
+              <span style={textColor} className="font-semibold">
+                Coach:
               </span>
-              <p className="text-lg text-slate-700  dark:text-white">
-                {founded}
+              <p className="text-lg text-slate-700 dark:text-white">
+                {coach.name}
               </p>
-            </div>
-            <div className="flex items-center gap-1">
-              <span style={textColor} className="font-semibold ">
-                Stadium:
-              </span>
-              <p className="text-lg text-slate-700 dark:text-white"> {venue}</p>
-            </div>
-          </div>
-        </div>
-        <div className="flex  items-center  gap-8">
-          <h1 className="flex items-center gap-1">
-            <span style={textColor} className="font-semibold">
-              Coach:
-            </span>
-            <p className="text-lg text-slate-700 dark:text-white">
-              {coach.name}
-            </p>
-          </h1>
-          <div className=" flex   items-center justify-center gap-6">
-            <h3 style={textColor} className="text-md font-semibold ">
-              Competitions
-            </h3>
-            <div className="flex w-full items-center justify-center gap-6">
-              {runningCompetitions.map((competition) => {
-                return (
-                  <div
-                    key={competition.id}
-                    className="flex items-center justify-center gap-3"
-                  >
-                    <Image
-                      src={competition.emblem}
-                      width={80}
-                      height={80}
-                      alt={competition.name}
-                    />
-                  </div>
-                );
-              })}
+            </h1>
+            <div className=" flex   items-center justify-center gap-6">
+              <h3 style={textColor} className="text-md font-semibold ">
+                Competitions
+              </h3>
+              <div className="flex w-full items-center justify-center gap-6">
+                {runningCompetitions.map((competition) => {
+                  return (
+                    <div
+                      key={competition.id}
+                      className="flex items-center justify-center gap-3"
+                    >
+                      <Image
+                        src={competition.emblem}
+                        width={80}
+                        height={80}
+                        alt={competition.name}
+                      />
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           </div>
         </div>
-        <h3 style={textColor} className="font-semibold">
-          Matches
-        </h3>
-        <div className="flex w-full flex-wrap gap-3 ">
-          {nextMatches?.map((match, index) => (
-            <MatchRow
-              season={season}
-              league={leagueCode}
-              key={index}
-              match={match}
-              className="flex-1"
-              changeAction={getClickedAction}
-            />
-          ))}
+        <div className="px-4 py-2">
+          <h3 style={textColor} className="font-semibold">
+            Next Matches
+          </h3>
+          <div className="flex h-full w-full flex-wrap    items-center justify-center gap-3 ">
+            {nextMatches?.map((match, index) => (
+              <MatchRow
+                season={season}
+                league={leagueCode}
+                key={index}
+                match={match}
+                changeAction={getClickedAction}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </div>

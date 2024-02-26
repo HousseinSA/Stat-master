@@ -2,8 +2,13 @@ import Image from "next/image";
 import FormattedMatchTime from "./FormattedMatchTime";
 import Link from "next/link";
 
-const MatchRow = ({ match, season, league, changeAction, leagueColor }) => {
-  const { homeTeam, awayTeam, score, utcDate } = match;
+const MatchRow = ({
+  match: { homeTeam, awayTeam, score, utcDate },
+  season,
+  league,
+  changeAction,
+}) => {
+  // const { homeTeam, awayTeam, score, utcDate } = match;
   // Check if home team and away team short names are available
   const isTeamsInfoAvailable =
     homeTeam.shortName !== null && awayTeam.shortName !== null;
@@ -28,20 +33,20 @@ const MatchRow = ({ match, season, league, changeAction, leagueColor }) => {
       />
     </svg>
   );
-  console.log(match);
+
   return (
-    <>
+    <div className="flex h-full w-full flex-1">
       {isTeamsInfoAvailable && (
         <div
           onClick={() => changeAction("teams")}
-          className="flex flex-col justify-center rounded-md bg-[#F1F5F9] dark:bg-gray-800"
+          className="flex h-full w-full flex-col justify-center rounded-md bg-[#F1F5F9] dark:bg-gray-800"
         >
-          <div className="flex flex-col gap-2">
+          <div className="flex h-full w-full flex-col gap-2">
             <Link
               href={`/competition/${league}/${season}/teams/${homeTeam.id}`}
-              className="item-hover  p-2 hover:text-white"
+              className="item-hover  rounded-tl-md rounded-tr-md p-2 hover:text-white"
             >
-              <div className="flex items-center gap-3 text-sm">
+              <div className="flex h-full items-center justify-center gap-3 text-sm">
                 <div className="relative h-8 w-8 flex-shrink-0 ">
                   <Image
                     className="h-full w-full  "
@@ -51,13 +56,14 @@ const MatchRow = ({ match, season, league, changeAction, leagueColor }) => {
                     height={50}
                   />
                 </div>
-                <span className="flex  flex-grow items-center gap-2">
+                <span
+                  className={`flex flex-grow items-center gap-2 ${winner !== "HOME_TEAM" && "text-gray-600"}`}
+                >
                   {homeTeam.shortName}
                   {winner === "HOME_TEAM" && arrowSvg}
                 </span>
               </div>
             </Link>
-
             <div className="flex flex-col items-center justify-center font-semibold ">
               {isScoresAvailable && (
                 <>
@@ -69,28 +75,26 @@ const MatchRow = ({ match, season, league, changeAction, leagueColor }) => {
                   </div>
                 </>
               )}
-              {utcDate ? (
-                <FormattedMatchTime matchTime={utcDate} />
-              ) : (
-                <div className="text-white">TPD</div>
-              )}
+              {utcDate && <FormattedMatchTime matchTime={utcDate} />}
             </div>
 
             <Link
               href={`/competition/${league}/${season}/teams/${awayTeam.id}`}
-              className="item-hover rounded-sm p-2 hover:text-white"
+              className="item-hover  rounded-bl-md rounded-br-md p-2 hover:text-white"
             >
-              <div className="flex items-center gap-3 text-sm">
+              <div className="flex h-full items-center justify-center gap-3 text-sm">
                 <div className="relative h-8 w-8 flex-shrink-0 ">
                   <Image
-                    className="h-full w-full "
+                    className="h-full w-full  "
                     src={awayTeam.crest}
                     alt={awayTeam.shortName}
                     width={50}
                     height={50}
                   />
                 </div>
-                <span className="flex flex-grow items-center gap-2">
+                <span
+                  className={`flex flex-grow items-center gap-2 ${winner !== "AWAY_TEAM" && "text-gray-600"}`}
+                >
                   {awayTeam.shortName}
                   {winner === "AWAY_TEAM" && arrowSvg}
                 </span>
@@ -99,7 +103,7 @@ const MatchRow = ({ match, season, league, changeAction, leagueColor }) => {
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 };
 

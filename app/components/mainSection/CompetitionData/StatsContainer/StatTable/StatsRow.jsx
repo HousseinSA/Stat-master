@@ -6,8 +6,7 @@ const StatsRow = ({
   league,
   season,
   changeAction,
-  color,
-  theme,
+  color: textColor,
 }) => {
   const {
     assists,
@@ -16,7 +15,6 @@ const StatsRow = ({
     player: { name },
     team: { name: teamName, crest, id },
   } = player;
-  const textColor = theme ? "#fff" : color;
 
   return (
     <tr

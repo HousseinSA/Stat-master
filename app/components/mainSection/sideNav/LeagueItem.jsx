@@ -11,17 +11,16 @@ const LeagueItem = ({
   matchday,
   action,
 }) => {
-
-  const leaugeActionPath =
+  const leagueActionPath =
     action !== "matches"
       ? `/competition/${code}/${season}/${action}`
       : `/competition/${code}/${season}/${action}/matchday/${matchday}`;
   return (
-    <Link href={leaugeActionPath}>
+    <Link href={leagueActionPath}>
       <li
         className={`cursor-pointer p-3 ${
           selectedComp ? "bg-slate-700" : ""
-        } item-hover `}
+        } item-hover  `}
         onClick={() => handelSelectedLeague(code, leagueColor, matchday)}
       >
         <div className="flex items-center gap-4">

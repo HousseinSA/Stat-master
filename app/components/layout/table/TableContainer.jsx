@@ -12,7 +12,9 @@ const TableContainer = ({
     return (
       <React.Fragment key={index}>
         <tr>
-          <td className="p-4 font-semibold">{groupTable.group}</td>
+          <td style={{ color: leagueColor }} className="p-4 font-semibold">
+            {groupTable.group}
+          </td>
         </tr>
         {groupTable?.table?.map((table, index) => {
           return (
@@ -22,7 +24,7 @@ const TableContainer = ({
               changeAction={changeAction}
               key={index}
               team={table}
-              leagueColor={leagueColor}
+              textColor={leagueColor}
             />
           );
         })}
@@ -37,13 +39,14 @@ const TableContainer = ({
         season={season}
         changeAction={changeAction}
         league={league}
+        textColor={leagueColor}
       />
     );
   });
   const table = league === "CL" ? uclTable : leagueTable;
   return (
     <table className="w-full overflow-auto">
-      <TableHead league={league} />
+      <TableHead league={league} textColor={leagueColor} />
       <tbody>{table}</tbody>
     </table>
   );

@@ -8,13 +8,13 @@ const CompetitionList = ({ competitionsList }) => {
     0,
     4,
   );
-  const LeaguesToInclude = ["PL", "DED", "PPL", "CL", "FL1", "BL1", "PD", "SA"];
+  const LeaguesToInclude = ["PL", "DED", "PPL", "CL", "FL1", "PD", "BL1", "SA"];
   const filteredLeagues = competitions?.filter((comp) =>
     LeaguesToInclude.includes(comp?.code),
   );
   const leagueColors = [
-    "#3C0844",
-    "#09084E",
+    "#9e2baf",
+    "#3838c4",
     "#CFFB12",
     "#D40914",
     "#19C030",

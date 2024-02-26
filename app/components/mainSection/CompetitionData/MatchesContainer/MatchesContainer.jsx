@@ -16,17 +16,17 @@ export default function MatchesContainer({
   const { currentMatchday } = useLeagueStore();
   // Extract competition name and emblem
   const { name: competitionName, emblem } = currentMatches?.competition;
-  const noData = [currentMatches, nextMatches, prevMatches].every(Boolean);
+  const isData = [currentMatches, nextMatches, prevMatches].every(Boolean);
   // Construct matches array with match data and corresponding names
   const matches = [
     { matches: matchesCurr, status: currentMatchday },
     { matches: matchesNext, status: currentMatchday + 1 },
     { matches: matchesPrev, status: currentMatchday - 1 },
   ];
-
+  console.log(isData);
   return (
     <div className="overflow-y-scroll">
-      <div className="sticky left-0 top-0 z-50 flex items-center gap-3  bg-[#F1F5F9]  dark:bg-gray-700">
+      <div className="sticky left-0 top-0 z-50 flex items-center gap-3 bg-[#F1F5F9]  dark:bg-gray-700">
         <Image
           src={emblem}
           width={50}
@@ -36,7 +36,7 @@ export default function MatchesContainer({
         />
         <h3 className="font-semibold">{competitionName}</h3>
       </div>
-      <div >
+      <div> 
         {matches.map((match, index) => (
           <MatchesTable key={index} matches={match} />
         ))}
