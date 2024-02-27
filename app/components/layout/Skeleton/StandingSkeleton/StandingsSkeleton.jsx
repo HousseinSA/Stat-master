@@ -3,7 +3,7 @@ import Skeleton from "react-loading-skeleton";
 import TableHead from "../../table/TableHead";
 const StandingsSkeleton = () => {
   return (
-    <main className="h-full w-full overflow-auto">
+    <main className="h-full w-full ">
       <div className="w-full">
         <TableContainerSkeleton />
       </div>
@@ -13,10 +13,10 @@ const StandingsSkeleton = () => {
 
 const TableContainerSkeleton = () => {
   return (
-    <table className="w-full overflow-auto">
+    <table className="w-full ">
       <TableHead />
       <tbody>
-        {Array.from({ length: 10 }).map((index) => {
+        {Array.from({ length: 10 }).map((_n, index) => {
           return <TableRowSkeleton key={index} />;
         })}
       </tbody>
@@ -31,7 +31,7 @@ const TableRowSkeleton = () => {
         <Skeleton width={50} height={50} />
         <Skeleton width={60} />
       </td>
-      {Array.from({ length: 9 }).map((index) => {
+      {Array.from({ length: 9 }).map((_n, index) => {
         return (
           <td key={index}>
             <Skeleton width={50} />

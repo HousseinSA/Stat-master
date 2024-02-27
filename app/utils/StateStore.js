@@ -1,12 +1,16 @@
+import { parse } from "path";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
+const leagueAction = JSON.parse(localStorage.getItem("store")).state.action;
+
 const store = (set) => ({
   leagueCode: "PL",
   leagueColor: null,
   getClickedLeague: (clickedLeague) => set({ leagueCode: clickedLeague }),
   getClickedLeagueColor: (clickedLeagueColor) =>
     set({ leagueColor: clickedLeagueColor }),
-  action: "standings",
+
+  action: leagueAction || "standings",
   getClickedAction: (clickedAction) => set({ action: clickedAction }),
   theme: null,
   themeSwitcher: (themeStatus) => set({ theme: themeStatus }),
@@ -23,4 +27,4 @@ const store = (set) => ({
   getTeamId: (clickTeamId) => set({ teamId: clickTeamId }),
 });
 
-export const useLeagueStore = create(store, { name: "store" });
+export const useLeagueStore = create(persist(store, { name: "store" }));

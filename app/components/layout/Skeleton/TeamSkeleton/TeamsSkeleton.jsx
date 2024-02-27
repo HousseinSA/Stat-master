@@ -3,7 +3,7 @@ import Skeleton from "react-loading-skeleton";
 
 const TeamsSkeleton = () => {
   return (
-    <div className="flex h-full w-full flex-wrap items-center justify-center gap-4 overflow-y-scroll p-2">
+    <div className="flex h-full w-full flex-wrap items-center justify-center gap-4  p-2">
       {[...Array(20)].map((_, index) => (
         <TeamCardSkeleton key={index} />
       ))}

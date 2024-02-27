@@ -23,5 +23,27 @@ body {
   @apply flex-1 cursor-pointer rounded-md  font-semibold hover:bg-slate-500;
 }
 .text-change {
-  @apply transition duration-300 
+  @apply transition duration-300;
+}
+
+/* scrool bar  */
+
+::-webkit-scrollbar {
+  width: 6px; /* Adjust as needed */
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Color of the track */
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #001f3f;
+  border-radius: 1rem;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Darker color when hovered */
 }
