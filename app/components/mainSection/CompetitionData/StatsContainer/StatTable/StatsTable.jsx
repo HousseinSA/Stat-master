@@ -28,6 +28,7 @@ const StatsTable = ({
         })}
       </tbody>
     </table>
+
   );
 };
 

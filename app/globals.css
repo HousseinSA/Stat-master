@@ -2,5 +2,5 @@
 @tailwind components;
 @tailwind utilities;
 .item-hover {
-  @apply rounded-md hover:bg-slate-500  hover:text-white;
+  @apply hover:bg-slate-500   hover:text-white;
 }

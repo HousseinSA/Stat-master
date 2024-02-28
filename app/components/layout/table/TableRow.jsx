@@ -16,13 +16,13 @@ const TableRow = ({ team, league, season, changeAction, textColor }) => {
   const { crest, shortName, id } = team.team;
 
   return (
-    <tr className="h-full">
+    <tr>
       <td
-        className="item-hover cursor-pointer whitespace-nowrap p-3 text-sm"
+        className="item-hover hover:bg-white-500 sticky left-0 z-30 cursor-pointer bg-white p-3 text-sm dark:bg-[#1F2937] "
         onClick={() => changeAction("teams")}
       >
         <Link
-          className="hover:slate-500 flex items-center gap-2 "
+          className=" flex items-center gap-1"
           href={`/competition/${league}/${season}/teams/${id}`}
         >
           <span style={{ color: textColor }}>{position}</span>
@@ -30,7 +30,10 @@ const TableRow = ({ team, league, season, changeAction, textColor }) => {
           <span>{shortName}</span>
         </Link>
       </td>
-      <td className="whitespace-nowrap p-3 text-sm  "> {playedGames}</td>
+      <td className="whitespace-nowrap p-3 text-center  text-sm">
+        {" "}
+        {playedGames}
+      </td>
       <td className="whitespace-nowrap p-3 text-center  text-sm ">
         <span className="rounded-sm bg-green-100 p-2 text-sm font-semibold  text-green-700  ">
           {won}

@@ -23,15 +23,13 @@ const StandingsContainer = ({ competitionData }) => {
   }, [currentMatchday]);
 
   return (
-    <main className="h-full w-full overflow-auto">
-      <TableContainer
-        competitionTable={competitionTable}
-        season={season}
-        changeAction={getClickedAction}
-        league={leagueCode}
-        leagueColor={leagueColor}
-      />
-    </main>
+    <TableContainer
+      competitionTable={competitionTable}
+      season={season}
+      changeAction={getClickedAction}
+      league={leagueCode}
+      leagueColor={leagueColor}
+    />
   );
 };
 

@@ -36,13 +36,13 @@ const MatchRow = ({
   );
 
   return (
-    <div className="flex  h-full w-full ">
+    <div className="flex  h-full w-full justify-center ">
       {isTeamsInfoAvailable && (
         <div
           onClick={() => changeAction("teams")}
-          className="flex h-full w-full flex-col justify-center items-center rounded-md bg-[#F1F5F9] dark:bg-gray-800"
+          className="flex h-full w-full flex-col items-center justify-center rounded-md bg-[#F1F5F9] dark:bg-gray-800"
         >
-          <div className="flex h-full w-full flex-col gap-2">
+          <div className="flex h-full w-full flex-col justify-center gap-2">
             <Link
               href={`/competition/${league}/${season}/teams/${homeTeam.id}`}
               className="item-hover  rounded-tl-md rounded-tr-md p-2 hover:text-white"

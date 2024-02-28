@@ -5,10 +5,10 @@ const TableHead = ({ league, textColor }) => {
       className=" sticky top-0 z-50 bg-[#F1F5F9] text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-white"
     >
       <tr>
-        <th className=" p-3 text-left text-sm font-semibold tracking-wide">
+        <th className="sticky left-0 z-50 bg-[#F1F5F9] p-3 text-left  text-sm font-semibold tracking-wide dark:bg-gray-700">
           Club
         </th>
-        <th className="w-20 p-3 text-left text-sm font-semibold tracking-wide">
+        <th className="w-20 p-3 text-center text-sm font-semibold tracking-wide">
           MP
         </th>
         <th className=" w-20 p-3  text-center text-sm font-semibold tracking-wide">

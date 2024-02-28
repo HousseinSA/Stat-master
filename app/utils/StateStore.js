@@ -23,4 +23,4 @@ const store = (set) => ({
   getTeamId: (clickTeamId) => set({ teamId: clickTeamId }),
 });
 
-export const useLeagueStore = create(store, { name: "store" });
+export const useLeagueStore = create(persist(store, { name: "store" }));

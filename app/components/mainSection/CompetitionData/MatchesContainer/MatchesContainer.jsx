@@ -34,11 +34,9 @@ export default function MatchesContainer({
         />
         <h3 className="font-semibold">{competitionName}</h3>
       </div>
-      <div>
-        {matches.map((match, index) => (
-          <MatchesTable key={index} matches={match} />
-        ))}
-      </div>
+      {matches.map((match, index) => (
+        <MatchesTable key={index} matches={match} />
+      ))}
     </div>
   );
 }
