@@ -2,7 +2,6 @@
 import { useEffect } from "react";
 import { useLeagueStore } from "../../../../utils/StateStore";
 import TableContainer from "../../../layout/table/TableContainer";
-
 const StandingsContainer = ({ competitionData }) => {
   // State and context initialization
   const {
@@ -23,15 +22,17 @@ const StandingsContainer = ({ competitionData }) => {
   }, [currentMatchday]);
 
   return (
-
-      <TableContainer
-        competitionTable={competitionTable}
-        season={season}
-        changeAction={getClickedAction}
-        league={leagueCode}
-        leagueColor={leagueColor}
-      />
-
+    <main className="h-full w-full overflow-auto ">
+      <div className="w-full ">
+        <TableContainer
+          competitionTable={competitionTable}
+          season={season}
+          changeAction={getClickedAction}
+          league={leagueCode}
+          leagueColor={leagueColor}
+        />
+      </div>
+    </main>
   );
 };
 

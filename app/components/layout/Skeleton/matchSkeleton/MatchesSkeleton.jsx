@@ -3,7 +3,7 @@ import Skeleton from "react-loading-skeleton";
 
 const MatchesSkeleton = () => {
   return (
-    <div >
+    <div className="overflow-y-scroll">
       <div className="sticky left-0 top-0 z-50 flex items-center gap-3 bg-[#F1F5F9] dark:bg-gray-700">
         <Skeleton width={50} height={30} className="mx-4 my-2" />
         <Skeleton width={150} height={20} />

@@ -12,10 +12,7 @@ const TableContainer = ({
     return (
       <React.Fragment key={index}>
         <tr>
-          <td
-            style={{ color: leagueColor }}
-            className="p-4 font-medium sm:font-semibold"
-          >
+          <td style={{ color: leagueColor }} className="p-4 font-semibold">
             {groupTable.group}
           </td>
         </tr>
@@ -48,7 +45,7 @@ const TableContainer = ({
   });
   const table = league === "CL" ? uclTable : leagueTable;
   return (
-    <table className="h-full w-full ">
+    <table className="w-full overflow-auto">
       <TableHead league={league} textColor={leagueColor} />
       <tbody>{table}</tbody>
     </table>

@@ -1,32 +1,30 @@
-"use client";
-import { useLeagueStore } from "../../utils/StateStore";
-import { useEffect } from "react";
+"use client"
+import { useLeagueStore } from "../../utils/StateStore"
+import React, { useEffect } from "react"
 
 const HeaderNav = () => {
-  const { theme, themeSwitcher } = useLeagueStore();
+  const { theme, themeSwitcher } = useLeagueStore()
   useEffect(() => {
-    const darkModeMediaQuery = window.matchMedia(
-      "(prefers-color-scheme: dark)",
-    );
+    const darkModeMediaQuery = window.matchMedia("(prefers-color-scheme: dark)")
     const handleDarkModeChange = (event) => {
-      themeSwitcher(event.matches);
-    };
-    darkModeMediaQuery.addEventListener("change", handleDarkModeChange);
+      themeSwitcher(event.matches)
+    }
+    darkModeMediaQuery.addEventListener("change", handleDarkModeChange)
     return () => {
-      darkModeMediaQuery.removeEventListener("change", handleDarkModeChange);
-    };
-  }, []);
+      darkModeMediaQuery.removeEventListener("change", handleDarkModeChange)
+    }
+  }, [])
   useEffect(() => {
-    document.documentElement.classList.toggle("dark", theme);
-  }, [theme]);
+    document.documentElement.classList.toggle("dark", theme)
+  }, [theme])
 
   return (
     <nav className="flex items-center gap-4">
       <div
         onClick={() => themeSwitcher(!theme)}
-        className={`cursor-pointer rounded-full p-4 ${
+        className={`p-4 rounded-full cursor-pointer ${
           theme ? "dark:bg-white  dark:text-black" : "bg-[#001F3F]"
-        } text-white transition duration-500`}
+        } transition text-white duration-500`}
       >
         {theme ? (
           <svg
@@ -35,7 +33,7 @@ const HeaderNav = () => {
             viewBox="0 0 24 24"
             strokeWidth="1.5"
             stroke="currentColor"
-            className="h-4 w-4"
+            className="w-4 h-4"
           >
             <path
               strokeLinecap="round"
@@ -50,7 +48,7 @@ const HeaderNav = () => {
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="h-4 w-4"
+            className="w-4 h-4"
           >
             <path
               strokeLinecap="round"
@@ -60,8 +58,24 @@ const HeaderNav = () => {
           </svg>
         )}
       </div>
+      <div className="block cursor-pointer sm:hidden">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth="1.5"
+          stroke="currentColor"
+          className="w-4 h-4"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M3.75 9h16.5m-16.5 6.75h16.5"
+          />
+        </svg>
+      </div>
     </nav>
-  );
-};
+  )
+}
 
-export default HeaderNav;
+export default HeaderNav

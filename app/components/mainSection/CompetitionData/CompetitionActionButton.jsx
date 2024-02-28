@@ -12,7 +12,7 @@ const CompetitionActionButton = ({
       ? `/competition/${league}/${season}/${action}`
       : `/competition/${league}/${season}/${action}/matchday/${matchday}`;
   return (
-    <Link  href={actionLink} prefetch>
+    <Link href={actionLink} prefetch>
       <button
         onClick={() => activeAction(action)}
         className={`item-hover ${

@@ -16,18 +16,18 @@ const LeagueItem = ({
       ? `/competition/${code}/${season}/${action}`
       : `/competition/${code}/${season}/${action}/matchday/${matchday}`;
   return (
-    <li
-      className={`flex-1 h-auto cursor-pointer  p-3 ${
-        selectedComp ? "bg-slate-700" : ""
-      } item-hover  `}
-      onClick={() => handelSelectedLeague(code, leagueColor, matchday)}
-    >
-      <Link href={leagueActionPath}>
-        <div className="flex items-center justify-center gap-4">
+    <Link href={leagueActionPath}>
+      <li
+        className={`cursor-pointer p-3 ${
+          selectedComp ? "bg-slate-700" : ""
+        } item-hover  `}
+        onClick={() => handelSelectedLeague(code, leagueColor, matchday)}
+      >
+        <div className="flex items-center gap-4">
           <Image
             src={emblem}
             alt={name}
-            className="w-fit"
+            className="min-h-[40px] min-w-[40px]"
             width={25}
             height={25}
             priority
@@ -36,8 +36,8 @@ const LeagueItem = ({
             {code === "PD" ? "La Liga" : name}
           </span>
         </div>
-      </Link>
-    </li>
+      </li>
+    </Link>
   );
 };
 

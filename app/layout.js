@@ -4,7 +4,7 @@ const inter = Inter({ subsets: ["latin"] });
 import CompetitionList from "./components/mainSection/sideNav/CompetitionsList";
 import HeaderComponent from "./components/HeaderSection/HeaderComponent";
 import { getCompetitionsList } from "./utils/allDataFetchingFunctions";
-import CompetitionContent from "./components/mainSection/CompetitionData/CompetitionContent";
+
 export const metadata = {
   title: "StatMaster",
   description: "Amazing App created to show All teams info",
@@ -17,13 +17,13 @@ export default async function RootLayout({ children }) {
     <html lang="en">
       <link rel="icon" href="/StatMaster.svg" />
       <body
-        className={`${inter.className} h-full w-full transition duration-300 dark:bg-[#222222] `}
+        className={`${inter.className}  transition  duration-300 dark:bg-[#222222] `}
       >
-        <main className="mx-auto h-full w-full px-2 md:px-4 lg:px-8 xl:px-12">
+        <main className="container mx-auto  h-screen  w-full px-4 sm:px-10 ">
           <HeaderComponent />
-          <div className="h-full w-full sm:flex sm:flex-row sm:justify-center">
+          <div className="mt-24 flex h-full w-full flex-col items-center justify-center md:mt-0 md:flex-row">
             <CompetitionList competitionsList={competitionsList} />
-            <CompetitionContent>{children}</CompetitionContent>
+            {children}
           </div>
         </main>
       </body>
