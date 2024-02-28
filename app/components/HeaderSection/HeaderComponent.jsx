@@ -1,10 +1,10 @@
-import Image from "next/image"
-import React from "react"
-import HeaderNav from "./HeaderNav"
+import Image from "next/image";
+import React from "react";
+import HeaderNav from "./HeaderNav";
 
 const HeaderComponent = () => {
   return (
-    <header className="flex items-center h-auto py-4 justify-between">
+    <header className="mt-2 flex w-full items-center justify-between py-4">
       <div>
         <Image
           src={"/StatMaster.png"}
@@ -17,7 +17,7 @@ const HeaderComponent = () => {
       </div>
       <HeaderNav />
     </header>
-  )
-}
+  );
+};
 
-export default HeaderComponent
+export default HeaderComponent;

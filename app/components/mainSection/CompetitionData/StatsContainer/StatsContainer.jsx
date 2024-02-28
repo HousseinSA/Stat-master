@@ -9,7 +9,7 @@ const StatsContainer = ({ competitionData }) => {
     competition: { emblem, name },
   } = competitionData;
   return (
-    <div className=" h-full w-full overflow-auto ">
+    <div className="h-full w-full overflow-auto">
       <div className="flex w-full flex-col items-center justify-center">
         <div className="sticky top-0 z-20 flex w-full items-center gap-2 bg-[#F1F5F9] p-1.5 text-slate-500 dark:bg-gray-700">
           <Image src={emblem} width={80} height={50} alt={name} />

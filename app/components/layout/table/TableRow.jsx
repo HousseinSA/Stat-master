@@ -16,13 +16,10 @@ const TableRow = ({ team, league, season, changeAction, textColor }) => {
   const { crest, shortName, id } = team.team;
 
   return (
-    <tr
-      className=" border-b bg-white dark:border-gray-700 dark:bg-gray-800 "
-      onClick={() => changeAction("teams")}
-    >
-      <th
-        scope="row"
-        className="item-hover sticky left-0 z-20 flex cursor-pointer items-center gap-1 whitespace-nowrap px-6 py-4 font-medium text-gray-900 shadow-sm hover:text-white dark:text-white"
+    <tr className="h-full">
+      <td
+        className="item-hover cursor-pointer whitespace-nowrap p-3 text-sm"
+        onClick={() => changeAction("teams")}
       >
         <Link
           className="hover:slate-500 flex items-center gap-2 "
@@ -30,31 +27,31 @@ const TableRow = ({ team, league, season, changeAction, textColor }) => {
         >
           <span style={{ color: textColor }}>{position}</span>
           <Image src={crest} alt={shortName} width={50} height={50} />
-          {shortName}
+          <span>{shortName}</span>
         </Link>
-      </th>
-      <td className="px-6 py-4"> {playedGames}</td>
-      <td className="px-6 py-4">
-        <span className="rounded-sm bg-green-100 px-2 py-1 font-semibold leading-tight text-green-700">
+      </td>
+      <td className="whitespace-nowrap p-3 text-sm  "> {playedGames}</td>
+      <td className="whitespace-nowrap p-3 text-center  text-sm ">
+        <span className="rounded-sm bg-green-100 p-2 text-sm font-semibold  text-green-700  ">
           {won}
         </span>
       </td>
-      <td className="px-6 py-4">
-        <span className="rounded-sm bg-slate-100 px-2 py-1 font-semibold leading-tight text-slate-700">
+      <td className="whitespace-nowrap p-3 text-center  text-sm">
+        <span className="rounded-sm bg-slate-100 p-2 font-semibold leading-tight text-slate-700">
           {draw}
         </span>
       </td>
-      <td className="px-6 py-4">
-        <span className="rounded-sm bg-red-100 px-2 py-1 font-semibold leading-tight text-red-700">
+      <td className="whitespace-nowrap p-3 text-center  text-sm">
+        <span className="whitespace-nowrap rounded-sm  bg-red-100  p-2 text-sm font-semibold text-red-700  ">
           {lost}
         </span>
       </td>
-      <td className="px-6 py-4"> {goalsFor}</td>
-      <td className="px-6 py-4">{goalsAgainst}</td>
-      <td className="px-6 py-4">{goalDifference}</td>
-      <td className="px-6 py-4"> {points}</td>
+      <td className="whitespace-nowrap p-3 text-sm  "> {goalsFor}</td>
+      <td className="whitespace-nowrap p-3 text-sm  ">{goalsAgainst}</td>
+      <td className="whitespace-nowrap p-3 text-sm  ">{goalDifference}</td>
+      <td className="whitespace-nowrap p-3 text-sm "> {points}</td>
       {league !== "CL" && form && (
-        <td className="mr-2 flex h-full justify-center items-center gap-1">
+        <td className=" flex  h-full items-center justify-center gap-1   whitespace-nowrap p-3 text-sm">
           {league !== "CL" &&
             form.split(",").map((state, index) => {
               return (
@@ -79,3 +76,15 @@ const TableRow = ({ team, league, season, changeAction, textColor }) => {
 };
 
 export default TableRow;
+<tr>
+  <td className="whitespace-nowrap p-3 text-sm  ">liverpool</td>
+  <td className="whitespace-nowrap p-3 text-sm  ">24</td>
+  <td className="whitespace-nowrap p-3 text-sm ">23</td>
+  <td className="whitespace-nowrap p-3 text-sm ">23</td>
+  <td className="whitespace-nowrap p-3 text-sm ">23</td>
+  <td className="whitespace-nowrap p-3 text-sm ">23</td>
+  <td className="whitespace-nowrap p-3 text-sm ">23</td>
+  <td className="whitespace-nowrap p-3 text-sm ">23</td>
+  <td className="whitespace-nowrap p-3 text-sm ">23</td>
+  <td className="whitespace-nowrap p-3 text-sm ">23</td>
+</tr>;

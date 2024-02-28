@@ -17,7 +17,6 @@ const MatchRow = ({
   const isScoresAvailable =
     score.fullTime.home !== null && score.fullTime.away !== null;
   const winner = score.winner;
-  console.log(textColor);
   const arrowSvg = (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -37,11 +36,11 @@ const MatchRow = ({
   );
 
   return (
-    <div className="flex h-full w-full flex-1">
+    <div className="flex  h-full w-full ">
       {isTeamsInfoAvailable && (
         <div
           onClick={() => changeAction("teams")}
-          className="flex h-full w-full flex-col justify-center rounded-md bg-[#F1F5F9] dark:bg-gray-800"
+          className="flex h-full w-full flex-col justify-center items-center rounded-md bg-[#F1F5F9] dark:bg-gray-800"
         >
           <div className="flex h-full w-full flex-col gap-2">
             <Link

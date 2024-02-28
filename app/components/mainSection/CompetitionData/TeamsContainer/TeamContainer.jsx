@@ -27,9 +27,9 @@ const TeamContainer = ({ teamData, teamMatches }) => {
     matches[matchIndex + 2],
   ];
   return (
-    <div className=" h-full w-full  overflow-auto">
-      <div className="flex  h-full w-full  flex-col justify-center  gap-5 ">
-        <div className="flex flex-col justify-center bg-[#F1F5F9]  p-4 dark:bg-gray-700 ">
+    <section className=" h-full w-full ">
+      <div className="flex h-full w-full flex-col">
+        <div className="flex flex-col justify-center bg-[#F1F5F9] p-4 dark:bg-gray-700 ">
           <div className="flex items-center justify-between gap-3">
             <div className="flex items-center gap-2">
               <Link href={website}>
@@ -51,7 +51,6 @@ const TeamContainer = ({ teamData, teamMatches }) => {
                   Stadium:
                 </span>
                 <p className="text-lg text-slate-700 dark:text-white">
-                  {" "}
                   {venue}
                 </p>
               </div>
@@ -94,7 +93,7 @@ const TeamContainer = ({ teamData, teamMatches }) => {
           <h3 style={textColor} className="font-semibold">
             Next Matches
           </h3>
-          <div className="flex h-full w-full flex-wrap    items-center justify-center gap-3 ">
+          <div className="flex w-full h-full flex-wrap items-center justify-center gap-3">
             {nextMatches?.map((match, index) => (
               <MatchRow
                 season={season}
@@ -107,7 +106,7 @@ const TeamContainer = ({ teamData, teamMatches }) => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

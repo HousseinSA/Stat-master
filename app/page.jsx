@@ -1,8 +1,7 @@
 import CompetitionContent from "./components/mainSection/CompetitionData/CompetitionContent";
 
 const Page = () => {
-
-  return <CompetitionContent></CompetitionContent>;
+  return;
 };
 
 export default Page;
