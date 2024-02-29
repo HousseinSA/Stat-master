@@ -6,7 +6,8 @@ const store = (set) => ({
   getClickedLeague: (clickedLeague) => set({ leagueCode: clickedLeague }),
   getClickedLeagueColor: (clickedLeagueColor) =>
     set({ leagueColor: clickedLeagueColor }),
-  action: "standings",
+
+  action: getActionStore() || "standings",
   getClickedAction: (clickedAction) => set({ action: clickedAction }),
   theme: null,
   themeSwitcher: (themeStatus) => set({ theme: themeStatus }),
@@ -24,3 +25,7 @@ const store = (set) => ({
 });
 
 export const useLeagueStore = create(persist(store, { name: "store" }));
+
+function getActionStore() {
+  return JSON.parse(localStorage.getItem(store))?.state.action;
+}

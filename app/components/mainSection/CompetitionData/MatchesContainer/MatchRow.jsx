@@ -9,8 +9,7 @@ const MatchRow = ({
   changeAction,
   textColor,
 }) => {
-  // const { homeTeam, awayTeam, score, utcDate } = match;
-  // Check if home team and away team short names are available
+  
   const isTeamsInfoAvailable =
     homeTeam.shortName !== null && awayTeam.shortName !== null;
   // Check if full-time scores are available

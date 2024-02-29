@@ -1,40 +1,48 @@
+"use client";
+import { useLeagueStore } from "../../../utils/StateStore";
+
 const TableHead = ({ league, textColor }) => {
+  const { leagueColor } = useLeagueStore();
+
   return (
     <thead
-      style={{ color: textColor }}
-      className=" sticky top-0 z-50 bg-[#F1F5F9] text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-white"
+      style={{ color: textColor || leagueColor }}
+      className="sticky top-0 z-50 bg-[#F1F5F9] text-xs uppercase text-gray-700 dark:bg-gray-700"
     >
       <tr>
-        <th className="sticky left-0 z-50 bg-[#F1F5F9] p-3 text-left  text-sm font-semibold tracking-wide dark:bg-gray-700">
+        <th
+          scope="col"
+          className="sticky left-0 z-50 bg-[#F1F5F9] md:p-3 p-2 text-left shadow-sm dark:bg-gray-700"
+        >
           Club
         </th>
-        <th className="w-20 p-3 text-center text-sm font-semibold tracking-wide">
+        <th scope="col" className="md:p-3 p-2">
           MP
         </th>
-        <th className=" w-20 p-3  text-center text-sm font-semibold tracking-wide">
+        <th scope="col" className="md:p-3 p-2">
           W
         </th>
-        <th className="w-20 p-3 text-center text-sm font-semibold tracking-wide">
+        <th scope="col" className="md:p-3 p-2">
           D
         </th>
-        <th className=" w-20 p-3  text-center text-sm font-semibold tracking-wide">
+        <th scope="col" className="md:p-3 p-2">
           L
         </th>
-        <th className="w-20 p-3  text-left text-sm font-semibold tracking-wide">
+        <th scope="col" className="md:p-3 p-2">
           GF
         </th>
-        <th className=" w-20 p-3 text-left text-sm font-semibold tracking-wide">
+        <th scope="col" className="md:p-3 p-2">
           GA
         </th>
-        <th className="w-20 p-3  text-left text-sm font-semibold tracking-wide">
+        <th scope="col" className="md:p-3 p-2">
           GD
         </th>
-        <th className=" w-20 p-3 text-left text-sm font-semibold tracking-wide">
-          PTS
+        <th scope="col" className="md:p-3 p-2">
+          Pts
         </th>
         {league !== "CL" && (
-          <th className="p-3 text-center text-sm font-semibold tracking-wide">
-            FORM
+          <th scope="col" className="md:p-3 p-2">
+            Last 5
           </th>
         )}
       </tr>

@@ -39,9 +39,9 @@ const CompetitionList = ({ competitionsList }) => {
   }
   return (
     <div
-      className={`hidden w-1/5 flex-shrink-0 rounded-bl-md rounded-tl-md bg-[#001F3F] p-2 transition duration-300 md:block md:h-full `}
+      className={` hidden w-1/4 rounded-bl-md  rounded-tl-md  bg-[#001F3F] p-2 transition duration-300 md:block md:h-full `}
     >
-      <ul className="flex w-full flex-shrink-0 lg justify-center gap-2 text-white md:flex-col">
+      <ul className="flex w-full justify-center gap-2 text-white md:flex-col">
         {filteredLeagues?.map(
           ({ name, code, emblem, currentSeason }, index) => {
             const leagueColor = leagueColors[index];

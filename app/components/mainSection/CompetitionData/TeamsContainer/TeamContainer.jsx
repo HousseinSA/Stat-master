@@ -89,15 +89,16 @@ const TeamContainer = ({ teamData, teamMatches }) => {
             </div>
           </div>
         </div>
-        <div className="md:px-4 md:py-2">
+        <div className="px-4 py-2">
           <h3 style={textColor} className="font-semibold">
             Next Matches
           </h3>
-          <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          <div className="grid items-center justify-center gap-3 sm:grid-cols-2 md:grid-cols-3">
             {nextMatches?.map((match, index) => (
               <MatchRow
                 season={season}
                 league={leagueCode}
+                textColor={leagueColor}
                 key={index}
                 match={match}
                 changeAction={getClickedAction}

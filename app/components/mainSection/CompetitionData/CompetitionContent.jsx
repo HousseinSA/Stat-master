@@ -2,6 +2,7 @@
 import CompetitionActionButton from "./CompetitionActionButton";
 import { useLeagueStore } from "../../../utils/StateStore";
 import LeagueYear from "./StandingsContainer/LeagueContainer/LeagueYear";
+import DropDown from './DropDown'
 const CompetitionContent = ({ children }) => {
   // get data in league store
   const {
@@ -19,10 +20,10 @@ const CompetitionContent = ({ children }) => {
     getClickedAction(action);
   };
   return (
-    <div className=" flex h-full w-full flex-1 flex-col rounded-md  dark:text-white">
+    <div className=" flex h-full w-full flex-col overflow-hidden rounded-tr-md dark:text-white">
       <div
         style={{ borderColor: leagueColor }}
-        className={`group flex w-full items-center justify-around gap-4  rounded-tr-md border-b-4 bg-[#001F3F] p-6 font-semibold text-white transition duration-300 `}
+        className={`group hidden w-full items-center justify-around gap-4 bg-[#001F3F] p-6 font-semibold text-white transition duration-300 md:flex `}
       >
         {actionButton?.map((btnName, index) => {
           return (
@@ -38,10 +39,13 @@ const CompetitionContent = ({ children }) => {
           );
         })}
       </div>
-      {leagueCode === "CL" || action !== "standings" ? null : (
-        <LeagueYear currentSeason={currentSeason} />
-      )}
-      {children}
+      <DropDown/>
+      <div className="w-full overflow-hidden">
+        {leagueCode === "CL" || action !== "standings" ? null : (
+          <LeagueYear currentSeason={currentSeason} />
+        )}
+        {children}
+      </div>
     </div>
   );
 };

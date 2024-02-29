@@ -4,11 +4,11 @@ import HeaderNav from "./HeaderNav";
 
 const HeaderComponent = () => {
   return (
-    <header className="mt-2 flex w-full items-center justify-between py-4">
+    <header className=" flex w-full items-center justify-between py-1">
       <div>
         <Image
           src={"/StatMaster.png"}
-          className="w-auto"
+          className=" h-4 w-20 md:h-6 md:w-40 lg:w-80"
           alt="Logo"
           width={150}
           height={20}

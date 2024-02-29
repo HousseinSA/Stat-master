@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
+import { Providers } from "./providers";
 import CompetitionList from "./components/mainSection/sideNav/CompetitionsList";
 import HeaderComponent from "./components/HeaderSection/HeaderComponent";
 import { getCompetitionsList } from "./utils/allDataFetchingFunctions";
@@ -17,11 +18,14 @@ export default async function RootLayout({ children }) {
     <html lang="en">
       <link rel="icon" href="/StatMaster.svg" />
       <body
-        className={`${inter.className} transition duration-300 dark:bg-[#222222] `}
+        className={`${inter.className} h-full transition duration-300 dark:bg-[#222222] `}
       >
-        <main className="container mx-auto flex h-screen flex-col items-center justify-center p-5">
+        <main
+          className=" mx-auto flex
+         h-screen flex-col items-start justify-start overflow-hidden p-5"
+        >
           <HeaderComponent />
-          <div className="mt-24 flex h-full w-full flex-col items-center justify-center md:mt-0 md:flex-row">
+          <div className=" flex  h-[93%]  w-full items-center justify-center  ">
             <CompetitionList competitionsList={competitionsList} />
             <CompetitionContent>{children}</CompetitionContent>
           </div>

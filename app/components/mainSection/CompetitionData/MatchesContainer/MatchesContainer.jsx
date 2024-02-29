@@ -23,7 +23,7 @@ export default function MatchesContainer({
     { matches: matchesPrev, status: currentMatchday - 1 },
   ];
   return (
-    <div className="overflow-auto">
+    <section className="h-full w-full overflow-auto">
       <div className="sticky left-0 top-0 z-50 flex items-center gap-3 bg-[#F1F5F9]  dark:bg-gray-700">
         <Image
           src={emblem}
@@ -34,9 +34,11 @@ export default function MatchesContainer({
         />
         <h3 className="font-semibold">{competitionName}</h3>
       </div>
-      {matches.map((match, index) => (
-        <MatchesTable key={index} matches={match} />
-      ))}
-    </div>
+      <div>
+        {matches.map((match, index) => (
+          <MatchesTable key={index} matches={match} />
+        ))}
+      </div>
+    </section>
   );
 }

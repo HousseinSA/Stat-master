@@ -15,7 +15,7 @@ const CompetitionActionButton = ({
     <Link href={actionLink} prefetch>
       <button
         onClick={() => activeAction(action)}
-        className={`item-hover ${
+        className={`action-hover item-hover ${
           activeBtn && "bg-gray-700 "
         } w-full flex-1 px-6 py-3 text-center  capitalize`}
       >

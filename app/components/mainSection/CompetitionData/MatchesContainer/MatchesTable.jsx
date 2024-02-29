@@ -18,7 +18,7 @@ const MatchesTable = ({ matches }) => {
   }
 
   return (
-    <>
+    <div className="w-full h-auto">
       <h1
         style={{
           color: leagueColor,
@@ -39,7 +39,7 @@ const MatchesTable = ({ matches }) => {
           />
         ))}
       </div>
-    </>
+    </div>
   );
 };
 

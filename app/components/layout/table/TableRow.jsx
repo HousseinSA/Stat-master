@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+
 const TableRow = ({ team, league, season, changeAction, textColor }) => {
   const {
     draw,
@@ -16,62 +17,45 @@ const TableRow = ({ team, league, season, changeAction, textColor }) => {
   const { crest, shortName, id } = team.team;
 
   return (
-    <tr>
-      <td
-        className="item-hover hover:bg-white-500 sticky left-0 z-30 cursor-pointer bg-white p-3 text-sm dark:bg-[#1F2937] "
+    <tr className="text-center dark:bg-[#1F2937] dark:text-gray-400">
+      <th
+        scope="row"
+        className="item-hover sticky left-0 z-30 whitespace-nowrap bg-white px-6 py-3 text-left font-medium text-gray-900   dark:bg-[#1F2937] dark:text-gray-400"
         onClick={() => changeAction("teams")}
       >
         <Link
-          className=" flex items-center gap-1"
+          className="flex items-center gap-2"
           href={`/competition/${league}/${season}/teams/${id}`}
         >
           <span style={{ color: textColor }}>{position}</span>
           <Image src={crest} alt={shortName} width={50} height={50} />
-          <span>{shortName}</span>
+          <span className="hidden md:block">{shortName}</span>
         </Link>
-      </td>
-      <td className="whitespace-nowrap p-3 text-center  text-sm">
-        {" "}
-        {playedGames}
-      </td>
-      <td className="whitespace-nowrap p-3 text-center  text-sm ">
-        <span className="rounded-sm bg-green-100 p-2 text-sm font-semibold  text-green-700  ">
-          {won}
-        </span>
-      </td>
-      <td className="whitespace-nowrap p-3 text-center  text-sm">
-        <span className="rounded-sm bg-slate-100 p-2 font-semibold leading-tight text-slate-700">
-          {draw}
-        </span>
-      </td>
-      <td className="whitespace-nowrap p-3 text-center  text-sm">
-        <span className="whitespace-nowrap rounded-sm  bg-red-100  p-2 text-sm font-semibold text-red-700  ">
-          {lost}
-        </span>
-      </td>
-      <td className="whitespace-nowrap p-3 text-sm  "> {goalsFor}</td>
-      <td className="whitespace-nowrap p-3 text-sm  ">{goalsAgainst}</td>
-      <td className="whitespace-nowrap p-3 text-sm  ">{goalDifference}</td>
-      <td className="whitespace-nowrap p-3 text-sm "> {points}</td>
+      </th>
+      <td className="p-2 md:p-3">{playedGames}</td>
+      <td className="p-2 text-green-500  ">{won}</td>
+      <td className="p-2 text-gray-500">{draw}</td>
+      <td className="p-2 text-red-500  ">{lost}</td>
+      <td className="p-2 md:p-3">{goalsFor}</td>
+      <td className="p-2 md:p-3">{goalsAgainst}</td>
+      <td className="p-2 md:p-3">{goalDifference}</td>
+      <td className="p-2 md:p-3">{points}</td>
       {league !== "CL" && form && (
-        <td className=" flex  h-full items-center justify-center gap-1   whitespace-nowrap p-3 text-sm">
-          {league !== "CL" &&
-            form.split(",").map((state, index) => {
-              return (
-                <div
-                  key={index}
-                  className={`flex h-5 w-5 items-center   justify-center rounded-full p-3 text-xs font-normal text-white  ${
-                    state === "W"
-                      ? "bg-green-500"
-                      : state === "D"
-                        ? "bg-slate-500"
-                        : state === "L" && "bg-red-500"
-                  }`}
-                >
-                  {state}
-                </div>
-              );
-            })}
+        <td className="flex h-full items-center justify-center gap-1 p-2 text-sm ">
+          {form.split(",").map((state, index) => (
+            <div
+              key={index}
+              className={`flex h-5 w-5 items-center justify-center rounded-full p-1 text-xs font-normal text-white ${
+                state === "W"
+                  ? "bg-green-500"
+                  : state === "D"
+                    ? "bg-slate-500"
+                    : "bg-red-500"
+              }`}
+            >
+              {state}
+            </div>
+          ))}
         </td>
       )}
     </tr>
@@ -79,15 +63,3 @@ const TableRow = ({ team, league, season, changeAction, textColor }) => {
 };
 
 export default TableRow;
-<tr>
-  <td className="whitespace-nowrap p-3 text-sm  ">liverpool</td>
-  <td className="whitespace-nowrap p-3 text-sm  ">24</td>
-  <td className="whitespace-nowrap p-3 text-sm ">23</td>
-  <td className="whitespace-nowrap p-3 text-sm ">23</td>
-  <td className="whitespace-nowrap p-3 text-sm ">23</td>
-  <td className="whitespace-nowrap p-3 text-sm ">23</td>
-  <td className="whitespace-nowrap p-3 text-sm ">23</td>
-  <td className="whitespace-nowrap p-3 text-sm ">23</td>
-  <td className="whitespace-nowrap p-3 text-sm ">23</td>
-  <td className="whitespace-nowrap p-3 text-sm ">23</td>
-</tr>;

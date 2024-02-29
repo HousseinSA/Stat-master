@@ -34,7 +34,7 @@ const MatchesTableSkeleton = () => {
 
 const MatchRowSkeleton = () => {
   return (
-    <div className="flex h-full w-full flex-1">
+    <div className="flex h-full w-full">
       <div className="flex h-full w-full flex-col justify-center rounded-md bg-[#F1F5F9] dark:bg-gray-800">
         <Skeleton width={50} height={50} />
         <div className="flex flex-col items-center justify-center font-semibold">

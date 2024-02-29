@@ -9,9 +9,9 @@ const StatsTable = ({
   theme,
 }) => {
   return (
-    <table className=" h-auto w-full text-sm text-black dark:text-gray-400">
+    <table className="h-auto w-full text-sm ">
       <StatsHead color={color} />
-      <tbody>
+      <tbody className="divide-y divide-gray-400 bg-white dark:border-gray-700  ">
         {scorers.map((player, index) => {
           return (
             <StatsRow
@@ -28,7 +28,6 @@ const StatsTable = ({
         })}
       </tbody>
     </table>
-
   );
 };
 
