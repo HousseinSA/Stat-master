@@ -24,7 +24,7 @@ export default function MatchesContainer({
   ];
   return (
     <section className="h-full w-full overflow-auto">
-      <div className="sticky left-0 top-0 z-50 flex items-center gap-3 bg-[#F1F5F9]  dark:bg-gray-700">
+      <div className="sticky left-0 top-0 z-30 flex items-center gap-3 bg-[#F1F5F9]  dark:bg-gray-700">
         <Image
           src={emblem}
           width={50}

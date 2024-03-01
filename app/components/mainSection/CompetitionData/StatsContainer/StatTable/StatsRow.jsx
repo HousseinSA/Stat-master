@@ -13,7 +13,7 @@ const StatsRow = ({ player, index, league, season, color: textColor }) => {
     <tr className="text-center dark:bg-[#1F2937] dark:text-gray-400">
       <th
         scope="row"
-        className="sticky left-0 z-30 whitespace-nowrap bg-white px-6 py-3 text-left font-medium text-gray-900  dark:bg-[#1F2937] dark:text-gray-400"
+        className="sticky left-0 z-20 whitespace-nowrap bg-white px-6 py-3 text-left font-medium text-gray-900  dark:bg-[#1F2937] dark:text-gray-400"
       >
         <span style={{ color: textColor }} className="mr-2 text-lg">
           {index + 1}

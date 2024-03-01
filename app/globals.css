@@ -1,9 +1,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-.item-hover {
-  @apply hover:bg-slate-500 hover:text-white dark:hover:bg-slate-500 dark:hover:text-white;
-}
 
 body {
   padding: 0;
@@ -14,6 +11,9 @@ body {
 }
 .action-hover {
   @apply rounded-md;
+}
+.item-hover {
+  @apply hover:bg-slate-500 hover:text-white dark:hover:bg-slate-500 dark:hover:text-white;
 }
 
 ::-webkit-scrollbar {
@@ -26,7 +26,7 @@ body {
 
 ::-webkit-scrollbar-thumb {
   background: #888; /* Color of the scrollbar */
-  border-radius: 20px; /* Rounded corners */
+  border: 20px; /* Rounded corners */
 }
 
 ::-webkit-scrollbar-thumb:hover {

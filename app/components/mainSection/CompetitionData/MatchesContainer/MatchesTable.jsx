@@ -18,12 +18,12 @@ const MatchesTable = ({ matches }) => {
   }
 
   return (
-    <div className="w-full h-auto">
+    <div className="h-auto w-full">
       <h1
         style={{
           color: leagueColor,
         }}
-        className=" my-3 p-3 font-semibold "
+        className="my-3 p-3 font-semibold "
       >
         {matchdayTitle}
       </h1>

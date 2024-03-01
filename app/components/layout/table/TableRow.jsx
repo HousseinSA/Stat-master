@@ -17,10 +17,10 @@ const TableRow = ({ team, league, season, changeAction, textColor }) => {
   const { crest, shortName, id } = team.team;
 
   return (
-    <tr className="text-center dark:bg-[#1F2937] dark:text-gray-400">
+    <tr className="h-full w-full text-center dark:bg-[#1F2937] dark:text-gray-400">
       <th
         scope="row"
-        className="item-hover sticky left-0 z-30 whitespace-nowrap bg-white px-6 py-3 text-left font-medium text-gray-900   dark:bg-[#1F2937] dark:text-gray-400"
+        className="item-hover sticky left-0 z-20 whitespace-nowrap bg-white px-6 py-3 text-left font-medium text-gray-900   dark:bg-[#1F2937] dark:text-gray-400"
         onClick={() => changeAction("teams")}
       >
         <Link
@@ -41,7 +41,7 @@ const TableRow = ({ team, league, season, changeAction, textColor }) => {
       <td className="p-2 md:p-3">{goalDifference}</td>
       <td className="p-2 md:p-3">{points}</td>
       {league !== "CL" && form && (
-        <td className="flex h-full items-center justify-center gap-1 p-2 text-sm ">
+        <td className="flex h-full items-center justify-center gap-1 p-2 text-sm">
           {form.split(",").map((state, index) => (
             <div
               key={index}

@@ -1,5 +1,4 @@
 /** @type {import('tailwindcss').Config} */
-const { nextui } = require("@nextui-org/theme");
 module.exports = {
   darkMode: ["class"],
   content: [
@@ -7,12 +6,6 @@ module.exports = {
     "./components/**/*.{js,jsx}",
     "./app/**/*.{js,jsx}",
     "./src/**/*.{js,jsx}",
-    "./node_modules/@nextui-org/theme/dist/components/button.js",
-    // or you can use a glob pattern (multiple component styles)
-    "./node_modules/@nextui-org/theme/dist/components/(button|snippet|code|input).js",
-    "./node_modules/@nextui-org/theme/dist/components/dropdown.js",
-    // or you can use a glob pattern (multiple component styles)
-    "./node_modules/@nextui-org/theme/dist/components/(dropdown|snippet|code|input).js",
   ],
   prefix: "",
   theme: {
@@ -40,5 +33,5 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate"), nextui()],
+  plugins: [],
 };

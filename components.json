@@ -9,5 +9,9 @@
     "baseColor": "stone",
     "cssVariables": false,
     "prefix": ""
+  },
+  "aliases": {
+    "components": "./app/components",
+    "utils": "./app/utils"
   }
 }

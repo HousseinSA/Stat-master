@@ -6,7 +6,6 @@ const store = (set) => ({
   getClickedLeague: (clickedLeague) => set({ leagueCode: clickedLeague }),
   getClickedLeagueColor: (clickedLeagueColor) =>
     set({ leagueColor: clickedLeagueColor }),
-
   action: getActionStore() || "standings",
   getClickedAction: (clickedAction) => set({ action: clickedAction }),
   theme: null,
@@ -22,10 +21,12 @@ const store = (set) => ({
   setCurrentMatchday: (currMatchDay) => set({ currentMatchday: currMatchDay }),
   teamId: null,
   getTeamId: (clickTeamId) => set({ teamId: clickTeamId }),
+  leagueList: [],
+  setLeagueList: (list) => set({ leagueList: list }),
 });
 
 export const useLeagueStore = create(persist(store, { name: "store" }));
 
 function getActionStore() {
-  return JSON.parse(localStorage.getItem(store))?.state.action;
+  return JSON.parse(localStorage && localStorage?.getItem(store))?.state.action;
 }

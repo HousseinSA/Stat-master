@@ -1,21 +1,22 @@
+import React from "react";
 import Link from "next/link";
+import { Menu } from "@headlessui/react";
 import { FaRankingStar } from "react-icons/fa6";
 import { IoFootballSharp } from "react-icons/io5";
 import { TbSoccerField } from "react-icons/tb";
 import { ImStatsBars } from "react-icons/im";
-const CompetitionActionButton = ({
+const DropDownItem = ({
+  action,
   season,
   league,
-  action,
-  activeBtn,
-  activeAction,
   matchday,
+  activeBtn,
+  handelAction,
 }) => {
   const actionLink =
-    action !== "matches"
-      ? `/competition/${league}/${season}/${action}`
-      : `/competition/${league}/${season}/${action}/matchday/${matchday}`;
-
+    action === "matches"
+      ? `/competition/${league}/${season}/${action}/matchday/${matchday}`
+      : `/competition/${league}/${season}/${action}`;
   const actionName = (
     <div className="flex items-center space-x-2">
       {action === "standings" ? (
@@ -37,18 +38,18 @@ const CompetitionActionButton = ({
       )}
     </div>
   );
+
   return (
-    <Link href={actionLink} prefetch>
-      <button
-        onClick={() => activeAction(action)}
-        className={`action-hover item-hover ${
-          activeBtn && "bg-gray-700 "
-        } w-full flex-1 px-6 py-3 text-center  capitalize`}
+    <Menu.Item>
+      <Link
+        href={actionLink}
+        onClick={() => handelAction(action)}
+        className={`text-gray-300 ${activeBtn && "bg-gray-700 text-white"} item-hover block p-2  capitalize`}
       >
         {actionName}
-      </button>
-    </Link>
+      </Link>
+    </Menu.Item>
   );
 };
 
-export default CompetitionActionButton;
+export default DropDownItem;

@@ -9,7 +9,7 @@ import TeamsSkeleton from "../../../../components/layout/Skeleton/TeamSkeleton/T
 import TeamSkeleton from "../../../../components/layout/Skeleton/TeamSkeleton/TeamSkeleton";
 import { useParams } from "next/navigation";
 const Loading = () => {
-  const { action, theme, leagueCode } = useLeagueStore();
+  const { action, theme } = useLeagueStore();
   const params = useParams();
   const loadingAction = {
     stats: <StatSkeleton />,

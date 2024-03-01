@@ -5,7 +5,7 @@ const StatsHead = ({ color: textColor }) => {
   return (
     <thead
       style={{ color: textColor || leagueColor }}
-      className="sticky top-0 z-50 bg-[#F1F5F9] text-xs uppercase text-gray-700 dark:bg-gray-700"
+      className="sticky top-0 z-30 bg-[#F1F5F9] text-xs uppercase text-gray-700 dark:bg-gray-700"
     >
       <tr>
         <th
