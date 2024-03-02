@@ -24,8 +24,8 @@ const HeaderNav = () => {
     <nav className="flex items-center gap-4">
       <div
         onClick={() => themeSwitcher(!theme)}
-        className={`cursor-pointer rounded-full  p-2 md:p-4 ${
-          theme ? "dark:bg-white  dark:text-black" : "bg-[#001F3F]"
+        className={`cursor-pointer rounded-full p-2 md:p-1 ${
+          theme ? "dark:bg-white dark:text-black" : "bg-[#001F3F]"
         } text-white transition duration-500`}
       >
         {theme ? (
@@ -35,7 +35,7 @@ const HeaderNav = () => {
             viewBox="0 0 24 24"
             strokeWidth="1.5"
             stroke="currentColor"
-            className="h-2 w-2 md:h-4 md:w-4 "
+            className="h-4 w-4 md:h-6 md:w-6"
           >
             <path
               strokeLinecap="round"
@@ -50,7 +50,7 @@ const HeaderNav = () => {
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="h-2 w-2 md:h-4 md:w-4 "
+            className="h-4 w-4 md:h-6 md:w-6"
           >
             <path
               strokeLinecap="round"

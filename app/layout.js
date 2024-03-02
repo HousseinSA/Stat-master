@@ -21,7 +21,7 @@ export default async function RootLayout({ children }) {
       >
         <main
           className=" mx-auto flex
-         h-screen flex-col items-start justify-start overflow-hidden p-5"
+         h-screen flex-col space-y-1 overflow-hidden  p-1 md:p-5"
         >
           <HeaderComponent />
           <div className=" flex  h-[93%]  w-full items-center justify-center  ">

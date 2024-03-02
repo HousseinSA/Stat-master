@@ -17,7 +17,7 @@ const StatsContainer = ({ competitionData }) => {
         </h3>
       </div>
       <div className="w-full overflow-auto">
-        <StatsTable
+        <StatsTable 
           scorers={scorers}
           season={season}
           color={leagueColor}

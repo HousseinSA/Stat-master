@@ -2,7 +2,7 @@
 import CompetitionActionButton from "./CompetitionActionButton";
 import { useLeagueStore } from "../../../utils/StateStore";
 import LeagueYear from "./StandingsContainer/LeagueContainer/LeagueYear";
-import DropDownContainer from "./MobileDropDown/DropDownContainer";
+import DropDownContainer from "../../layout/MobileDropDown/DropDownContainer";
 const CompetitionContent = ({ children }) => {
   // get data in league store
   const {
@@ -45,7 +45,7 @@ const CompetitionContent = ({ children }) => {
         activeAction={handelAction}
       />
 
-      <div className="w-full overflow-hidden">
+      <div className="h-full w-full overflow-hidden">
         {leagueCode === "CL" || action !== "standings" ? null : (
           <LeagueYear currentSeason={currentSeason} />
         )}

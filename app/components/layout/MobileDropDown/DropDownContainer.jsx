@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
 import DropDownItem from "./DropDownItem";
-import { useLeagueStore } from "app/utils/StateStore";
+import { useLeagueStore } from "../../../utils/StateStore";
 import CompetitionDropDown from "./CompetitionDropDown";
 import { CiMenuKebab } from "react-icons/ci";
 const DropDown = ({ actionBtn, matchday, activeAction }) => {

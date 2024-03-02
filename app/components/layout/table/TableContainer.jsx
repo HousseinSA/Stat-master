@@ -39,18 +39,15 @@ const TableContainer = ({
       textColor={leagueColor}
     />
   ));
-
   const table = league === "CL" ? uclTable : leagueTable;
 
   return (
-    <div className="h-full min-h-full w-full overflow-auto">
-      <table className="h-full w-full text-sm md:text-base ">
-        <TableHead league={league} textColor={leagueColor} />
-        <tbody className="divide-y divide-gray-400 dark:border-gray-700  ">
-          {table}
-        </tbody>
-      </table>
-    </div>
+    <table className=" mb-10 h-full w-full text-sm md:text-base">
+      <TableHead league={league} textColor={leagueColor} />
+      <tbody className="divide-y divide-gray-400 dark:border-gray-700  ">
+        {table}
+      </tbody>
+    </table>
   );
 };
 

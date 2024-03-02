@@ -21,12 +21,12 @@ const CompetitionDropDown = ({
     <Menu.Item>
       <Link href={leagueActionPath}>
         <div
-          className={`${ selectedComp ?
-              "bg-slate-700" : "" } item-hover
-            action-hover cursor-pointer p-2  `}
+          className={`${selectedComp ? "bg-slate-700 text-white" : ""} item-hover
+          action-hover 
+            dark: cursor-pointer p-2 text-gray-500  dark:text-white  `}
           onClick={() => handleLeague(code, leagueColor, matchday)}
         >
-          <div className="flex items-center  justify-start gap-4">
+          <div className="flex items-center gap-4">
             <Image
               src={emblem}
               alt={name}
@@ -35,9 +35,7 @@ const CompetitionDropDown = ({
               height={25}
               priority
             />
-            <span className="flex text-xs">
-              {code === "PD" ? "La Liga" : name}
-            </span>
+            <span className=" text-sm">{code === "PD" ? "La Liga" : name}</span>
           </div>
         </div>
       </Link>

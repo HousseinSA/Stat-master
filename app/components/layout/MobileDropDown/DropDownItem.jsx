@@ -44,7 +44,7 @@ const DropDownItem = ({
       <Link
         href={actionLink}
         onClick={() => handelAction(action)}
-        className={`text-gray-300 ${activeBtn && "bg-gray-700 text-white"} item-hover block p-2  capitalize`}
+        className={`text-gray-500  ${activeBtn && "bg-gray-700 text-white  "} item-hover block p-2  capitalize dark:text-white`}
       >
         {actionName}
       </Link>
