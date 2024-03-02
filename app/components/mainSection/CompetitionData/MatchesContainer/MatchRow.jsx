@@ -34,7 +34,7 @@ const MatchRow = ({
   );
 
   return (
-    <div className="flex  h-full w-full justify-center ">
+    <div className="flex h-full w-full justify-center ">
       {isTeamsInfoAvailable && (
         <div
           onClick={() => changeAction("teams")}
@@ -43,7 +43,7 @@ const MatchRow = ({
           <div className="flex h-full w-full flex-col justify-center gap-2">
             <Link
               href={`/competition/${league}/${season}/teams/${homeTeam.id}`}
-              className="item-hover  rounded-tl-md rounded-tr-md p-2 hover:text-white"
+              className={`item-hover  rounded-tl-md rounded-tr-md p-2 ${winner !== "HOME_TEAM" && "text-gray-600"}`}
             >
               <div className="flex h-full items-center justify-center gap-3 text-sm">
                 <div className="relative h-8 w-8 flex-shrink-0 ">
@@ -55,9 +55,7 @@ const MatchRow = ({
                     height={50}
                   />
                 </div>
-                <span
-                  className={`flex flex-grow items-center gap-2 ${winner !== "HOME_TEAM" && "text-gray-600"}`}
-                >
+                <span className={`flex flex-grow items-center gap-2 `}>
                   {homeTeam.shortName}
                   {winner === "HOME_TEAM" && arrowSvg}
                 </span>
@@ -79,7 +77,7 @@ const MatchRow = ({
 
             <Link
               href={`/competition/${league}/${season}/teams/${awayTeam.id}`}
-              className="item-hover  rounded-bl-md rounded-br-md p-2 hover:text-white"
+              className={`item-hover  rounded-bl-md rounded-br-md p-2  ${winner !== "AWAY_TEAM" && "text-gray-600"}`}
             >
               <div className="flex h-full items-center justify-center gap-3 text-sm">
                 <div className="relative h-8 w-8 flex-shrink-0 ">
@@ -91,9 +89,7 @@ const MatchRow = ({
                     height={50}
                   />
                 </div>
-                <span
-                  className={`flex flex-grow items-center gap-2 ${winner !== "AWAY_TEAM" && "text-gray-600"}`}
-                >
+                <span className={`flex flex-grow items-center  gap-2 `}>
                   {awayTeam.shortName}
                   {winner === "AWAY_TEAM" && arrowSvg}
                 </span>

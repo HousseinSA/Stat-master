@@ -6,7 +6,6 @@ import StandingsContainer from "../../../../components/mainSection/CompetitionDa
 const MainDataPage = async ({ params }) => {
   const { league, season, action } = params;
   const competitionData = await getCompetitionData(league, season, action);
-  await new Promise((resolve) => setTimeout(resolve, 1000));
   const actionList = {
     standings: <StandingsContainer competitionData={competitionData} />,
     teams: <TeamsContainer competitionData={competitionData} />,

@@ -13,7 +13,7 @@ export default function MatchesContainer({
   const { matches: matchesNext } = nextMatches;
   const { matches: matchesPrev } = prevMatches;
   // Get current matchday from state store
-  const { currentMatchday } = useLeagueStore();
+  const { currentMatchday, leagueColor } = useLeagueStore();
   // Extract competition name and emblem
   const { name: competitionName, emblem } = currentMatches?.competition;
   // Construct matches array with match data and corresponding names
@@ -32,7 +32,9 @@ export default function MatchesContainer({
           height={30}
           alt={competitionName}
         />
-        <h3 className="font-semibold">{competitionName}</h3>
+        <h3 style={{ color: leagueColor }} className="font-semibold">
+          {competitionName}
+        </h3>
       </div>
       <div>
         {matches.map((match, index) => (

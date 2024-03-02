@@ -15,7 +15,6 @@ const page = async ({ params }) => {
     fetchMatchData(league, season, action, matchdayNum - 1, uclStages[1]),
     fetchMatchData(league, season, action, matchdayNum + 1, uclStages[2]),
   ]);
-  // await new Promise((resolve) => setTimeout(resolve, 3000));
   return (
     <MatchesContainer
       currentMatches={currentMatches}

@@ -9,7 +9,7 @@ const CompetitionList = ({ competitionsList }) => {
     0,
     4,
   );
-  const LeaguesToInclude = ["PL", "PD", "CL", "DED", "PPL", "FL1", "BL1", "SA"];
+  const LeaguesToInclude = ["PL", "PD", "CL","BL1", "SA", "FL1", "DED", "PPL"];
   const filteredLeagues = competitions?.filter((comp) =>
     LeaguesToInclude.includes(comp?.code),
   );
@@ -21,13 +21,14 @@ const CompetitionList = ({ competitionsList }) => {
 
   const leagueColors = [
     "#9e2baf",
+    "#FAEC40",
     "#3838c4",
-    "#CFFB12",
     "#D40914",
     "#19C030",
+    "#CFFB12",
     "#2C3C82",
     "#FFD337",
-    "#FAEC40",
+    ,
   ];
   const {
     getClickedLeague,

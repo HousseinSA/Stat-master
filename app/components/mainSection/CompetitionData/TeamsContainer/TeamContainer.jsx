@@ -3,7 +3,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { useLeagueStore } from "../../../../utils/StateStore";
 import MatchRow from "../MatchesContainer/MatchRow";
-const TeamContainer = ({ teamData, teamMatches }) => {
+import TitleAnimation from "app/components/layout/TitleAnimation";
+
+const TeamContainer = ({ children, teamData, teamMatches }) => {
   const { crest, name, founded, venue, website, coach, runningCompetitions } =
     teamData;
   const {
@@ -26,50 +28,71 @@ const TeamContainer = ({ teamData, teamMatches }) => {
     matches[matchIndex + 1],
     matches[matchIndex + 2],
   ];
+
   return (
-    <section className=" h-full w-full ">
+    <section className=" h-full w-full">
       <div className="flex h-full w-full flex-col">
-        <div className="flex flex-col justify-center bg-[#F1F5F9] p-4 dark:bg-gray-700 ">
-          <div className="flex items-center justify-between gap-3">
-            <div className="flex items-center gap-2">
+        <div className="flex w-full flex-col justify-center space-y-4 bg-[#F1F5F9] p-1  dark:bg-gray-700 md:p-3 ">
+          <div className="flex flex-wrap items-center  justify-center gap-3 sm:justify-between">
+            <div className="flex flex-col items-center justify-center gap-2 sm:flex-row sm:justify-start">
               <Link href={website}>
-                <Image src={crest} width={150} height={150} alt={name} />
+                <Image
+                  src={crest}
+                  width={150}
+                  className=" md:max-w-35 md:max-h-35 min-h-16 min-w-16"
+                  height={150}
+                  alt={name}
+                />
               </Link>
-              <h3 className="text-xl font-semibold ">{name}</h3>
+              <h3 className="text-sm font-semibold sm:text-base md:text-xl  md:font-medium ">
+                {name}
+              </h3>
             </div>
             <div>
               <div className="flex items-center gap-1">
-                <span style={textColor} className="font-semibold ">
+                <span
+                  style={textColor}
+                  className="text-sm font-medium sm:text-base md:text-lg md:font-semibold"
+                >
                   Founded:
                 </span>
-                <p className="text-lg text-slate-700  dark:text-white">
+                <p className="text-xs text-slate-700 dark:text-gray-200 sm:text-base md:text-lg md:font-medium">
                   {founded}
                 </p>
               </div>
               <div className="flex items-center gap-1">
-                <span style={textColor} className="font-semibold ">
+                <span
+                  style={textColor}
+                  className="text-sm font-medium sm:text-base md:text-lg md:font-semibold "
+                >
                   Stadium:
                 </span>
-                <p className="text-lg text-slate-700 dark:text-white">
+                <p className="text-xs text-slate-700 dark:text-gray-200 sm:text-base  md:text-lg md:font-medium">
                   {venue}
                 </p>
               </div>
             </div>
           </div>
-          <div className="flex  items-center  gap-8">
+          <div className="flex w-full flex-col items-center gap-2 md:flex-row  md:justify-between">
             <h1 className="flex items-center gap-1">
-              <span style={textColor} className="font-semibold">
+              <span
+                style={textColor}
+                className="text-sm font-medium sm:text-base md:text-lg md:font-semibold "
+              >
                 Coach:
               </span>
-              <p className="text-lg text-slate-700 dark:text-white">
+              <p className="text-xs text-slate-700 dark:text-gray-200 sm:text-base  md:text-lg md:font-medium">
                 {coach.name}
               </p>
             </h1>
-            <div className=" flex   items-center justify-center gap-6">
-              <h3 style={textColor} className="text-md font-semibold ">
+            <div className="flex items-center justify-center gap-6 pb-2 md:pb-0 ">
+              <h3
+                style={textColor}
+                className="hidden font-medium sm:block sm:text-base md:text-lg md:font-semibold"
+              >
                 Competitions
               </h3>
-              <div className="flex w-full items-center justify-center gap-6">
+              <div className="flex w-full flex-1 flex-wrap items-center justify-center gap-6 md:flex-auto">
                 {runningCompetitions.map((competition) => {
                   return (
                     <div
@@ -78,8 +101,9 @@ const TeamContainer = ({ teamData, teamMatches }) => {
                     >
                       <Image
                         src={competition.emblem}
-                        width={80}
-                        height={80}
+                        width={50}
+                        height={50}
+                        className="min-h-10 min-w-10 md:h-16 md:w-16"
                         alt={competition.name}
                       />
                     </div>
@@ -89,11 +113,16 @@ const TeamContainer = ({ teamData, teamMatches }) => {
             </div>
           </div>
         </div>
-        <div className="px-4 py-2">
-          <h3 style={textColor} className="font-semibold">
-            Next Matches
-          </h3>
-          <div className="grid items-center justify-center gap-3 sm:grid-cols-2 md:grid-cols-3">
+        <div className="w-full overflow-auto px-4 py-2">
+          <TitleAnimation>
+            <div
+              style={textColor}
+              className="text-base sm:text-lg  sm:font-medium md:font-semibold"
+            >
+              Next Matches
+            </div>
+          </TitleAnimation>
+          <div className="grid w-full grid-cols-1 items-center justify-center gap-3 sm:grid-cols-2 md:grid-cols-3">
             {nextMatches?.map((match, index) => (
               <MatchRow
                 season={season}
