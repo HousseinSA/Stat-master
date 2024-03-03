@@ -1,5 +1,5 @@
 "use client";
-import { useLeagueStore } from "../../utils/StateStore";
+import { useLeagueStore } from "@/utils/StateStore";
 import React, { useEffect } from "react";
 
 const HeaderNav = () => {
@@ -24,7 +24,7 @@ const HeaderNav = () => {
     <nav className="flex items-center gap-4">
       <div
         onClick={() => themeSwitcher(!theme)}
-        className={`cursor-pointer rounded-full p-2 md:p-1 ${
+        className={`cursor-pointer rounded-full p-2 md:p-2 ${
           theme ? "dark:bg-white dark:text-black" : "bg-[#001F3F]"
         } text-white transition duration-500`}
       >

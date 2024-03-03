@@ -1,6 +1,6 @@
 "use client";
 import LeagueItem from "./LeagueItem";
-import { useLeagueStore } from "../../../utils/StateStore";
+import { useLeagueStore } from "@/utils/StateStore";
 import { useEffect } from "react";
 
 const CompetitionList = ({ competitionsList }) => {
@@ -9,7 +9,7 @@ const CompetitionList = ({ competitionsList }) => {
     0,
     4,
   );
-  const LeaguesToInclude = ["PL", "PD", "CL","BL1", "SA", "FL1", "DED", "PPL"];
+  const LeaguesToInclude = ["PL", "PD", "CL", "BL1", "SA", "FL1", "DED", "PPL"];
   const filteredLeagues = competitions?.filter((comp) =>
     LeaguesToInclude.includes(comp?.code),
   );

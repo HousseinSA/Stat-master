@@ -1,12 +1,12 @@
 "use client";
 import { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
-import StandingsSkeleton from "../../../../components/layout/Skeleton/StandingSkeleton/StandingsSkeleton";
-import { useLeagueStore } from "../../../../utils/StateStore";
-import StatSkeleton from "../../../../components/layout/Skeleton/StatSkeleton/StatSkeleton";
-import MatchesSkeleton from "../../../../components/layout/Skeleton/matchSkeleton/MatchesSkeleton";
-import TeamsSkeleton from "../../../../components/layout/Skeleton/TeamSkeleton/TeamsSkeleton";
-import TeamSkeleton from "../../../../components/layout/Skeleton/TeamSkeleton/TeamSkeleton";
+import StandingsSkeleton from "@/components/layout/Skeleton/StandingSkeleton/StandingsSkeleton";
+import { useLeagueStore } from "@/utils/StateStore";
+import StatSkeleton from "@/components/layout/Skeleton/StatSkeleton/StatSkeleton";
+import MatchesSkeleton from "@/components/layout/Skeleton/matchSkeleton/MatchesSkeleton";
+import TeamsSkeleton from "@/components/layout/Skeleton/TeamSkeleton/TeamsSkeleton";
+import TeamSkeleton from "@/components/layout/Skeleton/TeamSkeleton/TeamSkeleton";
 import { useParams } from "next/navigation";
 const Loading = () => {
   const { action, theme } = useLeagueStore();

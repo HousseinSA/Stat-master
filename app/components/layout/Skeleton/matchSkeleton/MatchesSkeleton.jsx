@@ -9,7 +9,7 @@ const MatchesSkeleton = () => {
         <Skeleton width={150} height={20} />
       </div>
       <div>
-        <MatchesTableSkeleton />
+        /<MatchesTableSkeleton />
         <MatchesTableSkeleton />
         <MatchesTableSkeleton />
       </div>

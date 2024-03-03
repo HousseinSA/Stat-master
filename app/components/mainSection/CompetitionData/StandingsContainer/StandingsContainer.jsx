@@ -1,6 +1,6 @@
 "use client";
 import { useEffect } from "react";
-import { useLeagueStore } from "../../../../utils/StateStore";
+import { useLeagueStore } from "@/utils/StateStore";
 import TableContainer from "../../../layout/table/TableContainer";
 const StandingsContainer = ({ competitionData }) => {
   const {

@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import MatchesTable from "./MatchesTable";
-import { useLeagueStore } from "../../../../utils/StateStore";
+import { useLeagueStore } from "@/utils/StateStore";
 
 export default function MatchesContainer({
   currentMatches,
@@ -28,7 +28,7 @@ export default function MatchesContainer({
         <Image
           src={emblem}
           width={50}
-          className="mx-4 my-2"
+          className="mx-4 w-12 h-12 my-2"
           height={30}
           alt={competitionName}
         />

@@ -1,5 +1,5 @@
-import MatchesContainer from "../../../../../../components/mainSection/CompetitionData/MatchesContainer/MatchesContainer";
-import { getCompetitionData } from "../../../../../../utils/allDataFetchingFunctions";
+import MatchesContainer from "@/components/mainSection/CompetitionData/MatchesContainer/MatchesContainer";
+import { getCompetitionData } from "@/utils/allDataFetchingFunctions";
 
 const fetchMatchData = async (league, season, action, matchday, stage) => {
   return getCompetitionData(league, season, action, matchday, stage);

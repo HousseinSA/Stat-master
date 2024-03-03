@@ -1,6 +1,6 @@
 "use client";
 
-import { useLeagueStore } from "../../../../utils/StateStore";
+import { useLeagueStore } from "@/utils/StateStore";
 import TeamCard from "./TeamCard";
 
 const TeamsContainer = ({ competitionData }) => {

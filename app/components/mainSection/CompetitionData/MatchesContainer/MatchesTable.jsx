@@ -1,6 +1,6 @@
 import React from "react";
 import MatchRow from "./MatchRow";
-import { useLeagueStore } from "../../../../utils/StateStore";
+import { useLeagueStore } from "@/utils/StateStore";
 
 const MatchesTable = ({ matches }) => {
   const { leagueCode, season, leagueColor, getClickedAction } =

@@ -1,6 +1,6 @@
 "use client";
 import { useEffect } from "react";
-import { useLeagueStore } from "../../../../../utils/StateStore";
+import { useLeagueStore } from "@/utils/StateStore";
 import { useRouter } from "next/navigation";
 export const LeagueYear = () => {
   const { season, setSeason, currentSeason, leagueColor, action, leagueCode } =

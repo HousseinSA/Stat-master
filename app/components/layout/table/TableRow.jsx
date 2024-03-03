@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
-
+import { FaCheck } from "react-icons/fa";
+import { IoCloseSharp } from "react-icons/io5";
+import { BsDashLg } from "react-icons/bs";
 const TableRow = ({ team, league, season, changeAction, textColor }) => {
   const {
     draw,
@@ -28,7 +30,7 @@ const TableRow = ({ team, league, season, changeAction, textColor }) => {
           href={`/competition/${league}/${season}/teams/${id}`}
         >
           <span style={{ color: textColor }}>{position}</span>
-          <Image src={crest} alt={shortName} width={50} height={50} />
+          <Image src={crest} priority alt={shortName} width={50} height={50} />
           <span className="hidden md:block">{shortName}</span>
         </Link>
       </th>
@@ -53,7 +55,13 @@ const TableRow = ({ team, league, season, changeAction, textColor }) => {
                     : "bg-red-500"
               }`}
             >
-              {state}
+              {state === "W" ? (
+                <FaCheck />
+              ) : state === "D" ? (
+                <BsDashLg />
+              ) : (
+                <IoCloseSharp />
+              )}
             </div>
           ))}
         </td>

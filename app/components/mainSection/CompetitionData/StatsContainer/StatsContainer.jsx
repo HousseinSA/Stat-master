@@ -1,5 +1,5 @@
 "use client";
-import { useLeagueStore } from "../../../../utils/StateStore";
+import { useLeagueStore } from "@/utils/StateStore";
 import Image from "next/image";
 import StatsTable from "./StatTable/StatsTable";
 const StatsContainer = ({ competitionData }) => {

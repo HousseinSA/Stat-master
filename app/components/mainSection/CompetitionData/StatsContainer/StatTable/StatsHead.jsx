@@ -1,4 +1,4 @@
-import { useLeagueStore } from "../../../../../utils/StateStore";
+import { useLeagueStore } from "@/utils/StateStore";
 
 const StatsHead = ({ color: textColor }) => {
   const { leagueColor } = useLeagueStore();

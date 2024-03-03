@@ -1,5 +1,5 @@
 "use client";
-import { useLeagueStore } from "../../../utils/StateStore";
+import { useLeagueStore } from "@/utils/StateStore";
 
 const TableHead = ({ league, textColor }) => {
   const { leagueColor } = useLeagueStore();

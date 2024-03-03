@@ -13,7 +13,6 @@ const CompetitionDropDown = ({
   leagueColor,
   handleLeague,
 }) => {
-  console.log(leagueColor);
   const leagueActionPath =
     action !== "matches"
       ? `/competition/${code}/${season}/${action}`

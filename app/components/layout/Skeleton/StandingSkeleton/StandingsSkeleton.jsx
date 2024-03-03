@@ -17,9 +17,9 @@ const TableContainerSkeleton = () => {
       <TableHead />
       <tbody>
         {Array.from({ length: 10 }).map((index) => {
-          return <TableRowSkeleton key={index} />;
+          return <TableRowSkeleton key={index + 1} />;
         })}
-      </tbody>
+      </tbody>  
     </table>
   );
 };
@@ -31,7 +31,7 @@ const TableRowSkeleton = () => {
         <Skeleton width={50} height={50} />
         <Skeleton width={60} />
       </td>
-      {Array.from({ length: 9 }).map((index) => {
+      {Array.from({ length: 9 }).map((_, index) => {
         return (
           <td key={index}>
             <Skeleton width={50} />

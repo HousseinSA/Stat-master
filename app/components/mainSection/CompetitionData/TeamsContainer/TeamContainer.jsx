@@ -5,7 +5,7 @@ import { useLeagueStore } from "../../../../utils/StateStore";
 import MatchRow from "../MatchesContainer/MatchRow";
 import TitleAnimation from "app/components/layout/TitleAnimation";
 
-const TeamContainer = ({ children, teamData, teamMatches }) => {
+const TeamContainer = ({ teamData, teamMatches }) => {
   const { crest, name, founded, venue, website, coach, runningCompetitions } =
     teamData;
   const {
@@ -41,6 +41,7 @@ const TeamContainer = ({ children, teamData, teamMatches }) => {
                   width={150}
                   className=" md:max-w-35 md:max-h-35 min-h-16 min-w-16"
                   height={150}
+                  priority
                   alt={name}
                 />
               </Link>

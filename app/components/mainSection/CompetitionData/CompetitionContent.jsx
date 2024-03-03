@@ -1,7 +1,7 @@
 "use client";
 import CompetitionActionButton from "./CompetitionActionButton";
-import { useLeagueStore } from "../../../utils/StateStore";
-import LeagueYear from "./StandingsContainer/LeagueContainer/LeagueYear";
+import { useLeagueStore } from "@/utils/StateStore";
+import LeagueYear from "./StandingsContainer/LeagueYear";
 import DropDownContainer from "../../layout/MobileDropDown/DropDownContainer";
 const CompetitionContent = ({ children }) => {
   // get data in league store
