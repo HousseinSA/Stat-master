@@ -9,12 +9,15 @@ const page = async ({ params }) => {
   const { action, league, season, matchday } = params;
   const matchdayNum = Number(matchday);
   const uclStages = ["LAST_16", "QUARTER_FINALS", "SEMI_FINALS"];
+
   // Fetching data for current, previous, and next matchdays in parallel
+  // eslint-disable-next-line
   const [currentMatches, prevMatches, nextMatches] = await Promise.all([
     fetchMatchData(league, season, action, matchdayNum, uclStages[0]),
     fetchMatchData(league, season, action, matchdayNum - 1, uclStages[1]),
     fetchMatchData(league, season, action, matchdayNum + 1, uclStages[2]),
   ]);
+
   return (
     <MatchesContainer
       currentMatches={currentMatches}
