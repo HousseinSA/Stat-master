@@ -27,7 +27,10 @@ export default async function RootLayout({ children }) {
           <HeaderComponent />
           <div className=" flex  h-[93%]  w-full items-center justify-center  ">
             <CompetitionList competitionsList={competitionsList} />
-            <CompetitionContent>{children}</CompetitionContent>
+            <CompetitionContent>
+              {children}
+              <SpeedInsights />
+            </CompetitionContent>
           </div>
         </main>
       </body>
