@@ -16,10 +16,10 @@ const TableContainerSkeleton = () => {
     <table className="w-full overflow-auto">
       <TableHead />
       <tbody>
-        {Array.from({ length: 10 }).map((index) => {
-          return <TableRowSkeleton key={index + 1} />;
+        {[...Array(10)].map((_, index) => {
+          return <TableRowSkeleton key={index} />;
         })}
-      </tbody>  
+      </tbody>
     </table>
   );
 };

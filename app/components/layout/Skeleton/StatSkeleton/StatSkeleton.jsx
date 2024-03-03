@@ -1,5 +1,5 @@
 import Skeleton from "react-loading-skeleton";
-import StatsHead from '../../../mainSection/CompetitionData/StatsContainer/StatTable/StatsHead'
+import StatsHead from "../../../mainSection/CompetitionData/StatsContainer/StatTable/StatsHead";
 const StatSkeleton = () => {
   return (
     <div className="h-full w-full overflow-auto">
@@ -17,17 +17,15 @@ const StatSkeleton = () => {
 const StatsTableSkeleton = () => {
   return (
     <table className="h-auto w-full text-sm text-gray-500 dark:text-gray-400">
-      <StatsHead/>
+      <StatsHead />
       <tbody>
-        {Array.from({ length: 10 }).map((index) => {
+        {[...Array(10)].map((_, index) => {
           return <StatsRowSkeleton key={index} />;
         })}
       </tbody>
     </table>
   );
 };
-
-
 
 const StatsRowSkeleton = () => {
   return (

@@ -28,5 +28,11 @@ const store = (set) => ({
 export const useLeagueStore = create(persist(store, { name: "store" }));
 
 function getActionStore() {
-  return JSON.parse(localStorage && localStorage?.getItem(store))?.state.action;
+  if (typeof window !== "undefined") {
+    const actionState = JSON.parse(localStorage.getItem(store))?.state.action;
+    console.log(actionState);
+    return actionState;
+  }
+  // Default value if localStorage is not available
+  return null;
 }
