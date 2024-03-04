@@ -3,7 +3,7 @@ import MatchRow from "./MatchRow";
 import { useLeagueStore } from "@/utils/StateStore";
 
 const MatchesTable = ({ matches }) => {
-  const { leagueCode, season, leagueColor, getClickedAction } =
+  const { leagueCode, season, leagueColor, setClickedAction } =
     useLeagueStore();
   // Determine matchday title
   let matchdayTitle;
@@ -34,7 +34,7 @@ const MatchesTable = ({ matches }) => {
             match={match}
             season={season}
             league={leagueCode}
-            changeAction={getClickedAction}
+            changeAction={setClickedAction}
             textColor={leagueColor}
           />
         ))}

@@ -7,7 +7,7 @@ const StandingsContainer = ({ competitionData }) => {
     leagueCode,
     setCurrentMatchday,
     season,
-    getClickedAction,
+    setClickedAction,
     leagueColor,
   } = useLeagueStore();
   const competitionTable =
@@ -25,7 +25,7 @@ const StandingsContainer = ({ competitionData }) => {
       <TableContainer
         competitionTable={competitionTable}
         season={season}
-        changeAction={getClickedAction}
+        changeAction={setClickedAction}
         league={leagueCode}
         leagueColor={leagueColor}
       />

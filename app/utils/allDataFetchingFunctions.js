@@ -1,13 +1,8 @@
 const baseUrl = "http://api.football-data.org/v4/competitions";
 const teamBaseUrl = "http://api.football-data.org/v4";
-export async function getCompetitionsList() {
-  const competitionList = `${baseUrl}?areas=2077`;
-  const competitionListData = await fetchFunction(competitionList);
-  return competitionListData;
-}
 
-// fetching function to prevent duplicate
-async function fetchFunction(url) {
+// Reusable fetch function with error handling
+async function fetchData(url) {
   try {
     const response = await fetch(url, {
       headers: {
@@ -26,7 +21,13 @@ async function fetchFunction(url) {
   }
 }
 
-// compition standing
+// Fetch competition list
+export async function getCompetitionsList() {
+  const competitionListUrl = `${baseUrl}?areas=2077`;
+  return await fetchData(competitionListUrl);
+}
+
+// Fetch competition data
 export async function getCompetitionData(
   league,
   season,
@@ -34,38 +35,33 @@ export async function getCompetitionData(
   matchday,
   uclStages,
 ) {
-  // Constructing the dynamic part of the URL based on league, action, season, and matchday
-
   const stats = `${league}/scorers`;
   const dynamicPart =
     action === "stats"
       ? stats
-      : `${league}/${action}${
-          league !== "CL" ? `?season=${season}` : ""
-        }${matchday && league !== "CL" ? `&matchday=${matchday}` : ""}`;
+      : `${league}/${action}${league !== "CL" ? `?season=${season}` : ""}${
+          matchday && league !== "CL" ? `&matchday=${matchday}` : ""
+        }`;
 
-  // Constructing the query string for UEFA Champions League matches
   const uclMatchQuery =
     league === "CL" && action === "matches"
       ? `?season=${season}&stage=${uclStages}`
       : "";
-  // Combining the base URL, dynamic part, and UEFA Champions League match query
   const finalUrl = `${baseUrl}/${dynamicPart}${uclMatchQuery}`;
-  const fetchData = await fetchFunction(finalUrl);
-  return fetchData;
+  return await fetchData(finalUrl);
 }
 
-// team data
-
+// Fetch team data
 export async function getTeamData(action, teamId) {
   const teamLink = `${teamBaseUrl}/${action}/${teamId}`;
-  const fetchTeamData = await fetchFunction(teamLink);
-  return fetchTeamData;
+  return await fetchData(teamLink);
 }
 
+// Fetch team matches
+import { getMatchesDates } from "@/utils/getMatchesDates";
 export async function getTeamMatches(action, teamId) {
-  const teamLink = `${teamBaseUrl}/${action}/${teamId}/matches`;
-
-  const fetchTeamMatches = await fetchFunction(teamLink);
-  return fetchTeamMatches;
+  const dates = getMatchesDates();
+  const { currentDate, dateTwoMonthsAhead } = dates;
+  const teamMatchesLink = `${teamBaseUrl}/${action}/${teamId}/matches?dateFrom=${currentDate}&dateTo=${dateTwoMonthsAhead}`;
+  return await fetchData(teamMatchesLink);
 }

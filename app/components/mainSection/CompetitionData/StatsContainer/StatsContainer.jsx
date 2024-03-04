@@ -3,7 +3,7 @@ import { useLeagueStore } from "@/utils/StateStore";
 import Image from "next/image";
 import StatsTable from "./StatTable/StatsTable";
 const StatsContainer = ({ competitionData }) => {
-  const { leagueColor, getClickedAction, season, theme } = useLeagueStore();
+  const { leagueColor, setClickedAction, season, theme } = useLeagueStore();
   const {
     scorers,
     competition: { emblem, name },
@@ -17,12 +17,12 @@ const StatsContainer = ({ competitionData }) => {
         </h3>
       </div>
       <div className="w-full overflow-auto">
-        <StatsTable 
+        <StatsTable
           scorers={scorers}
           season={season}
           color={leagueColor}
           theme={theme}
-          changeAction={getClickedAction}
+          changeAction={setClickedAction}
         />
       </div>
     </section>

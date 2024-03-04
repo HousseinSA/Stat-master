@@ -2,7 +2,7 @@
 import LeagueItem from "./LeagueItem";
 import { useLeagueStore } from "@/utils/StateStore";
 import { useEffect } from "react";
-import { getCompetitionColor } from "@/utils/getCompitionColor";
+import { getCompetitionColor } from "@/utils/getCompetitionColor";
 const CompetitionList = ({ competitionsList }) => {
   const competitions = competitionsList?.competitions;
   const currentSeason = competitions[0]?.currentSeason?.startDate?.substring(
@@ -40,8 +40,8 @@ const CompetitionList = ({ competitionsList }) => {
   }
 
   return (
-    <div className="`hidden h-full w-1/4  rounded-bl-md rounded-tl-md bg-[#001F3F] p-2 transition  duration-300 ">
-      <ul className="flex h-full w-full flex-col justify-center gap-2 text-white">
+    <div className=" hidden h-full w-auto rounded-bl-md rounded-tl-md bg-[#001F3F] p-2 transition duration-300 md:block lg:w-1/4">
+      <ul className="flex h-full w-full flex-col gap-2  py-4 text-white">
         {orderedLeagues?.map(({ name, code, emblem, currentSeason }, index) => {
           return (
             <LeagueItem

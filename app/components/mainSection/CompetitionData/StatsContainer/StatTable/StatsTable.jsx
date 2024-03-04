@@ -8,6 +8,8 @@ const StatsTable = ({
   color,
   theme,
 }) => {
+  const generateGoogleSearchLink = (query) =>
+    `https://www.google.com/search?q=${encodeURIComponent(query)}`;
   return (
     <table className="h-auto w-full text-sm ">
       <StatsHead color={color} />
@@ -23,6 +25,7 @@ const StatsTable = ({
               season={season}
               changeAction={changeAction}
               league={league}
+              googleSearch={generateGoogleSearchLink}
             />
           );
         })}

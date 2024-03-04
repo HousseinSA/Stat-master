@@ -23,11 +23,11 @@ const LeagueItem = ({
         } item-hover action-hover `}
         onClick={() => handelSelectedLeague(code, leagueColor, matchday)}
       >
-        <div className="flex items-center justify-center gap-4 lg:justify-start">
+        <div className="flex items-center justify-center gap-4 p-2 lg:justify-start lg:p-0">
           <Image
             src={emblem}
             alt={name}
-            className="min-h-8 min-w-8"
+            className="h-14 w-14  md:h-8 md:w-8"
             width={25}
             height={25}
             priority

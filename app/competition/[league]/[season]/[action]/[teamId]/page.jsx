@@ -4,9 +4,8 @@ const TeamPage = async ({ params: { teamId, action } }) => {
   // eslint-disable-next-line
   const [data, matches] = await Promise.all([
     getTeamData(action, teamId),
-    getTeamMatches(action, teamId),
+    getTeamMatches(action, teamId, ),
   ]);
-
   return <TeamContainer teamData={data} teamMatches={matches} />;
 };
 

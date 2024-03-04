@@ -1,6 +1,14 @@
+import { color } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-const StatsRow = ({ player, index, league, season, color: textColor }) => {
+const StatsRow = ({
+  player,
+  index,
+  league,
+  season,
+  color: textColor,
+  googleSearch,
+}) => {
   const {
     assists,
     goals,
@@ -18,7 +26,15 @@ const StatsRow = ({ player, index, league, season, color: textColor }) => {
         <span style={{ color: textColor }} className="mr-2 text-lg">
           {index + 1}
         </span>
-        {name}
+        <Link
+          style={{ textDecorationColor: textColor }}
+          className="transition duration-200 hover:underline"
+          href={googleSearch(name)}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {name}
+        </Link>
       </th>
       <td className="px-6 py-4 ">{goals}</td>
       <td className="px-6 py-4 ">{assists ? assists : "0"}</td>

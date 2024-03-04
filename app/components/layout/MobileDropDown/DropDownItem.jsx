@@ -12,6 +12,7 @@ const DropDownItem = ({
   matchday,
   activeBtn,
   handelAction,
+  leagueColor,
 }) => {
   const actionLink =
     action === "matches"
@@ -43,6 +44,7 @@ const DropDownItem = ({
     <Menu.Item>
       <Link
         href={actionLink}
+        style={{ color: leagueColor }}
         onClick={() => handelAction(action)}
         className={`text-gray-500  ${activeBtn && "bg-gray-700 text-white  "} item-hover block p-2  capitalize dark:text-white`}
       >

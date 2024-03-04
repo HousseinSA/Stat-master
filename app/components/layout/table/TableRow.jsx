@@ -22,7 +22,7 @@ const TableRow = ({ team, league, season, changeAction, textColor }) => {
     <tr className="h-full w-full text-center dark:bg-[#1F2937] dark:text-gray-400">
       <th
         scope="row"
-        className="item-hover sticky left-0 z-20 whitespace-nowrap bg-white px-6 py-3 text-left font-medium text-gray-900   dark:bg-[#1F2937] dark:text-gray-400"
+        className="item-hover sticky  left-0 z-20 whitespace-nowrap bg-white py-2 pl-2 pr-4 text-left font-medium text-gray-900 dark:bg-[#1F2937] dark:text-gray-400 md:px-3  md:pr-2 "
         onClick={() => changeAction("teams")}
       >
         <Link
@@ -34,10 +34,10 @@ const TableRow = ({ team, league, season, changeAction, textColor }) => {
           <span className="hidden md:block">{shortName}</span>
         </Link>
       </th>
-      <td className="p-2 md:p-3">{playedGames}</td>
-      <td className="p-2 text-green-500  ">{won}</td>
-      <td className="p-2 text-gray-500">{draw}</td>
-      <td className="p-2 text-red-500  ">{lost}</td>
+      <td className=" ml-3 p-2 md:p-3">{playedGames}</td>
+      <td className="p-2 text-green-500  md:p-3">{won}</td>
+      <td className="p-2 text-gray-500 md:p-3">{draw}</td>
+      <td className="p-2 text-red-500  md:p-3">{lost}</td>
       <td className="p-2 md:p-3">{goalsFor}</td>
       <td className="p-2 md:p-3">{goalsAgainst}</td>
       <td className="p-2 md:p-3">{goalDifference}</td>

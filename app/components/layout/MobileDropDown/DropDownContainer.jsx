@@ -66,13 +66,17 @@ const DropDown = ({ actionBtn, matchday, activeAction }) => {
               season={season}
               handelAction={handleAction}
               league={leagueCode}
+              leagueColor={leagueColor}
               matchday={matchday}
               activeBtn={action === actionBtn}
             />
           ))}
           <div className="max-h-60 overflow-auto">
             <TitleAnimation>
-              <div className="p-2 text-sm font-semibold dark:bg-[#001F3F] dark:text-white ">
+              <div
+                className="p-2 text-sm font-semibold dark:bg-[#001F3F] dark:text-white "
+                style={{ color: leagueColor }}
+              >
                 Competitions
               </div>
             </TitleAnimation>

@@ -7,7 +7,7 @@ const store = (set) => ({
   setClickedLeagueColor: (clickedLeagueColor) =>
     set({ leagueColor: clickedLeagueColor }),
   action: getActionStore() || "standings",
-  getClickedAction: (clickedAction) => set({ action: clickedAction }),
+  setClickedAction: (clickedAction) => set({ action: clickedAction }),
   theme: null,
   themeSwitcher: (themeStatus) => set({ theme: themeStatus }),
   season: 2023,

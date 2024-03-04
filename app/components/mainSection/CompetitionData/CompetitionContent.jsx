@@ -7,7 +7,7 @@ const CompetitionContent = ({ children }) => {
   // get data in league store
   const {
     leagueCode,
-    getClickedAction,
+    setClickedAction,
     leagueColor,
     action,
     currentSeason,
@@ -17,7 +17,7 @@ const CompetitionContent = ({ children }) => {
   // array of action buttons
   const actionButton = ["standings", "matches", "teams", "stats"];
   const handelAction = (action) => {
-    getClickedAction(action);
+    setClickedAction(action);
   };
   return (
     <div className=" flex h-full w-full flex-col overflow-hidden rounded-tr-md dark:text-white">
