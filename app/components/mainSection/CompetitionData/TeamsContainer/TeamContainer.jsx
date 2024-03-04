@@ -28,7 +28,7 @@ const TeamContainer = ({ teamData, teamMatches }) => {
         }
       });
     }
-  }, []);  /* eslint-disable-line */
+  }, []); /* eslint-disable-line */
 
   console.log(teamMatches);
   const infoColor = theme ? "#fff" : leagueColor;
@@ -155,7 +155,7 @@ const TeamContainer = ({ teamData, teamMatches }) => {
             className="flex h-full w-full flex-col items-center justify-center text-sm font-medium md:text-lg md:font-semibold lg:text-xl"
             style={{ color: infoColor }}
           >
-            Sorry, couldn't find Matches Data for {name}
+            Sorry, couldn&apos;t find Matches Data for {name}
           </div>
         ) : (
           <div className="w-full overflow-auto px-4 py-2">
