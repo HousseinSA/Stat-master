@@ -28,7 +28,7 @@ const TeamContainer = ({ teamData, teamMatches }) => {
         }
       });
     }
-  }, []);
+  }, []);  /* eslint-disable-line */
 
   console.log(teamMatches);
   const infoColor = theme ? "#fff" : leagueColor;

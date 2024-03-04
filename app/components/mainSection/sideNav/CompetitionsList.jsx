@@ -31,7 +31,7 @@ const CompetitionList = ({ competitionsList }) => {
   } = useLeagueStore();
   useEffect(() => {
     setLeagueList(orderedLeagues);
-  }, []);
+  }, []); //eslint-disable-line
   function handelSelectedLeague(code, leagueColor, matchday) {
     setCurrentSeason(currentSeason);
     getClickedLeague(code);

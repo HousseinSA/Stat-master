@@ -17,7 +17,7 @@ export const LeagueYear = () => {
 
   useEffect(() => {
     route.push(`/competition/${leagueCode}/${season}/${action}`);
-  }, [season]);
+  }, [season]); //eslint-disable-line
   return (
     <div className="z-50 flex h-fit w-auto items-center gap-3 bg-[#F1F5F9] p-2  text-slate-500 dark:bg-gray-700  ">
       <h3 className="font-semibold dark:text-white ">Season</h3>

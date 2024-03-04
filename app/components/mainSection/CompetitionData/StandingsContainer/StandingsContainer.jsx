@@ -18,8 +18,7 @@ const StandingsContainer = ({ competitionData }) => {
   // Effect for setting current matchday
   useEffect(() => {
     setCurrentMatchday(currentMatchday);
-  }, [currentMatchday]);
-
+  }, [currentMatchday]); /* eslint-disable-line */
   return (
     <main className=" h-full w-full  overflow-auto">
       <TableContainer

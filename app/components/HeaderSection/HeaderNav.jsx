@@ -15,7 +15,7 @@ const HeaderNav = () => {
     return () => {
       darkModeMediaQuery.removeEventListener("change", handleDarkModeChange);
     };
-  }, []);
+  }, []);//eslint-disable-line
   useEffect(() => {
     document.documentElement.classList.toggle("dark", theme);
   }, [theme]);
