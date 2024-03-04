@@ -2,7 +2,7 @@
 import LeagueItem from "./LeagueItem";
 import { useLeagueStore } from "@/utils/StateStore";
 import { useEffect } from "react";
-
+import { getCompetitionColor } from "@/utils/getCompitionColor";
 const CompetitionList = ({ competitionsList }) => {
   const competitions = competitionsList?.competitions;
   const currentSeason = competitions[0]?.currentSeason?.startDate?.substring(
@@ -19,20 +19,9 @@ const CompetitionList = ({ competitionsList }) => {
     filteredLeagues.find((comp) => comp?.code === code),
   );
 
-  const leagueColors = [
-    "#9e2baf",
-    "#FAEC40",
-    "#3838c4",
-    "#D40914",
-    "#19C030",
-    "#CFFB12",
-    "#2C3C82",
-    "#FFD337",
-    ,
-  ];
   const {
     getClickedLeague,
-    getClickedLeagueColor,
+    setClickedLeagueColor,
     setCurrentSeason,
     setCurrentMatchday,
     season,
@@ -40,30 +29,27 @@ const CompetitionList = ({ competitionsList }) => {
     setLeagueList,
     action,
   } = useLeagueStore();
-
   useEffect(() => {
     setLeagueList(orderedLeagues);
   }, []);
   function handelSelectedLeague(code, leagueColor, matchday) {
     setCurrentSeason(currentSeason);
     getClickedLeague(code);
-    getClickedLeagueColor(leagueColor);
+    setClickedLeagueColor(leagueColor);
     setCurrentMatchday(matchday);
   }
+
   return (
-    <div
-      className={`hidden w-1/4 rounded-bl-md  rounded-tl-md bg-[#001F3F] p-2 transition duration-300 md:block md:h-full `}
-    >
-      <ul className="flex w-full flex-col justify-center gap-2 text-white">
+    <div className="`hidden h-full w-1/4  rounded-bl-md rounded-tl-md bg-[#001F3F] p-2 transition  duration-300 ">
+      <ul className="flex h-full w-full flex-col justify-center gap-2 text-white">
         {orderedLeagues?.map(({ name, code, emblem, currentSeason }, index) => {
-          const leagueColor = leagueColors[index];
           return (
             <LeagueItem
               key={index}
               selectedComp={leagueCode === code}
               name={name}
               season={season}
-              leagueColor={leagueColor}
+              leagueColor={getCompetitionColor(code)}
               emblem={emblem}
               code={code}
               action={action}

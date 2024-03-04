@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
 import DropDownItem from "./DropDownItem";
@@ -9,7 +9,7 @@ import TitleAnimation from "../TitleAnimation";
 const DropDown = ({ actionBtn, matchday, activeAction }) => {
   const {
     getClickedLeague,
-    getClickedLeagueColor,
+    setClickedLeagueColor,
     setCurrentMatchday,
     season,
     leagueCode,
@@ -31,7 +31,7 @@ const DropDown = ({ actionBtn, matchday, activeAction }) => {
   ];
   function handleLeague(code, leagueColor, matchday) {
     getClickedLeague(code);
-    getClickedLeagueColor(leagueColor);
+    setClickedLeagueColor(leagueColor);
     setCurrentMatchday(matchday);
   }
 

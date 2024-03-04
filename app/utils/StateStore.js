@@ -4,7 +4,7 @@ const store = (set) => ({
   leagueCode: "PL",
   leagueColor: null,
   getClickedLeague: (clickedLeague) => set({ leagueCode: clickedLeague }),
-  getClickedLeagueColor: (clickedLeagueColor) =>
+  setClickedLeagueColor: (clickedLeagueColor) =>
     set({ leagueColor: clickedLeagueColor }),
   action: getActionStore() || "standings",
   getClickedAction: (clickedAction) => set({ action: clickedAction }),
@@ -25,12 +25,11 @@ const store = (set) => ({
   setLeagueList: (list) => set({ leagueList: list }),
 });
 
-export const useLeagueStore = create(persist(store, { name: "store" }));
+export const useLeagueStore = create(store, { name: "store" });
 
 function getActionStore() {
   if (typeof window !== "undefined") {
     const actionState = JSON.parse(localStorage.getItem(store))?.state.action;
-    console.log(actionState);
     return actionState;
   }
   // Default value if localStorage is not available
