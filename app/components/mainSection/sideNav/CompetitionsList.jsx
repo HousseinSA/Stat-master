@@ -13,6 +13,7 @@ const CompetitionList = ({ competitionsList }) => {
   const filteredLeagues = competitions?.filter((comp) =>
     LeaguesToInclude.includes(comp?.code),
   );
+
   // Reorder filteredLeagues based on the order of LeaguesToInclude
   const orderedLeagues = LeaguesToInclude.map((code) =>
     filteredLeagues.find((comp) => comp?.code === code),
@@ -28,16 +29,22 @@ const CompetitionList = ({ competitionsList }) => {
     leagueCode,
     setLeagueList,
     action,
+    setSelectedLeague,
   } = useLeagueStore();
+  // get clicked league info  mainly it's logo and name and add it to season year
+  const selectedLeague = competitions?.find((comp) => comp.code === leagueCode);
+
+  const { name, emblem } = selectedLeague;
+
   useEffect(() => {
     setLeagueList(orderedLeagues);
     setSeason(currentSeason);
     setCurrentMatchday(currentMatchday);
-
-  }, []); //eslint-disable-line
+    setSelectedLeague({ name, emblem });
+  }, [leagueCode]); //eslint-disable-line
   function handelSelectedLeague(code, leagueColor, matchday) {
     getClickedLeague(code);
-    setClickedLeagueColor(leagueColor);
+    setTimeout(() => setClickedLeagueColor(leagueColor), 200);
     if (season === currentSeason) {
       setCurrentMatchday(matchday);
     }

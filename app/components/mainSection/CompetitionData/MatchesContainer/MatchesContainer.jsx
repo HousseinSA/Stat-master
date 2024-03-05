@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import MatchesTable from "./MatchesTable";
 import { useLeagueStore } from "@/utils/StateStore";
 import { getCurrentSeason } from "@/utils/getCurrentSeason";
@@ -23,8 +22,6 @@ export default function MatchesContainer({
     leagueCode,
     action,
   } = useLeagueStore();
-  // Extract competition name and emblem
-  const { name: competitionName, emblem } = currentMatches?.competition;
   // Construct  array with match data and corresponding names
   const matches = [
     { matches: matchesCurr, status: currentMatchday },
@@ -61,18 +58,7 @@ export default function MatchesContainer({
 
   return (
     <section className="h-full w-full overflow-auto">
-      <div className="sticky left-0 top-0 z-30 flex items-center gap-3 bg-[#F1F5F9]  dark:bg-gray-700">
-        <Image
-          src={emblem}
-          width={50}
-          className="mx-4 my-2 h-12 w-12"
-          height={30}
-          alt={competitionName}
-        />
-        <h3 style={{ color: leagueColor }} className="font-semibold">
-          {competitionName}
-        </h3>
-      </div>
+     
       <div>
         {matches.map((match, index) => (
           <MatchesTable key={index} matches={match} />

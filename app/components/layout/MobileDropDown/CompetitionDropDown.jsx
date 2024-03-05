@@ -26,7 +26,7 @@ const CompetitionDropDown = ({
             dark: cursor-pointer p-2 text-gray-500  dark:text-white  `}
           onClick={() => handleLeague(code, leagueColor, matchday)}
         >
-          <div className="flex items-center gap-4">
+          <div className="flex  w-full items-center gap-4">
             <Image
               src={emblem}
               alt={name}

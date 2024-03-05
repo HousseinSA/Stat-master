@@ -19,6 +19,8 @@ const store = (set) => ({
   action: actionStore,
   setClickedAction: (clickedAction) => set({ action: clickedAction }),
   theme: null,
+  selectedLeague: {},
+  setSelectedLeague: (league) => set({ selectedLeague: league }),
   themeSwitcher: (themeStatus) => set({ theme: themeStatus }),
   season: getCurrentSeason(),
   setSeason: (selectedSeason) => set({ season: selectedSeason }),

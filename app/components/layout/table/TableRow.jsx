@@ -20,10 +20,10 @@ const TableRow = ({ team, league, season, changeAction, textColor }) => {
   const { crest, shortName, id } = team.team;
 
   return (
-    <tr className=" h-full w-full  text-center dark:bg-[#1F2937] dark:text-gray-400">
+    <tr className=" h-full w-full text-center  dark:bg-[#1F2937] dark:text-gray-400 ">
       <th
         scope="row"
-        className="item-hover sticky left-0 z-20 whitespace-nowrap bg-white py-2 pl-2 pr-4 text-left font-medium text-gray-900 dark:bg-[#1F2937] dark:text-gray-400 md:px-3 md:pr-2"
+        className="item-hover sticky left-0 z-20 whitespace-nowrap py-2 pl-2 pr-4 text-left font-medium md:px-3 md:pr-2"
         onClick={() => changeAction("teams")}
       >
         <Link

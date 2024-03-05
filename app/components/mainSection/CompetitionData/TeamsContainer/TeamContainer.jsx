@@ -5,6 +5,7 @@ import { useLeagueStore } from "@/utils/StateStore";
 import MatchRow from "../MatchesContainer/MatchRow";
 import TitleAnimation from "app/components/layout/TitleAnimation";
 import { getCompetitionColor } from "@/utils/getCompetitionColor";
+import { googleSearch } from "@/utils/GoogleSearch";
 import { useEffect } from "react";
 
 // use client
@@ -30,9 +31,6 @@ const TeamContainer = ({ teamData, teamMatches }) => {
     }
   }, []); /* eslint-disable-line */
   const infoColor = theme ? "#fff" : leagueColor;
-
-  const generateGoogleSearchLink = (query) =>
-    `https://www.google.com/search?q=${encodeURIComponent(query)}`;
 
   return (
     <section className="h-full w-full">
@@ -81,7 +79,7 @@ const TeamContainer = ({ teamData, teamMatches }) => {
                   Stadium:
                 </span>
                 <Link
-                  href={generateGoogleSearchLink(venue)}
+                  href={googleSearch(venue)}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -104,7 +102,7 @@ const TeamContainer = ({ teamData, teamMatches }) => {
               </span>
               {coach?.name && (
                 <Link
-                  href={generateGoogleSearchLink(coach.name)}
+                  href={googleSearch(coach.name)}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -129,7 +127,7 @@ const TeamContainer = ({ teamData, teamMatches }) => {
                       className="flex items-center justify-center gap-3"
                     >
                       <Link
-                        href={generateGoogleSearchLink(competition.name)}
+                        href={googleSearch(competition.name)}
                         target="_blank"
                         rel="noopener noreferrer"
                       >

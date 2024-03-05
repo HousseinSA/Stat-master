@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
 import DropDownItem from "./DropDownItem";
@@ -7,6 +7,7 @@ import CompetitionDropDown from "./CompetitionDropDown";
 import { CiMenuKebab } from "react-icons/ci";
 import TitleAnimation from "../TitleAnimation";
 import { getCurrentSeason } from "@/utils/getCurrentSeason";
+import { getCompetitionColor } from "@/utils/getCompetitionColor";
 const DropDown = ({ actionBtn, matchday, activeAction }) => {
   const {
     getClickedLeague,
@@ -19,17 +20,6 @@ const DropDown = ({ actionBtn, matchday, activeAction }) => {
     leagueColor,
   } = useLeagueStore();
   const currentSeason = getCurrentSeason();
-  const leagueColors = [
-    "#9e2baf",
-    "#FAEC40",
-    "#3838c4",
-    "#D40914",
-    "#19C030",
-    "#CFFB12",
-    "#2C3C82",
-    "#FFD337",
-    ,
-  ];
   function handleLeague(code, leagueColor, matchday) {
     getClickedLeague(code);
     setClickedLeagueColor(leagueColor);
@@ -47,7 +37,7 @@ const DropDown = ({ actionBtn, matchday, activeAction }) => {
       className="relative z-40 inline-block w-full text-left md:hidden"
     >
       <div>
-        <Menu.Button className="inline-flex w-full items-center justify-center gap-2 gap-x-1.5 bg-white px-3 py-2 text-sm font-semibold text-gray-500 shadow-sm ring-1 ring-inset ring-gray-300 dark:bg-[#001F3F] dark:text-white ">
+        <Menu.Button className="inline-flex w-full items-center justify-center gap-2 gap-x-1.5 bg-white px-3 py-2 text-sm font-semibold text-gray-500 shadow-sm ring-1 ring-inset ring-gray-300 dark:bg-[#001F3F] dark:text-white dark:ring-gray-500 ">
           <CiMenuKebab />
           Options
         </Menu.Button>
@@ -74,24 +64,23 @@ const DropDown = ({ actionBtn, matchday, activeAction }) => {
               activeBtn={action === actionBtn}
             />
           ))}
-          <div className="max-h-60 overflow-auto">
+          <div className="h-full overflow-auto">
             <TitleAnimation>
               <div
-                className="p-2 text-sm font-semibold dark:bg-[#001F3F] dark:text-white "
+                className="mt-3 p-2 text-sm font-semibold dark:bg-[#001F3F] dark:text-white "
                 style={{ color: leagueColor }}
               >
                 Competitions
               </div>
             </TitleAnimation>
             {leagueList.map(({ name, code, emblem, currentSeason }, index) => {
-              const leagueColor = leagueColors[index];
               return (
                 <CompetitionDropDown
                   key={index}
                   selectedComp={leagueCode === code}
                   name={name}
                   season={season}
-                  leagueColor={leagueColor}
+                  leagueColor={getCompetitionColor(code)}
                   emblem={emblem}
                   code={code}
                   action={action}

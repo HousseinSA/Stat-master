@@ -1,11 +1,18 @@
+"use client";
 import Image from "next/image";
 import React from "react";
 import HeaderNav from "./HeaderNav";
+import Link from "next/link";
+import { useLeagueStore } from "@/utils/StateStore";
 
 const HeaderComponent = () => {
+  const { leagueCode, season, setClickedAction } = useLeagueStore();
   return (
     <header className=" flex w-full items-center justify-between py-2">
-      <div>
+      <Link
+        href={`/competition/${leagueCode}/${season}/standings`}
+        onClick={() => setClickedAction("standings")}
+      >
         <Image
           src={"/StatMaster.png"}
           className="h-3 w-20 md:h-6 md:w-auto"
@@ -14,7 +21,7 @@ const HeaderComponent = () => {
           height={20}
           priority
         />
-      </div>
+      </Link>
       <HeaderNav />
     </header>
   );
