@@ -16,7 +16,7 @@ const StandingsContainer = ({ competitionData }) => {
       ? competitionData?.standings[0]?.table
       : competitionData?.standings;
   const currentMatchday = competitionData?.season?.currentMatchday;
-  const currentSeason = getCurrentSeason()
+  const currentSeason = getCurrentSeason();
   // Effect for setting current matchday
   useEffect(() => {
     if (season === currentSeason) {

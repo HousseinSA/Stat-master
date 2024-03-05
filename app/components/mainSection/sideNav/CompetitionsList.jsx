@@ -17,6 +17,7 @@ const CompetitionList = ({ competitionsList }) => {
   const orderedLeagues = LeaguesToInclude.map((code) =>
     filteredLeagues.find((comp) => comp?.code === code),
   );
+  const currentMatchday = orderedLeagues[0].currentSeason?.currentMatchday;
 
   const {
     getClickedLeague,
@@ -31,6 +32,8 @@ const CompetitionList = ({ competitionsList }) => {
   useEffect(() => {
     setLeagueList(orderedLeagues);
     setSeason(currentSeason);
+    setCurrentMatchday(currentMatchday);
+
   }, []); //eslint-disable-line
   function handelSelectedLeague(code, leagueColor, matchday) {
     getClickedLeague(code);
@@ -39,7 +42,6 @@ const CompetitionList = ({ competitionsList }) => {
       setCurrentMatchday(matchday);
     }
   }
-
   return (
     <div className=" hidden h-full w-auto rounded-bl-md rounded-tl-md bg-[#001F3F] p-2 transition duration-300 md:block lg:w-1/4">
       <ul className="flex h-full w-full flex-col gap-2  py-4 text-white">
