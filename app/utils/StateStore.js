@@ -1,8 +1,9 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
+import { getCurrentSeason } from "./getCurrentSeason";
 const store = (set) => ({
   leagueCode: "PL",
-  leagueColor: null,
+  leagueColor: "#9e2baf",
   getClickedLeague: (clickedLeague) => set({ leagueCode: clickedLeague }),
   setClickedLeagueColor: (clickedLeagueColor) =>
     set({ leagueColor: clickedLeagueColor }),
@@ -10,22 +11,18 @@ const store = (set) => ({
   setClickedAction: (clickedAction) => set({ action: clickedAction }),
   theme: null,
   themeSwitcher: (themeStatus) => set({ theme: themeStatus }),
-  season: 2023,
+  season: getCurrentSeason(),
   setSeason: (selectedSeason) => set({ season: selectedSeason }),
-  currentSeason: null,
-  setCurrentSeason: (currSeason) =>
-    set({
-      currentSeason: currSeason,
-    }),
   currentMatchday: null,
   setCurrentMatchday: (currMatchDay) => set({ currentMatchday: currMatchDay }),
   teamId: null,
   getTeamId: (clickTeamId) => set({ teamId: clickTeamId }),
   leagueList: [],
+  
   setLeagueList: (list) => set({ leagueList: list }),
 });
 
-export const useLeagueStore = create(store, { name: "store" });
+export const useLeagueStore = create(persist(store, { name: "store" }))
 
 function getActionStore() {
   if (typeof window !== "undefined") {

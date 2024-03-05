@@ -12,7 +12,7 @@ const TableHead = ({ league, textColor }) => {
       <tr>
         <th
           scope="col"
-          className="sticky left-0 z-50 bg-[#F1F5F9] p-2 text-left shadow-sm dark:bg-gray-700 md:p-3"
+          className="sticky left-0 z-50 mr-3 bg-[#F1F5F9] p-2 pr-5 text-left shadow-sm dark:bg-gray-700 md:p-3 "
         >
           Club
         </th>

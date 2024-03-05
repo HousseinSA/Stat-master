@@ -37,10 +37,10 @@ const TeamContainer = ({ teamData, teamMatches }) => {
   return (
     <section className="h-full w-full">
       <div className="flex h-full w-full flex-col">
-        <div className="flex w-full flex-col justify-center space-y-4 bg-[#F1F5F9] p-1 dark:bg-gray-700 md:p-3 ">
-          <div className="flex flex-wrap items-center justify-center gap-3 sm:justify-between">
+        <div className="flex w-full flex-col justify-center space-y-4 bg-[#F1F5F9] px-3 py-5 dark:bg-gray-700 md:px-2 md:py-3 ">
+          <div className="flex flex-wrap items-center justify-around gap-3 sm:justify-between">
             {crest && (
-              <div className="flex flex-col items-center justify-center gap-2 sm:flex-row sm:justify-start">
+              <div className="flex flex-col items-center justify-center gap-2 sm:justify-start md:flex-row">
                 <Link href={website} target="_blank" rel="noopener noreferrer">
                   <Image
                     src={crest}
@@ -59,8 +59,8 @@ const TeamContainer = ({ teamData, teamMatches }) => {
                 </h3>
               </div>
             )}
-            <div>
-              <div className="flex items-center gap-1">
+            <div className="flex flex-col items-center justify-center gap-1 md:items-start">
+              <div className="flex items-center  gap-1">
                 <span
                   className="text-sm font-medium sm:text-base md:text-lg md:font-semibold"
                   style={{ color: infoColor }}
@@ -68,7 +68,7 @@ const TeamContainer = ({ teamData, teamMatches }) => {
                   Founded:
                 </span>
                 {founded && (
-                  <p className="text-xs text-slate-700 dark:text-gray-200 sm:text-base md:text-lg md:font-medium">
+                  <p className="text-sm text-slate-700 dark:text-gray-200 sm:text-base md:text-lg md:font-medium">
                     {founded}
                   </p>
                 )}
@@ -86,7 +86,7 @@ const TeamContainer = ({ teamData, teamMatches }) => {
                   rel="noopener noreferrer"
                 >
                   {venue && (
-                    <p className="text-xs text-slate-700 dark:text-gray-200 sm:text-base md:text-lg md:font-medium">
+                    <p className="text-sm text-slate-700 dark:text-gray-200 sm:text-base md:text-lg md:font-medium">
                       {venue}
                     </p>
                   )}
@@ -108,20 +108,20 @@ const TeamContainer = ({ teamData, teamMatches }) => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <p className="text-xs text-slate-700 dark:text-gray-200 sm:text-base md:text-lg md:font-medium">
+                  <p className="text-sm text-slate-700 dark:text-gray-200 sm:text-base md:text-lg md:font-medium">
                     {coach.name}
                   </p>
                 </Link>
               )}
             </h1>
-            <div className="flex items-center justify-center gap-6 pb-2 md:pb-0 ">
+            <div className="flex flex-col items-center justify-center gap-2  md:flex-row md:gap-6 ">
               <h3
                 className="font-medium sm:block sm:text-base md:text-lg md:font-semibold"
                 style={{ color: infoColor }}
               >
                 Competitions
               </h3>
-              <div className="flex w-full flex-1 flex-wrap items-center justify-center gap-6 md:flex-auto">
+              <div className="flex w-full flex-1 flex-wrap items-center justify-center gap-2 md:flex-auto md:gap-6">
                 {runningCompetitions.map((competition) =>
                   competition?.emblem ? (
                     <div

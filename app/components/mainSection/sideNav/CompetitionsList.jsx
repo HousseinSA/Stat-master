@@ -13,7 +13,6 @@ const CompetitionList = ({ competitionsList }) => {
   const filteredLeagues = competitions?.filter((comp) =>
     LeaguesToInclude.includes(comp?.code),
   );
-
   // Reorder filteredLeagues based on the order of LeaguesToInclude
   const orderedLeagues = LeaguesToInclude.map((code) =>
     filteredLeagues.find((comp) => comp?.code === code),
@@ -22,21 +21,23 @@ const CompetitionList = ({ competitionsList }) => {
   const {
     getClickedLeague,
     setClickedLeagueColor,
-    setCurrentSeason,
     setCurrentMatchday,
     season,
+    setSeason,
     leagueCode,
     setLeagueList,
     action,
   } = useLeagueStore();
   useEffect(() => {
     setLeagueList(orderedLeagues);
+    setSeason(currentSeason);
   }, []); //eslint-disable-line
   function handelSelectedLeague(code, leagueColor, matchday) {
-    setCurrentSeason(currentSeason);
     getClickedLeague(code);
     setClickedLeagueColor(leagueColor);
-    setCurrentMatchday(matchday);
+    if (season === currentSeason) {
+      setCurrentMatchday(matchday);
+    }
   }
 
   return (

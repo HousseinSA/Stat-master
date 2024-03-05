@@ -6,6 +6,7 @@ import { useLeagueStore } from "@/utils/StateStore";
 import CompetitionDropDown from "./CompetitionDropDown";
 import { CiMenuKebab } from "react-icons/ci";
 import TitleAnimation from "../TitleAnimation";
+import { getCurrentSeason } from "@/utils/getCurrentSeason";
 const DropDown = ({ actionBtn, matchday, activeAction }) => {
   const {
     getClickedLeague,
@@ -17,7 +18,7 @@ const DropDown = ({ actionBtn, matchday, activeAction }) => {
     leagueList,
     leagueColor,
   } = useLeagueStore();
-
+  const currentSeason = getCurrentSeason();
   const leagueColors = [
     "#9e2baf",
     "#FAEC40",
@@ -32,7 +33,9 @@ const DropDown = ({ actionBtn, matchday, activeAction }) => {
   function handleLeague(code, leagueColor, matchday) {
     getClickedLeague(code);
     setClickedLeagueColor(leagueColor);
-    setCurrentMatchday(matchday);
+    if (season === currentSeason) {
+      setCurrentMatchday(matchday);
+    }
   }
 
   function handleAction(clickedAction) {

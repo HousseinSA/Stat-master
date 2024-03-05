@@ -2,8 +2,10 @@
 import { useEffect } from "react";
 import { useLeagueStore } from "@/utils/StateStore";
 import { useRouter } from "next/navigation";
+import { getCurrentSeason } from "@/utils/getCurrentSeason";
 export const LeagueYear = () => {
-  const { season, setSeason, currentSeason, leagueColor, action, leagueCode } =
+  const currentSeason = getCurrentSeason();
+  const { season, setSeason, leagueColor, action, leagueCode } =
     useLeagueStore();
   const route = useRouter();
   const seasonsList = Array.from(

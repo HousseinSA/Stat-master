@@ -10,7 +10,6 @@ const CompetitionContent = ({ children }) => {
     setClickedAction,
     leagueColor,
     action,
-    currentSeason,
     season,
     currentMatchday,
   } = useLeagueStore();
@@ -44,10 +43,9 @@ const CompetitionContent = ({ children }) => {
         matchday={currentMatchday}
         activeAction={handelAction}
       />
-
       <div className="h-full w-full overflow-hidden">
         {leagueCode === "CL" || action !== "standings" ? null : (
-          <LeagueYear currentSeason={currentSeason} />
+          <LeagueYear  />
         )}
         {children}
       </div>

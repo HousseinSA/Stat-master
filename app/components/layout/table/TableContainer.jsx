@@ -44,7 +44,7 @@ const TableContainer = ({
   return (
     <table className=" mb-10 h-full w-full text-sm md:text-base">
       <TableHead league={league} textColor={leagueColor} />
-      <tbody className="divide-y divide-gray-400 dark:border-gray-700  ">
+      <tbody className="w-full divide-y divide-gray-400 dark:border-gray-700  ">
         {table}
       </tbody>
     </table>
