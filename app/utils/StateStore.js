@@ -1,8 +1,14 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import { getCurrentSeason } from "./getCurrentSeason";
-const actionStore =
-  JSON.parse(localStorage.getItem("store"))?.state?.action || "standings";
+
+// Check if localStorage is available
+const localStorageAvailable = typeof localStorage !== "undefined";
+
+// Get action from localStorage if available, else default to "standings"
+const actionStore = localStorageAvailable
+  ? JSON.parse(localStorage.getItem("store"))?.state?.action || "standings"
+  : "standings";
 
 const store = (set) => ({
   leagueCode: "PL",
