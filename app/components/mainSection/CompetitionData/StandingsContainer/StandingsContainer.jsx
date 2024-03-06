@@ -24,15 +24,13 @@ const StandingsContainer = ({ competitionData }) => {
     }
   }, [currentMatchday]); /* eslint-disable-line */
   return (
-    <main className=" h-full w-full  overflow-auto">
-      <TableContainer
-        competitionTable={competitionTable}
-        season={season}
-        changeAction={setClickedAction}
-        league={leagueCode}
-        leagueColor={leagueColor}
-      />
-    </main>
+    <TableContainer
+      competitionTable={competitionTable}
+      season={season}
+      changeAction={setClickedAction}
+      league={leagueCode}
+      leagueColor={leagueColor}
+    />
   );
 };
 

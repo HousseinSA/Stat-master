@@ -34,28 +34,34 @@ const TeamContainer = ({ teamData, teamMatches }) => {
 
   return (
     <section className="h-full w-full">
-      <div className="flex h-full w-full flex-col">
-        <div className="flex w-full flex-col justify-center space-y-4 bg-[#F1F5F9] px-3 py-5 dark:bg-gray-700 md:px-2 md:py-3 ">
+      <div className="grid grid-cols-1 lg:grid-cols-2">
+        <div className="sticky left-0 top-0 flex w-full flex-col  bg-[#F1F5F9] px-3 pb-2 dark:bg-gray-700 md:px-2">
           <div className="flex flex-wrap items-center justify-around gap-3 sm:justify-between">
             {crest && (
-              <div className="flex flex-col items-center justify-center gap-2 sm:justify-start md:flex-row">
-                <Link href={website} target="_blank" rel="noopener noreferrer">
-                  <Image
-                    src={crest}
-                    width={150}
-                    className="md:max-w-35 md:max-h-35 min-h-16 min-w-16"
-                    height={150}
-                    priority
-                    alt={name}
-                  />
-                </Link>
-                <h3
-                  className="text-sm font-semibold sm:text-base md:text-xl md:font-medium"
-                  style={{ color: infoColor }}
-                >
-                  {name}
-                </h3>
-              </div>
+              <TitleAnimation>
+                <div className="flex flex-col items-center justify-center gap-2 sm:justify-start md:flex-row">
+                  <Link
+                    href={website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Image
+                      src={crest}
+                      width={100}
+                      className="md:max-w-35 md:max-h-35 min-h-16 min-w-16"
+                      height={100}
+                      priority
+                      alt={name}
+                    />
+                  </Link>
+                  <h3
+                    className="text-sm font-semibold sm:text-base md:text-xl md:font-medium"
+                    style={{ color: infoColor }}
+                  >
+                    {name}
+                  </h3>
+                </div>
+              </TitleAnimation>
             )}
             <div className="flex flex-col items-center justify-center gap-1 md:items-start">
               <div className="flex items-center  gap-1">
@@ -71,7 +77,7 @@ const TeamContainer = ({ teamData, teamMatches }) => {
                   </p>
                 )}
               </div>
-              <div className="flex items-center gap-1">
+              <div className="flex items-center gap-1 pr-2">
                 <span
                   className="text-sm font-medium sm:text-base md:text-lg md:font-semibold"
                   style={{ color: infoColor }}
@@ -93,7 +99,7 @@ const TeamContainer = ({ teamData, teamMatches }) => {
             </div>
           </div>
           <div className="flex w-full flex-col items-center gap-2 md:flex-row md:justify-between">
-            <h1 className="flex items-center gap-1">
+            <div className="flex items-center gap-1">
               <span
                 className="text-sm font-medium sm:text-base md:text-lg md:font-semibold"
                 style={{ color: infoColor }}
@@ -111,8 +117,8 @@ const TeamContainer = ({ teamData, teamMatches }) => {
                   </p>
                 </Link>
               )}
-            </h1>
-            <div className="flex flex-col items-center justify-center gap-2  md:flex-row md:gap-6 ">
+            </div>
+            <div className="flex flex-col items-center justify-center gap-2  pr-2 md:gap-6 lg:flex-row">
               <h3
                 className="font-medium sm:block sm:text-base md:text-lg md:font-semibold"
                 style={{ color: infoColor }}
@@ -154,7 +160,7 @@ const TeamContainer = ({ teamData, teamMatches }) => {
             Sorry, couldn&apos;t find Matches Data for {name}
           </div>
         ) : (
-          <div className="w-full overflow-auto px-4 py-2">
+          <div className=" w-full overflow-auto px-4 pb-2">
             <TitleAnimation>
               <div
                 className="text-base sm:text-lg  sm:font-medium md:font-semibold"

@@ -2,10 +2,23 @@
 
 import { useLeagueStore } from "@/utils/StateStore";
 import TeamCard from "./TeamCard";
+import { getCompetitionColor } from "@/utils/getCompetitionColor";
+import { useCallback, useEffect } from "react";
 
 const TeamsContainer = ({ competitionData }) => {
   const { teams } = competitionData;
-  const { leagueCode, season, action, theme, leagueColor } = useLeagueStore();
+  const {
+    leagueCode,
+    season,
+    action,
+    theme,
+    leagueColor,
+    setClickedLeagueColor,
+  } = useLeagueStore();
+  const checkUclLeague =
+    leagueCode === "CL" ? getCompetitionColor(leagueCode) : leagueColor;
+
+  useEffect(() => setClickedLeagueColor(checkUclLeague), [checkUclLeague]);
 
   return (
     <main className="h-full w-full overflow-auto">
@@ -16,7 +29,7 @@ const TeamsContainer = ({ competitionData }) => {
             league={leagueCode}
             action={action}
             season={season}
-            leagueColor={leagueColor}
+            leagueColor={checkUclLeague}
             team={team}
             theme={theme}
           />

@@ -1,8 +1,9 @@
 "use client";
 import CompetitionActionButton from "./CompetitionActionButton";
 import { useLeagueStore } from "@/utils/StateStore";
-import LeagueYear from "../../layout/LeagueYear";
 import DropDownContainer from "../../layout/MobileDropDown/DropDownContainer";
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 const CompetitionContent = ({ children }) => {
   // get data in league store
   const {
@@ -18,6 +19,16 @@ const CompetitionContent = ({ children }) => {
   const handelAction = (action) => {
     setClickedAction(action);
   };
+
+  // on render routing
+  const route = useRouter();
+  useEffect(() => {
+    action !== "matches"
+      ? route.push(`/competition/${leagueCode}/${season}/${action}`)
+      : route.push(
+          `/competition/${leagueCode}/${season}/${action}/matchday/${currentMatchday}`,
+        );
+  }, []); //eslint-disable-line
   return (
     <div className=" flex h-full w-full flex-col overflow-hidden rounded-tr-md dark:text-white">
       <div

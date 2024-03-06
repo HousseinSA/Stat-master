@@ -57,8 +57,7 @@ export default function MatchesContainer({
   }
 
   return (
-    <section className="h-full w-full overflow-auto">
-     
+    <section className=" h-full w-full overflow-auto">
       <div>
         {matches.map((match, index) => (
           <MatchesTable key={index} matches={match} />

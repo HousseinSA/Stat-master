@@ -42,7 +42,7 @@ const TableContainer = ({
   const table = league === "CL" ? uclTable : leagueTable;
 
   return (
-    <table className=" mb-20 h-full w-full text-sm md:text-base">
+    <table className="  h-full w-full text-sm md:text-base">
       <TableHead league={league} textColor={leagueColor} />
       <tbody className="w-full divide-y divide-gray-400 dark:border-gray-700  ">
         {table}

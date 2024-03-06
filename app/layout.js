@@ -26,11 +26,11 @@ export default async function RootLayout({ children }) {
          h-screen flex-col space-y-1 overflow-hidden p-1 md:p-5"
         >
           <HeaderComponent />
-          <div className=" flex h-[93%]  w-full items-center justify-center  ">
+          <div className="flex h-[93%]  w-full items-center justify-center  ">
             <CompetitionList competitionsList={competitionsList} />
             <CompetitionContent>
-              <div className="h-full w-full overflow-hidden">
                 <LeagueYear />
+              <div className="h-full w-full overflow-auto">
                 {children}
               </div>
               <SpeedInsights />
