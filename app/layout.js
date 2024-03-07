@@ -6,7 +6,7 @@ import CompetitionList from "@/components/mainSection/sideNav/CompetitionsList";
 import HeaderComponent from "@/components/HeaderSection/HeaderComponent";
 import { getCompetitionsList } from "@/utils/allDataFetchingFunctions";
 import CompetitionContent from "@/components/mainSection/CompetitionData/CompetitionContent";
-import LeagueYear from "@/components/Layout/LeagueYear";
+import LeagueSeason from "@/components/layout/LeagueSeason";
 export const metadata = {
   title: "StatMaster",
   description: "Amazing App created to show All teams info",
@@ -29,10 +29,8 @@ export default async function RootLayout({ children }) {
           <div className="flex h-[93%]  w-full items-center justify-center  ">
             <CompetitionList competitionsList={competitionsList} />
             <CompetitionContent>
-                <LeagueYear />
-              <div className="h-full w-full overflow-auto">
-                {children}
-              </div>
+              <LeagueSeason />
+              <div className="h-full w-full overflow-auto">{children}</div>
               <SpeedInsights />
             </CompetitionContent>
           </div>

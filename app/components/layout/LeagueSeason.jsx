@@ -4,7 +4,7 @@ import Image from "next/image";
 import { getCurrentSeason } from "@/utils/getCurrentSeason";
 import { googleSearch } from "@/utils/GoogleSearch";
 import Link from "next/link";
-export const LeagueYear = () => {
+export const LeagueSeason = () => {
   const currentSeason = getCurrentSeason();
   const {
     season,
@@ -71,4 +71,4 @@ export const LeagueYear = () => {
   );
 };
 
-export default LeagueYear;
+export default LeagueSeason;
