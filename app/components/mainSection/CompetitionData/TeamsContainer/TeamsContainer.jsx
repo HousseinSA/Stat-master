@@ -13,6 +13,7 @@ const TeamsContainer = ({ competitionData }) => {
     action,
     theme,
     leagueColor,
+    getTeamId,
     setClickedLeagueColor,
   } = useLeagueStore();
   const checkUclLeague =
@@ -32,6 +33,7 @@ const TeamsContainer = ({ competitionData }) => {
             leagueColor={checkUclLeague}
             team={team}
             theme={theme}
+            getTeamId={getTeamId}
           />
         ))}
       </div>

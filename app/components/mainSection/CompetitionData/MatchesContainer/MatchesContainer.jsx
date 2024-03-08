@@ -20,6 +20,7 @@ export default function MatchesContainer({
     season,
     setSeason,
     leagueCode,
+    getTeamId,
     action,
   } = useLeagueStore();
   // Construct  array with match data and corresponding names
@@ -28,7 +29,10 @@ export default function MatchesContainer({
     { matches: matchesNext, status: currentMatchday + 1 },
     { matches: matchesPrev, status: currentMatchday - 1 },
   ];
-
+  console.log(matches);
+  function changeTeamId(teamId) {
+    getTeamId(teamId);
+  }
   // checking if the current season
   const currentSeason = getCurrentSeason();
   const router = useRouter();
@@ -60,7 +64,11 @@ export default function MatchesContainer({
     <section className=" h-full w-full overflow-auto">
       <div>
         {matches.map((match, index) => (
-          <MatchesTable key={index} matches={match} />
+          <MatchesTable
+            key={index}
+            matches={match}
+            changeTeamId={changeTeamId}
+          />
         ))}
       </div>
     </section>

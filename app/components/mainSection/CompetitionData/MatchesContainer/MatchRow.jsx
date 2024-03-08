@@ -2,7 +2,7 @@ import Image from "next/image";
 import FormattedMatchTime from "./FormattedMatchTime";
 import Link from "next/link";
 
-const MatchRow = ({ match, season, league, changeAction, textColor }) => {
+const MatchRow = ({ match, season, league, changeTeamId, textColor }) => {
   // Check if match object is available and not null
   if (!match) {
     return null;
@@ -47,10 +47,7 @@ const MatchRow = ({ match, season, league, changeAction, textColor }) => {
   return (
     <div className="flex h-full w-full justify-center">
       {isTeamsInfoAvailable && (
-        <div
-          onClick={() => changeAction("teams")}
-          className="flex h-full w-full flex-col items-center justify-center rounded-md bg-[#F1F5F9] dark:bg-gray-800"
-        >
+        <div className="flex h-full w-full flex-col items-center justify-center rounded-md bg-[#F1F5F9] dark:bg-gray-800">
           <div className="flex h-full w-full flex-col justify-center gap-2">
             {homeTeam && (
               <Link
@@ -58,6 +55,7 @@ const MatchRow = ({ match, season, league, changeAction, textColor }) => {
                 className={`item-hover rounded-tl-md rounded-tr-md p-2 ${
                   winner !== "HOME_TEAM" && "text-gray-600"
                 }`}
+                onClick={() => changeTeamId(homeTeam.id)}
               >
                 <div className="flex h-full items-center justify-center gap-3 text-sm">
                   {homeTeam.crest && (
@@ -97,6 +95,7 @@ const MatchRow = ({ match, season, league, changeAction, textColor }) => {
                 className={`item-hover rounded-bl-md rounded-br-md p-2 ${
                   winner !== "AWAY_TEAM" && "text-gray-600"
                 }`}
+                onClick={() => changeTeamId(awayTeam.id)}
               >
                 <div className="flex h-full items-center justify-center gap-3 text-sm">
                   {awayTeam.crest && (

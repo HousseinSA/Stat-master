@@ -4,7 +4,7 @@ import { FaCheck } from "react-icons/fa";
 import { IoCloseSharp } from "react-icons/io5";
 import { MdHorizontalRule } from "react-icons/md";
 
-const TableRow = ({ team, league, season, changeAction, textColor }) => {
+const TableRow = ({ team, league, season, changeTeamId, textColor }) => {
   const {
     draw,
     goalDifference,
@@ -24,7 +24,7 @@ const TableRow = ({ team, league, season, changeAction, textColor }) => {
       <th
         scope="row"
         className="item-hover sticky left-0 z-20 whitespace-nowrap py-2 pl-2 pr-4 text-left font-medium md:px-3 md:pr-2"
-        onClick={() => changeAction("teams")}
+        onClick={() => changeTeamId(id)}
       >
         <Link
           className="flex items-center gap-2"

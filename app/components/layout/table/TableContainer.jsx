@@ -5,7 +5,7 @@ import TableRow from "./TableRow";
 const TableContainer = ({
   competitionTable,
   season,
-  changeAction,
+  changeTeamId,
   league,
   leagueColor,
 }) => {
@@ -20,7 +20,7 @@ const TableContainer = ({
         <TableRow
           season={season}
           league={league}
-          changeAction={changeAction}
+          changeTeamId={changeTeamId}
           key={index}
           team={table}
           textColor={leagueColor}
@@ -34,7 +34,7 @@ const TableContainer = ({
       team={team}
       key={index}
       season={season}
-      changeAction={changeAction}
+      changeTeamId={changeTeamId}
       league={league}
       textColor={leagueColor}
     />

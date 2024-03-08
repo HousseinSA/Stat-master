@@ -12,6 +12,7 @@ const CompetitionContent = ({ children }) => {
     leagueColor,
     action,
     season,
+    teamId,
     currentMatchday,
   } = useLeagueStore();
   // array of action buttons
@@ -19,15 +20,18 @@ const CompetitionContent = ({ children }) => {
   const handelAction = (action) => {
     setClickedAction(action);
   };
+  console.log(teamId);
 
   // on render routing
   const route = useRouter();
   useEffect(() => {
-    action !== "matches"
-      ? route.push(`/competition/${leagueCode}/${season}/${action}`)
-      : route.push(
-          `/competition/${leagueCode}/${season}/${action}/matchday/${currentMatchday}`,
-        );
+    action === "teams" && teamId
+      ? route.push(`/competition/${leagueCode}/${season}/${action}/${teamId}`)
+      : action !== "matches"
+        ? route.push(`/competition/${leagueCode}/${season}/${action}`)
+        : route.push(
+            `/competition/${leagueCode}/${season}/${action}/matchday/${currentMatchday}`,
+          );
   }, []); //eslint-disable-line
   return (
     <div className=" flex h-full w-full flex-col overflow-hidden rounded-tr-md dark:text-white">

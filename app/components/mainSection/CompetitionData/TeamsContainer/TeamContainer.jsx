@@ -13,8 +13,15 @@ const TeamContainer = ({ teamData, teamMatches }) => {
   const { crest, name, founded, venue, website, coach, runningCompetitions } =
     teamData;
   const { setClickedLeagueColor } = useLeagueStore();
-  const { leagueColor, season, leagueCode, theme, setClickedAction } =
-    useLeagueStore();
+  const {
+    leagueColor,
+    season,
+    leagueCode,
+    theme,
+    setClickedAction,
+    action,
+    getTeamId,
+  } = useLeagueStore();
 
   useEffect(() => {
     const localLeague = runningCompetitions.filter(
@@ -31,6 +38,9 @@ const TeamContainer = ({ teamData, teamMatches }) => {
     }
   }, []); /* eslint-disable-line */
 
+  function changeTeamId(teamId) {
+    getTeamId(teamId);
+  }
   const infoColor = theme ? "#fff" : leagueColor;
 
   return (
@@ -162,7 +172,7 @@ const TeamContainer = ({ teamData, teamMatches }) => {
                 Next Matches
               </div>
             </TitleAnimation>
-            <div className="grid w-full grid-cols-1 items-center justify-center gap-3 sm:grid-cols-2 md:grid-cols-3">
+            <div className="grid w-full grid-cols-1 items-center justify-center gap-3 sm:grid-cols-2 lg:grid-cols-3">
               {teamMatches?.matches?.map((match, index) => (
                 <MatchRow
                   season={season}
@@ -170,7 +180,8 @@ const TeamContainer = ({ teamData, teamMatches }) => {
                   textColor={leagueColor}
                   key={index}
                   match={match}
-                  changeAction={setClickedAction}
+                  changeTeamId={changeTeamId}
+                  action={action}
                 />
               ))}
             </div>

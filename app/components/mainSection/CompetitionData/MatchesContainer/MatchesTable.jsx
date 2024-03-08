@@ -2,7 +2,7 @@ import React from "react";
 import MatchRow from "./MatchRow";
 import { useLeagueStore } from "@/utils/StateStore";
 
-const MatchesTable = ({ matches }) => {
+const MatchesTable = ({ matches, changeTeamId }) => {
   const { leagueCode, season, leagueColor, setClickedAction } =
     useLeagueStore();
   // Determine matchday title
@@ -33,8 +33,8 @@ const MatchesTable = ({ matches }) => {
             match={match}
             season={season}
             league={leagueCode}
-            changeAction={setClickedAction}
             textColor={leagueColor}
+            changeTeamId={changeTeamId}
           />
         ))}
       </div>

@@ -4,14 +4,15 @@ import { getCurrentSeason } from "./getCurrentSeason";
 
 const getStore = () => {
   let store;
+  // eslint-disable-next-line
   const storage = localStorage.getItem("store");
   if (storage !== null) {
     store = JSON.parse(storage);
   }
-  return store;
+  return store.state;
 };
 const localStore = getStore();
-
+console.log(localStore)
 const store = (set) => ({
   leagueCode: localStore?.leagueCode || "PL",
   getClickedLeague: (clickedLeague) => set({ leagueCode: clickedLeague }),
@@ -28,7 +29,7 @@ const store = (set) => ({
   setSeason: (selectedSeason) => set({ season: selectedSeason }),
   currentMatchday: localStore?.currentMatchday || null,
   setCurrentMatchday: (currMatchDay) => set({ currentMatchday: currMatchDay }),
-  teamId: null,
+  teamId: localStore.teamId || null,
   getTeamId: (clickTeamId) => set({ teamId: clickTeamId }),
   leagueList: localStorage?.leagueList || [],
   setLeagueList: (list) => set({ leagueList: list }),
